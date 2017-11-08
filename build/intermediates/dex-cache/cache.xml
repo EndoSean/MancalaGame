@@ -8,25 +8,34 @@
         optimize="true"
         revision="25.0.0"
         sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="P:\CS301\CounterGame-master\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_bf6372499ab7d9c7586f81e3c8610d4c63b58b3f\classes.dex" />
+        <dex dex="P:\cs371\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_bf6372499ab7d9c7586f81e3c8610d4c63b58b3f\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="P:\CS301\CounterGame-master\CounterGame-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="68dc34af5ec0e81ac16535a63942b3489756cc41">
-        <dex dex="P:\CS301\CounterGame-master\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_36291d070c35dccb4122e3dea93d67a1aa3847a4\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="P:\CS301\CounterGame-master\CounterGame-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="P:\cs371\CounterGame-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="P:\CS301\CounterGame-master\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a04694feed2eb6f13dc10fa33f1020af97d8cd52\classes.dex" />
+        <dex dex="P:\cs371\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_319269bd14d12b1d879af4455c81f93482fd5a8c\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\AndroidSDK\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="P:\cs371\CounterGame-master\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_bf6372499ab7d9c7586f81e3c8610d4c63b58b3f.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="P:\cs371\CounterGame-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7018f32a2fa772b945f213c728391a45dee03b0f">
+        <dex dex="P:\cs371\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_99fc8ee483922912d5958773350ed591c88f2509\classes.dex" />
     </item>
 
 </items>

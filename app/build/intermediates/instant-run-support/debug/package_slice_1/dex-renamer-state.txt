@@ -1,4 +1,0 @@
-#Tue Nov 07 19:52:10 PST 2017
-base.0=P\:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_1
-renamed.0=classes.dex
-file.0=P\:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_1\\classes.dex
