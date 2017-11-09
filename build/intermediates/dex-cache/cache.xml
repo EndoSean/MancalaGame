@@ -2,40 +2,13 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="C:\AndroidSDK\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="P:\cs371\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_bf6372499ab7d9c7586f81e3c8610d4c63b58b3f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="P:\cs371\CounterGame-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="P:\cs371\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_319269bd14d12b1d879af4455c81f93482fd5a8c\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
-        jar="C:\AndroidSDK\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jar="C:\Users\noones18\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="P:\cs371\CounterGame-master\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_bf6372499ab7d9c7586f81e3c8610d4c63b58b3f.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="P:\cs371\CounterGame-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7018f32a2fa772b945f213c728391a45dee03b0f">
-        <dex dex="P:\cs371\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_99fc8ee483922912d5958773350ed591c88f2509\classes.dex" />
+        <dex dex="P:\cs371\CounterGame-master\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_1373ee0d230fa6fc7d235e73123723e39e23d754.jar" />
     </item>
 
 </items>
