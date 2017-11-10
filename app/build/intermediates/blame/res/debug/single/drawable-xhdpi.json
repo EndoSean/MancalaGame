@@ -1,10 +1,10 @@
 [
     {
-        "merged": "P:\\cs371\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
-        "source": "P:\\cs371\\CounterGame-master\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
+        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "P:\\cs371\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_action_search.png",
-        "source": "P:\\cs371\\CounterGame-master\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_search.png"
+        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_action_search.png",
+        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_search.png"
     }
 ]
