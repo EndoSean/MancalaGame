@@ -1,5 +1,7 @@
 package edu.up.cs301.counter;
 
+import android.graphics.Point;
+
 import edu.up.cs301.game.infoMsg.GameState;
 
 
@@ -20,6 +22,7 @@ public class MancState extends GameState {
     private int[][] Marble_Pos = new int[2][7];//keeps track of the number of marbles in each hole and bank
     private int player0_Score;
     private int player1_Score;
+    private Point Selected_Hole; //keeps track of the hole that has been selected // Endo
 
     /**
      * constructor, initializing the player turn, marble position array, player's scores.
@@ -35,6 +38,7 @@ public class MancState extends GameState {
                 Marble_Pos[i][j] = 4;
             }
         }
+        Selected_Hole = new Point();
     }
 
     /**
@@ -73,6 +77,16 @@ public class MancState extends GameState {
 
     public int[][] getMarble_Pos() {
         return Marble_Pos;
+    }
+
+
+    // for keeping track of which hole has been selected // Endo
+    public void setSelected_Hole(int player, int hole){
+        Selected_Hole.set(player,hole);
+    }
+
+    public Point getSelected_Hole(){
+        return Selected_Hole;
     }
 
 }
