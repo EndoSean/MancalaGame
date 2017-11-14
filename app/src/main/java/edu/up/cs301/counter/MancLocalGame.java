@@ -3,6 +3,8 @@ package edu.up.cs301.counter;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
+
+import android.graphics.Point;
 import android.util.Log;
 
 /**
@@ -48,12 +50,41 @@ public class MancLocalGame extends LocalGame {
         if (action instanceof MancMoveAction) {
 //not fully edited yet --- I need to know how to get the position that was selected*******************************************
 
-            // cast so that we Java knows it's a CounterMoveAction
+            // cast so that we Java knows it's a MancMoveAction
             MancMoveAction cma = (MancMoveAction)action;
 
-            // Update the counter values based upon the action
+
             int[][] marbles = gameState.getMarble_Pos();
+            Point z = gameState.getSelected_Hole();
+            int pos= z.y;
+            int side = z.x;
+            int numMarb = marbles[side][pos];
+            marbles[side][pos]=0;
+
+            while(numMarb!=0){
+                pos++;
+
+                if(pos == 6){
+                    if(side == gameState.getPlayer_Turn()) {
+                        marbles[side][pos]++;
+                        numMarb--;
+                    }
+                    if(gameState.getPlayer_Turn() == 0){
+                        side =1;
+                    }else if( gameState.getPlayer_Turn() ==1){
+                        side =0;
+                    }
+                    pos = 0;
+                }else {
+                    marbles[side][pos]++;
+                    numMarb--;
+                }
+
+            }
+
             gameState.setMarble_Pos(marbles);
+            gameState.setPlayer0_Score(marbles[0][6]);
+            gameState.setPlayer1_Score(marbles[1][6]);
 
             // denote that this was a legal/successful move
             return true;
