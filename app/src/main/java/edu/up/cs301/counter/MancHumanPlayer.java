@@ -161,6 +161,7 @@ public void tick(Canvas canvas) - preforms animation
         public boolean onTouch(View v, MotionEvent me){
             animator.onTouch(me);
             return true;
+
         }
     }
 
