@@ -21,6 +21,9 @@ public class CounterComputerPlayer1 extends GameComputerPlayer implements Tickab
      * @param name
      * 		the player's name
      */
+	// the most recent game state, as given to us by the CounterLocalGame
+	private MancState recentState;
+
     public CounterComputerPlayer1(String name) {
         // invoke superclass constructor
         super(name);
@@ -38,8 +41,10 @@ public class CounterComputerPlayer1 extends GameComputerPlayer implements Tickab
      */
 	@Override
 	protected void receiveInfo(GameInfo info) {
-		// Do nothing, as we ignore all state in deciding our next move. It
-		// depends totally on the timer and random numbers.
+		if (info instanceof MancState){
+		recentState = (MancState)info;
+	}
+
 	}
 	
 	/**
@@ -47,12 +52,18 @@ public class CounterComputerPlayer1 extends GameComputerPlayer implements Tickab
 	 */
 	protected void timerTicked() {
 		// 5% of the time, increment or decrement the counter
-		if (Math.random() >= 0.05) return; // do nothing 95% of the time
+		int[][] marbArray = recentState.getMarble_Pos();
+		int r;
+		Boolean canMove = false;
+		while(canMove){
+			r = (int)Math.random()*6 +1;
+			if(marbArray[this.playerNum][r]>0){
+				canMove=true;
+			}
+		}
 
-		// "flip a coin" to determine whether to increment or decrement
-		boolean move = Math.random() >= 0.5;
-		
 		// send the move-action to the game
-		game.sendAction(new CounterMoveAction(this, move));
+		game.sendAction(new MancMoveAction(this, canMove));
 	}
+
 }

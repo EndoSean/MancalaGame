@@ -15,19 +15,19 @@ public class MancMoveAction extends GameAction {
     private static final long serialVersionUID = 28062013L;
 
     //whether this move is a confirmed(true)
-    private boolean isConfirmed;
+    private Hole selectHole;
 
     /**
      * Constructor for the CounterMoveAction class.
      *
      * @param player
      *            the player making the move
-     * @param isConfirmed
-     *            value to initialize this.isConfirmed
+     * @param hole
+     *            value to initialize this.hole
      */
-    public MancMoveAction(GamePlayer player, boolean isConfirmed) {
+    public MancMoveAction(GamePlayer player, Hole hole) {
         super(player);
-        this.isConfirmed = isConfirmed;
+        this.selectHole = hole;
     }
 
     /**

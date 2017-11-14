@@ -3,7 +3,7 @@ package edu.up.cs301.counter;
 import android.graphics.Point;
 import android.view.Display;
 import android.view.MotionEvent;
-import android.view.Surface;
+
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.TextView;
@@ -30,10 +30,10 @@ import edu.up.cs301.game.infoMsg.GameInfo;
 public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchListener {
 
 
-    MancalaAnimator animator;
+
 
 	/* instance variables */
-
+    MancalaAnimator animator;
     // The TextView the displays the current counter value
     private TextView counterValueTextView;
 
@@ -50,6 +50,7 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
      */
     public MancHumanPlayer(String name) {
         super(name);
+        this.game=new MancLocalGame();
     }
         /*
 
@@ -157,11 +158,12 @@ public void tick(Canvas canvas) - preforms animation
     }
 
     public boolean PostonTouch(View view, MotionEvent motionEvent) {
+        if (this.playerNum!=recentState.getPlayer_Turn())return false;
         // if we are not yet connected to a game, ignore
         if (game == null) return false;
 
         // Construct the action and send it to the game
-        GameAction action = new MancMoveAction(this, true);
+        GameAction action = new MancMoveAction(this,);
 
         game.sendAction(action); // send action to the game
         return true;
@@ -169,6 +171,7 @@ public void tick(Canvas canvas) - preforms animation
 
     private class onTouchEvent implements View.OnTouchListener{
         public boolean onTouch(View v, MotionEvent me){
+
             animator.onTouch(me);
             boolean set = PostonTouch(v,me);
 

@@ -47,6 +47,7 @@ public class MancLocalGame extends LocalGame {
     protected boolean makeMove(GameAction action) {
         Log.i("action", action.getClass().toString());
 
+
         if (action instanceof MancMoveAction) {
 
 
