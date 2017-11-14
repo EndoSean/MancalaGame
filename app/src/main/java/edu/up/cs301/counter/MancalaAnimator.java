@@ -25,8 +25,8 @@ public class MancalaAnimator implements Animator {
     private Marble[] marbles = new Marble[48];
     private Paint marble_color = new Paint();
     private Paint Text_Color = new Paint();
-    private boolean Is_Moving = false;
-    private Hole To_Move = new Hole();
+    //private boolean Is_Moving = false;
+    //private Hole To_Move = new Hole();
 
     //dummy text for now
     private String opp = "Opponent";
@@ -37,8 +37,8 @@ public class MancalaAnimator implements Animator {
     private float xvel;
     private float yvel;
 
-    //ArrayList<Point> Receiving_Holes = new ArrayList<Point>();
-    //ArrayList<Marble> moving;
+    ArrayList<Point> Receiving_Holes = new ArrayList<Point>();
+    ArrayList<Integer> moving;
 
 
     public MancalaAnimator(){
@@ -67,80 +67,105 @@ public class MancalaAnimator implements Animator {
         PointF hold = new PointF();
         float x_offset;
         float y_offset;
-        for (int i = 0; i<2; i++){
-            for(int j = 0; j<6; j++){
-                x_offset = maxX*(float).12*j;
-                y_offset = maxY*(float).45*i;
-                hold.set(maxX*(float).2+x_offset,maxY*(float).15+y_offset);
-                //////holes[i][j] = new PointF(hold.x,hold.y);
-                holes[i][j] = new Hole(hold,Color.BLACK);
+        for (int i = 1; i>=0; i--){
+            if(i == 1) {
+                for (int j = 0; j < 6; j++) {
+                    if(j == 6){
+                        x_offset = (float).915*maxX;
+                        y_offset = (float).425*maxY;
+                        hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
+                        holes[i][j] = new Hole(hold, Color.BLACK);
+                    }
+                    x_offset = maxX * (float) .12 * j;
+                    y_offset = maxY * (float) .45 * i;
+                    hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
+                    //////holes[i][j] = new PointF(hold.x,hold.y);
+                    holes[i][j] = new Hole(hold, Color.BLACK);
+                }
+            }
+            else {
+                for (int j = 0; j < 6 ; j++) {
+                    if(j == 6){
+                        x_offset = (float).085*maxX;
+                        y_offset = (float).425*maxY;
+                        hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
+                        holes[i][j] = new Hole(hold, Color.BLACK);
+                    }
+                    x_offset = maxX * (float) .12 * (5-j);
+                    y_offset = maxY * (float) .45 * i;
+                    hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
+                    //////holes[i][j] = new PointF(hold.x,hold.y);
+                    holes[i][j] = new Hole(hold, Color.BLACK);
+                }
             }
         }
     }
 
-    /**set marble positions based on Marble_Pos
-     public void setMarbles(int[][] Marble_Pos, Point Selected_Hole){
-     //check if its the starting arrangement
-     boolean begin = false;
-     for(int i = 0; i<2; i++){
-     for(int j = 0; i<5; j++) {
-     if(Marble_Pos[i][j] == 4){
-     begin = true;
-     }
-     else{
-     begin = false;
-     }
-     }
-     }
-     if(begin){
-     //run initialize
-     this.setMarbles();
-     }
-     else {
-        //run changes based on Selected_Hole
-        //clear previous values
-
-        int x = Selected_Hole.x;
-        int y = Selected_Hole.y;
-        Hole mediate = holes[x][y];
-        Hole secondary;
-        ArrayList<Marble> moving;
-        moving = mediate.takeMarbles();         //takes marbles and clears hole
-        holes[x][y] = mediate;                  // update hole
-        int size = moving.size();
-        int overflow = 0;
-        Point holding;
-        Marble marble;
-        for(int a = 1; a<=size; a++){           // for the number of marbles
-            if(a+y > 7) {
-                if(x == 1){
-                    x == 0;
+    //set marble positions based on Marble_Pos
+    public void setMarbles(int[][] Marble_Pos, Point Selected_Hole){
+        mar_pos = Marble_Pos;
+        //check if its the starting arrangement
+        boolean begin = false;
+        for(int i = 0; i<2; i++){
+            for(int j = 0; i<6; j++) {
+                if(Marble_Pos[i][j] == 4){
+                    begin = true;
                 }
                 else{
-                    x == 1;
+                    begin = false;
                 }
-                overflow = 8 - (a+y);
-                secondary = holes[x,overflow];
-                holding = new Point(x,overflow);
-                Receiving_Holes.add(holding);
-                secondary.addMarble(moving.get(a-1));
-                holes[x,overflow] = secondary;
             }
-            else{
-                secondary = holes[x,y+a];
-                holding = new Point(x,y+a);
-                Receiving_Holes.add(holding);
-                secondary.addMarble(moving.get(a-1));
-                holes[x,y+a] = secondary;
+        }
+        if(begin){
+            //run initialize
+            this.setMarbles2();
+        }
+        else {
+            //run changes based on Selected_Hole
+            //clear previous values
+
+            int x = Selected_Hole.x;
+            int y = Selected_Hole.y;
+            Hole mediate = holes[x][y];
+            Hole secondary;
+            //ArrayList<Marble> moving;
+            moving = mediate.takeMarbles();         //takes marbles and clears hole
+            holes[x][y] = mediate;                  // update hole
+            int size = moving.size();
+            int overflow = 0;
+            Point holding;
+            Marble marble;
+            for(int a = 1; a<=size; a++){           // for the number of marbles
+                if((a+y)%7 == 0) {/////////////////////////////////////////////
+                    if(x == 1){
+                        x = 0;
+                    }
+                    else{
+                        x = 1;
+                    }
+                    //overflow = 7 - (a+y);/////////////////////////////////////////////////////
+                    y = -a;
+                    secondary = holes[x][y+a];
+                    holding = new Point(x,y+a);
+                    Receiving_Holes.add(holding);
+                    secondary.addMarble(moving.get(a-1));
+                    holes[x][y+a] = secondary;
+                }
+                else{
+                    secondary = holes[x][y+a];
+                    holding = new Point(x,y+a);
+                    Receiving_Holes.add(holding);
+                    secondary.addMarble(moving.get(a-1));
+                    holes[x][y+a] = secondary;
+                }
+
             }
 
         }
 
-     }
+    }
 
-     }
-     **/
-    public void setMarbles(){
+    public void setMarbles2(){
         PointF hole = new PointF();
         Hole mediate;
         PointF placement = new PointF();
@@ -199,37 +224,36 @@ public class MancalaAnimator implements Animator {
 
     public void tick(Canvas g) {
         rectangles.setColor(Color.BLACK);
-        g.drawRect((float).025*maxX,(float).015*maxY,(float).975*maxX,(float).75*maxY,rectangles);
+        g.drawRect((float) .025 * maxX, (float) .015 * maxY, (float) .975 * maxX, (float) .75 * maxY, rectangles);
         rectangles.setColor(0xffA0522D);
-        g.drawRect((float).03*maxX,(float).02*maxY,(float).97*maxX,(float).745*maxY,rectangles);
+        g.drawRect((float) .03 * maxX, (float) .02 * maxY, (float) .97 * maxX, (float) .745 * maxY, rectangles);
 
         // draw banks
         rectangles.setColor(Color.BLACK);
-        g.drawRect((float).035*maxX,(float).145*maxY,(float).135*maxX,(float).705*maxY,rectangles);
-        g.drawRect((float).865*maxX,(float).145*maxY,(float).965*maxX,(float).705*maxY,rectangles);
+        g.drawRect((float) .035 * maxX, (float) .145 * maxY, (float) .135 * maxX, (float) .705 * maxY, rectangles);
+        g.drawRect((float) .865 * maxX, (float) .145 * maxY, (float) .965 * maxX, (float) .705 * maxY, rectangles);
         rectangles.setColor(Color.WHITE);
-        g.drawRect((float).04*maxX,(float).15*maxY,(float).13*maxX,(float).7*maxY,rectangles);
-        g.drawRect((float).87*maxX,(float).15*maxY,(float).96*maxX,(float).7*maxY,rectangles);
-        g.drawText(opp,(float).03*maxX,(float).135*maxY,Text_Color);
-        g.drawText(play,(float).86*maxX,(float).135*maxY,Text_Color);
+        g.drawRect((float) .04 * maxX, (float) .15 * maxY, (float) .13 * maxX, (float) .7 * maxY, rectangles);
+        g.drawRect((float) .87 * maxX, (float) .15 * maxY, (float) .96 * maxX, (float) .7 * maxY, rectangles);
+        g.drawText(opp, (float) .03 * maxX, (float) .135 * maxY, Text_Color);
+        g.drawText(play, (float) .86 * maxX, (float) .135 * maxY, Text_Color);
 
         //draw holes
         PointF hold = new PointF();
         Hole mediate;
-        for (int i = 0; i<2; i++) {
+        for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 6; j++) {
                 mediate = holes[i][j];
                 //////hold = holes[i][j];
                 hold = mediate.getLocation();
                 ///////rectangles.setColor(Color.BLACK);
                 rectangles.setColor(mediate.getColor());
-                g.drawCircle(hold.x,hold.y,maxX/18,rectangles);
+                g.drawCircle(hold.x, hold.y, maxX / 18, rectangles);
                 rectangles.setColor(Color.WHITE);
-                g.drawCircle(hold.x,hold.y,maxX/20,rectangles);
-                if(i == 0) {
+                g.drawCircle(hold.x, hold.y, maxX / 20, rectangles);
+                if (i == 0) {
                     g.drawText("" + mar_pos[i][j], hold.x - (float) .01 * maxX, hold.y - (float) .09 * maxY, Text_Color);
-                }
-                else{
+                } else {
                     g.drawText("" + mar_pos[i][j], hold.x - (float) .01 * maxX, hold.y + (float) .12 * maxY, Text_Color);
                 }
             }
@@ -238,55 +262,61 @@ public class MancalaAnimator implements Animator {
         //draw marbles
         Marble marble_hold = new Marble();
         PointF location = new PointF();
-        PointF New_Location = new PointF();
+        Point New_Location = new Point();
         Hole New_Hole;
         PointF vector = new PointF();
         PointF Marble_Location;
         float magnitude;
         PointF check = new PointF();                       //check to see if marble is inside hole
 
-        /**make adjustments to the marbles that are moving
-         * boolean[] truth_table = new boolean[moving.size()];    //tells when to stop updating the marbles
-         * for(int length=0; length<moving.size(); length++){
-         *      truth_table[length] = true;
-         * }
-         * int row;
-         * int col;
-         * for(int inc=0; inc < moving.size(); inc++){
-         *  marble_hold = marbles[moving.get(inc)];            //get the marble
-         *  Marble_Location = marble_hold.getLocation();        //get marble location
-         *  New_Location = Receiving_Hole.get(inc);             //location of hole in array
-         *  New_Hole = holes[New_Location.x][New_Location.y];   //get the corresponding hole
-         *
-         *  //stop the moving of the marbles by removing the marble from arraylist
-         *  check.set(Marble_Location.x-hold.x,Marble_Location.y-hold.y);
-         *  if(Math.abs(check.x) < maxX/10 && Math.abs(check.y) < maxX/10){
-         *      truth_table[inc] = false;                       //signifies to be deleted
-         *  {
-         *  else{
-         *      location = New_Hole.getLocation();
-         *      vector = new PointF(location.x - Marble_Location.x, location.y - Marble_Location.y);
-         *      magnitude = sqrt(vector.x*vector.x + vector.y*vector.y);
-         *      vector.set(vector.x/magnitude, vector.y/magnitude);
-         *      marble_hold.setLocation(Marble_Location.x + vector.x*xvel, Marble_Location.y + vector.y*yvel);
-         *      marbles[moving.get(inc)] = marble_hold;
-         *  }
-         * }
-         * for(int len = 0; len<truth_table.size(); len++){         //remove element if done moving
-         *  if(!truth_table){
-         *      moving.remove(len);
-         *  }
-         * }
-         */
+        //make adjustments to the marbles that are moving
+        if(moving != null) {
+            if (moving.size() != 0) {                                //if there is something to move
+                boolean[] truth_table = new boolean[moving.size()];    //tells when to stop updating the marbles
+                for (int length = 0; length < moving.size(); length++) {
+                    truth_table[length] = true;
+                }
+                int row;
+                int col;
+                for (int inc = 0; inc < moving.size(); inc++) {
+                    marble_hold = marbles[moving.get(inc)];            //get the marble
+                    Marble_Location = marble_hold.getLocation();        //get marble location
+                    New_Location = Receiving_Holes.get(inc);             //location of hole in array
+                    New_Hole = holes[New_Location.x][New_Location.y];   //get the corresponding hole
 
-        for(int size = 0; size<48; size++){
+                    //stop the moving of the marbles by removing the marble from arraylist
+                    check.set(Marble_Location.x - hold.x, Marble_Location.y - hold.y);
+                    if (Math.abs(check.x) < maxX / 10 && Math.abs(check.y) < maxX / 10) {
+                        truth_table[inc] = false;                       //signifies to be deleted
+                    } else {
+                        location = New_Hole.getLocation();
+                        vector = new PointF(location.x - Marble_Location.x, location.y - Marble_Location.y);
+                        magnitude = (float) Math.sqrt(vector.x * vector.x + vector.y * vector.y);
+                        vector.set(vector.x / magnitude, vector.y / magnitude);
+                        vector.set(Marble_Location.x + vector.x * xvel, Marble_Location.y + vector.y * yvel);
+                        marble_hold.setLocation(vector);
+                        marbles[moving.get(inc)] = marble_hold;
+                    }
+                }
+                for (int len = 0; len < truth_table.length; len++) {         //remove element if done moving
+                    if (!truth_table[len]) {
+                        moving.remove(len);
+                    }
+                }
+            }
+        }
+
+
+        for (int size = 0; size < 48; size++) {
             marble_hold = marbles[size];
             location = marble_hold.getLocation();
             marble_color.setColor(marble_hold.getColor());
-            g.drawCircle(location.x,location.y,maxX/75,marble_color);
+            g.drawCircle(location.x, location.y, maxX / 75, marble_color);
         }
 
     }
+
+
 
 
 
@@ -314,6 +344,7 @@ public class MancalaAnimator implements Animator {
      * event method when screen is touched
      */
     //@Override
+    //public Point onTouch(MotionEvent event){
     public void onTouch(MotionEvent event) {
         Hole mediate;
         PointF hold;
@@ -327,17 +358,16 @@ public class MancalaAnimator implements Animator {
                 hold = mediate.getLocation();
                 inside.set(xPos-hold.x,yPos-hold.y);
                 if(Math.abs(inside.x) < maxX/18 && Math.abs(inside.y) < maxX/18 && action == MotionEvent.ACTION_UP){
-                    /**if(Marble_Pos[i][j] == 0 || i == 0){ //check to see if any marbles are in the hole or on wrong side
-                     *  mediate.setColor(Color.RED);
-                     *  holes[i][j] = mediate;
-                     * }
-                     * else{
-                     **/
+                    if(mar_pos[i][j] == 0 || i == 0){ //check to see if any marbles are in the hole or on wrong side
+                       mediate.setColor(Color.RED);
+                       holes[i][j] = mediate;
+                    }
+                    else {
                     mediate.setColor(Color.GREEN);
                     holes[i][j] = mediate;
-                    Is_Moving = true;
-                    To_Move = mediate;
-                    //}
+                    //Is_Moving = true;
+                    //To_Move = mediate;
+                    }
                 }
                 else{
                     mediate.setColor(Color.BLACK);

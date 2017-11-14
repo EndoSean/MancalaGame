@@ -138,7 +138,7 @@ public class CounterHumanPlayer extends GameHumanPlayer implements OnClickListen
 		float maxY = (float)mdispSize.y;
 		animator.getBounds(maxX,maxY);
 		animator.setHoles();
-		animator.setMarbles();
+		//animator.setMarbles();
 
 
 		mySurface.setOnTouchListener(new onTouchEvent());
