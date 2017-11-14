@@ -7,7 +7,7 @@ import edu.up.cs301.game.actionMsg.GameAction;
  * A MancMoveAction is an action that is a "move" the game: confirming which hole they want to move
  *
  * @author Shayna Noone
- * @version September 2017
+ * @version October 2017
  */
 public class MancMoveAction extends GameAction {
 

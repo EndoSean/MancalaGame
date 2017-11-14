@@ -9,8 +9,8 @@ import edu.up.cs301.game.infoMsg.GameState;
  * This contains the state for the Counter game. The state consist of simply
  * the value of the counter.
  *
- * @author Steven R. Vegdahl
- * @version July 2013
+ * @author Shayna Noone
+ * @version October 2017
  */
 public class MancState extends GameState {
 
