@@ -50,8 +50,8 @@ public class MancState extends GameState {
         this.setPlayer_Turn(aMancState.getPlayer_Turn());
         this.setPlayer0_Score(aMancState.getPlayer0_Score());
         this.setPlayer1_Score(aMancState.getPlayer1_Score());
-        Marble_Pos = aMancState.getMarble_Pos();
-
+        this.setMarble_Pos(aMancState.getMarble_Pos());
+        this.setSelected_Hole(aMancState.getSelected_Hole());
     }
 
 
@@ -81,8 +81,8 @@ public class MancState extends GameState {
 
 
     // for keeping track of which hole has been selected // Endo
-    public void setSelected_Hole(int player, int hole){
-        Selected_Hole.set(player,hole);
+    public void setSelected_Hole(Point Select){
+        Selected_Hole = Select;
     }
 
     public Point getSelected_Hole(){

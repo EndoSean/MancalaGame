@@ -27,7 +27,7 @@ import edu.up.cs301.game.infoMsg.GameInfo;
  *
  */
 
-public class MancHumanPlayer extends GameHumanPlayer implements View.OnTouchListener {
+public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchListener {
 
 
     MancalaAnimator animator;
@@ -103,6 +103,9 @@ public void tick(Canvas canvas) - preforms animation
      */
     @Override
     public void receiveInfo(GameInfo info) {
+        if (info instanceof MancState){
+            recentState = (MancState)info;
+        }
         if (recentState != null) {
             receiveInfo(info);
         }
@@ -136,7 +139,14 @@ public void tick(Canvas canvas) - preforms animation
         float maxY = (float)mdispSize.y;
         animator.getBounds(maxX,maxY);
         animator.setHoles();
-        animator.setMarbles();
+        if(recentState == null) {
+            animator.setMarbles2();
+        }
+        else {
+            int[][] Marble_Pos = recentState.getMarble_Pos();
+            Point Hole_Selected = recentState.getSelected_Hole();
+            animator.setMarbles(Marble_Pos, Hole_Selected);
+        }
 
 
         mySurface.setOnTouchListener(new edu.up.cs301.counter.MancHumanPlayer.onTouchEvent());
@@ -146,7 +156,7 @@ public void tick(Canvas canvas) - preforms animation
 
     }
 
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public boolean PostonTouch(View view, MotionEvent motionEvent) {
         // if we are not yet connected to a game, ignore
         if (game == null) return false;
 
@@ -160,7 +170,10 @@ public void tick(Canvas canvas) - preforms animation
     private class onTouchEvent implements View.OnTouchListener{
         public boolean onTouch(View v, MotionEvent me){
             animator.onTouch(me);
-            return true;
+            boolean set = PostonTouch(v,me);
+
+
+            return set;
 
         }
     }
