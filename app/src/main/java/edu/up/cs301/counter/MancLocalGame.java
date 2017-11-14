@@ -16,12 +16,17 @@ public class MancLocalGame extends LocalGame {
     /**
      * can this player move
      * @return
-     * 		true, because all player are always allowed to move at all times,
-     * 		as this is a fully asynchronous game
+     * 		true, if the game is not over and it is that  players turn
+     *      false, if one of the above is not true
      */
     @Override
-//needs to be modified to alernate players*******************************************************************
     protected boolean canMove(int player) {
+
+        if(checkIfGameOver()!=null){
+            return false;
+        }else if(player != gameState.getPlayer_Turn()){
+            return false;
+        }
         return true;
     }
 

@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+        "outputFile": "P:\\JR\\CounterGame-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,13 +11,13 @@
                     "endOffset": 87
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\color.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 55,
+                        "startOffset": 57,
                         "endColumn": 36,
-                        "endOffset": 87
+                        "endOffset": 89
                     }
                 }
             },
@@ -30,13 +30,13 @@
                     "endOffset": 126
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\color.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 167,
+                        "startOffset": 172,
                         "endColumn": 38,
-                        "endOffset": 201
+                        "endOffset": 206
                     }
                 }
             },
@@ -49,13 +49,13 @@
                     "endOffset": 163
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\color.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 92,
+                        "startOffset": 95,
                         "endColumn": 36,
-                        "endOffset": 124
+                        "endOffset": 127
                     }
                 }
             },
@@ -68,13 +68,13 @@
                     "endOffset": 201
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\color.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\color.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 129,
+                        "startOffset": 133,
                         "endColumn": 37,
-                        "endOffset": 162
+                        "endOffset": 166
                     }
                 }
             },
@@ -87,13 +87,13 @@
                     "endOffset": 252
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 307,
+                        "startOffset": 314,
                         "endColumn": 50,
-                        "endOffset": 353
+                        "endOffset": 360
                     }
                 }
             },
@@ -106,13 +106,13 @@
                     "endOffset": 306
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 55,
+                        "startOffset": 57,
                         "endColumn": 53,
-                        "endOffset": 104
+                        "endOffset": 106
                     }
                 }
             },
@@ -125,13 +125,13 @@
                     "endOffset": 348
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 164,
+                        "startOffset": 168,
                         "endColumn": 41,
-                        "endOffset": 201
+                        "endOffset": 205
                     }
                 }
             },
@@ -144,13 +144,13 @@
                     "endOffset": 403
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 109,
+                        "startOffset": 112,
                         "endColumn": 54,
-                        "endOffset": 159
+                        "endOffset": 162
                     }
                 }
             },
@@ -163,13 +163,13 @@
                     "endOffset": 454
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 256,
+                        "startOffset": 262,
                         "endColumn": 50,
-                        "endOffset": 302
+                        "endOffset": 308
                     }
                 }
             },
@@ -182,13 +182,13 @@
                     "endOffset": 504
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\dimen.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\dimen.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 206,
+                        "startOffset": 211,
                         "endColumn": 49,
-                        "endOffset": 251
+                        "endOffset": 256
                     }
                 }
             },
@@ -201,13 +201,13 @@
                     "endOffset": 554
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 476,
+                        "startOffset": 486,
                         "endColumn": 49,
-                        "endOffset": 521
+                        "endOffset": 531
                     }
                 }
             },
@@ -220,13 +220,13 @@
                     "endOffset": 604
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 17,
+                        "startOffset": 19,
                         "endColumn": 49,
-                        "endOffset": 62
+                        "endOffset": 64
                     }
                 }
             },
@@ -239,13 +239,13 @@
                     "endOffset": 654
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 263,
+                        "startOffset": 269,
                         "endColumn": 49,
-                        "endOffset": 308
+                        "endOffset": 314
                     }
                 }
             },
@@ -258,13 +258,13 @@
                     "endOffset": 726
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 815,
+                        "startOffset": 831,
                         "endColumn": 71,
-                        "endOffset": 882
+                        "endOffset": 898
                     }
                 }
             },
@@ -277,13 +277,13 @@
                     "endOffset": 777
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 887,
+                        "startOffset": 904,
                         "endColumn": 50,
-                        "endOffset": 933
+                        "endOffset": 950
                     }
                 }
             },
@@ -296,13 +296,13 @@
                     "endOffset": 854
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 938,
+                        "startOffset": 956,
                         "endColumn": 76,
-                        "endOffset": 1010
+                        "endOffset": 1028
                     }
                 }
             },
@@ -315,13 +315,13 @@
                     "endOffset": 894
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 630,
+                        "startOffset": 643,
                         "endColumn": 39,
-                        "endOffset": 665
+                        "endOffset": 678
                     }
                 }
             },
@@ -334,13 +334,13 @@
                     "endOffset": 943
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 1015,
+                        "startOffset": 1034,
                         "endColumn": 48,
-                        "endOffset": 1059
+                        "endOffset": 1078
                     }
                 }
             },
@@ -353,13 +353,13 @@
                     "endOffset": 994
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 67,
+                        "startOffset": 70,
                         "endColumn": 50,
-                        "endOffset": 113
+                        "endOffset": 116
                     }
                 }
             },
@@ -372,13 +372,13 @@
                     "endOffset": 1039
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 313,
+                        "startOffset": 320,
                         "endColumn": 44,
-                        "endOffset": 353
+                        "endOffset": 360
                     }
                 }
             },
@@ -391,13 +391,13 @@
                     "endOffset": 1091
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 526,
+                        "startOffset": 537,
                         "endColumn": 51,
-                        "endOffset": 573
+                        "endOffset": 584
                     }
                 }
             },
@@ -410,13 +410,13 @@
                     "endOffset": 1143
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 578,
+                        "startOffset": 590,
                         "endColumn": 51,
-                        "endOffset": 625
+                        "endOffset": 637
                     }
                 }
             },
@@ -429,13 +429,13 @@
                     "endOffset": 1194
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
-                        "startOffset": 1064,
+                        "startOffset": 1084,
                         "endColumn": 50,
-                        "endOffset": 1110
+                        "endOffset": 1130
                     }
                 }
             },
@@ -448,13 +448,13 @@
                     "endOffset": 1250
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 420,
+                        "startOffset": 429,
                         "endColumn": 55,
-                        "endOffset": 471
+                        "endOffset": 480
                     }
                 }
             },
@@ -467,13 +467,13 @@
                     "endOffset": 1320
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 193,
+                        "startOffset": 198,
                         "endColumn": 69,
-                        "endOffset": 258
+                        "endOffset": 263
                     }
                 }
             },
@@ -486,13 +486,13 @@
                     "endOffset": 1410
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 670,
+                        "startOffset": 684,
                         "endColumn": 89,
-                        "endOffset": 755
+                        "endOffset": 769
                     }
                 }
             },
@@ -505,13 +505,13 @@
                     "endOffset": 1472
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 358,
+                        "startOffset": 366,
                         "endColumn": 61,
-                        "endOffset": 415
+                        "endOffset": 423
                     }
                 }
             },
@@ -524,13 +524,13 @@
                     "endOffset": 1527
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 89,
-                        "startOffset": 755,
+                        "startOffset": 769,
                         "endColumn": 139,
-                        "endOffset": 805
+                        "endOffset": 819
                     }
                 }
             },
@@ -543,13 +543,13 @@
                     "endOffset": 1602
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 118,
+                        "startOffset": 122,
                         "endColumn": 74,
-                        "endOffset": 188
+                        "endOffset": 192
                     }
                 }
             },
@@ -562,13 +562,13 @@
                     "endOffset": 1660
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values\\styles.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 17,
+                        "startOffset": 19,
                         "endColumn": 58,
-                        "endOffset": 71
+                        "endOffset": 73
                     }
                 }
             }

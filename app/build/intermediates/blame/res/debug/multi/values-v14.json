@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "P:\\JR\\CounterGame-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -11,13 +11,13 @@
                     "endOffset": 127
                 },
                 "from": {
-                    "file": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 17,
+                        "startOffset": 19,
                         "endColumn": 77,
-                        "endOffset": 90
+                        "endOffset": 92
                     }
                 }
             }
