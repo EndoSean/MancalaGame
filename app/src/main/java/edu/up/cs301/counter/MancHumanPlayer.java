@@ -91,7 +91,7 @@ public void tick(Canvas canvas) - preforms animation
         if (game == null) return;
 
         // Construct the action and send it to the game
-        GameAction action = new MancMoveAction(this, true);
+        GameAction action = new MancMoveAction(this,this.playerNum, 0);
 
         game.sendAction(action); // send action to the game
     }// onTouch
@@ -161,9 +161,10 @@ public void tick(Canvas canvas) - preforms animation
         if (this.playerNum!=recentState.getPlayer_Turn())return false;
         // if we are not yet connected to a game, ignore
         if (game == null) return false;
-
+        //////////////////////////////////NEEDS TO DETERMINE COLUMN HOLE IS IN//////////
+        int col = (int)motionEvent.getRawX();
         // Construct the action and send it to the game
-        GameAction action = new MancMoveAction(this,);
+        GameAction action = new MancMoveAction(this,this.playerNum,col);
 
         game.sendAction(action); // send action to the game
         return true;
@@ -174,7 +175,6 @@ public void tick(Canvas canvas) - preforms animation
 
             animator.onTouch(me);
             boolean set = PostonTouch(v,me);
-
 
             return set;
 

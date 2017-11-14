@@ -42,10 +42,10 @@ public class CounterComputerPlayer1 extends GameComputerPlayer implements Tickab
 	@Override
 	protected void receiveInfo(GameInfo info) {
 		if (info instanceof MancState){
-		recentState = (MancState)info;
+		recentState = (MancState)info;}
 	}
 
-	}
+
 	
 	/**
 	 * callback method: the timer ticked
@@ -53,17 +53,17 @@ public class CounterComputerPlayer1 extends GameComputerPlayer implements Tickab
 	protected void timerTicked() {
 		// 5% of the time, increment or decrement the counter
 		int[][] marbArray = recentState.getMarble_Pos();
-		int r;
+		int c=0;
 		Boolean canMove = false;
 		while(canMove){
-			r = (int)Math.random()*6 +1;
-			if(marbArray[this.playerNum][r]>0){
+			c = (int)Math.random()*6 +1;
+			if(marbArray[this.playerNum][c]>0){
 				canMove=true;
 			}
 		}
 
 		// send the move-action to the game
-		game.sendAction(new MancMoveAction(this, canMove));
+		game.sendAction(new MancMoveAction(this,this.playerNum,c));
 	}
 
 }
