@@ -48,36 +48,55 @@ public class MancLocalGame extends LocalGame {
         Log.i("action", action.getClass().toString());
 
         if (action instanceof MancMoveAction) {
-//not fully edited yet --- I need to know how to get the position that was selected*******************************************
+
 
             // cast so that we Java knows it's a MancMoveAction
             MancMoveAction cma = (MancMoveAction)action;
 
 
-            int[][] marbles = gameState.getMarble_Pos();
-            Point z = gameState.getSelected_Hole();
-            int pos= z.y;
-            int side = z.x;
-            int numMarb = marbles[side][pos];
-            marbles[side][pos]=0;
+            int[][] marbles = gameState.getMarble_Pos(); //copy the marble positions array from the gamestate
+            Point z = gameState.getSelected_Hole(); // get the selected hole from the gameState that recieves the selected hole from the animation
+            int pos= z.y; // get which number hole we are on based off the selected hole
+            int side = z.x; //get the side of the board based off the location of the selected hole
+            int numMarb = marbles[side][pos]; //get the number of marbles in the selected hole
+            marbles[side][pos]=0; // set the selected hole to be empty
 
-            while(numMarb!=0){
-                pos++;
+            while(numMarb>0){ //check to make sure that we still have holes to move
+                pos++; //go to the next postion in the marbles array
 
-                if(pos == 6){
-                    if(side == gameState.getPlayer_Turn()) {
-                        marbles[side][pos]++;
-                        numMarb--;
+                if(pos == 6){ //check to see if the hole is a goal
+                    if(side == gameState.getPlayer_Turn()) { // checks to see if it is the current player's goal
+                        marbles[side][pos]++; //add marbles to goal
+                        numMarb--; // decrement marbles
+                        if(side == 0){ //goes to the other side of the board
+                            side =1;
+                        }else if(side ==1){
+                            side =0;
+                        }
+                        pos = 0; //start from the beginning position from that side of the board
+                    }else if(side != gameState.getPlayer_Turn()){ //else if its not the same goal as the current player then skip that goal and start on the new side
+                        if(side == 0){ //goes to the other side of the board
+                            side =1;
+                        }else if(side ==1){
+                            side =0;
+                        }
+                        pos = 0; //start from the beginning position from that side of the board
+                        marbles[side][pos]++; //add marbles to the first position on the new side
+                        numMarb--; // decrement marbles
                     }
-                    if(gameState.getPlayer_Turn() == 0){
-                        side =1;
-                    }else if( gameState.getPlayer_Turn() ==1){
-                        side =0;
+
+                }else if(marbles[side][pos]==0 && numMarb==1 && side==gameState.getPlayer_Turn()) { //is the last marble going to land in an empty hole on the current players side
+                    if(side ==1){//checks to see which player's turn it is
+                        marbles[1][6]+=marbles[0][pos];//adds the marbles from the hole opposite the previously empty hole to the player's goal
+                        marbles[0][pos]=0; //sets the hole across from the previously empty hole, empty.
+                    }else{
+                        marbles[0][6]+=marbles[1][pos];
+                        marbles[1][pos]=0;
                     }
-                    pos = 0;
+                    numMarb--;//that was the last marble, makes numMarb=0
                 }else {
-                    marbles[side][pos]++;
-                    numMarb--;
+                    marbles[side][pos]++; //adds a marble
+                    numMarb--; //one less marble to move
                 }
 
             }
@@ -85,6 +104,17 @@ public class MancLocalGame extends LocalGame {
             gameState.setMarble_Pos(marbles);
             gameState.setPlayer0_Score(marbles[0][6]);
             gameState.setPlayer1_Score(marbles[1][6]);
+
+            if(pos==6&&numMarb==0 && side == gameState.getPlayer_Turn()){ //checks to see if the last marble landed in a goal of that player
+                gameState.setPlayer_Turn(gameState.getPlayer_Turn()); //if it did then its still that player's turn
+            }else{
+                int currPlayer = gameState.getPlayer_Turn(); // else we are going to switch players
+                if(currPlayer==1) {
+                    gameState.setPlayer_Turn(0);
+                }else{
+                    gameState.setPlayer_Turn(1);
+                }
+            }
 
             // denote that this was a legal/successful move
             return true;
