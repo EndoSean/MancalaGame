@@ -84,7 +84,7 @@ public class CounterMainActivity extends GameMainActivity {
 	 */
 	@Override
 	public LocalGame createLocalGame() {
-		return new CounterLocalGame();
+		return new MancLocalGame();
 	}
 
 }

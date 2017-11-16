@@ -40,7 +40,7 @@ public class MancState extends GameState {
                 Marble_Pos[i][j] = 4;
             }
         }
-        Selected_Hole = new Point();
+        Selected_Hole = new Point(-1,-1);
     }
 
     /**

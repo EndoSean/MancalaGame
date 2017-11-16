@@ -365,7 +365,7 @@ public class MancalaAnimator implements Animator {
     //public Point onTouch(MotionEvent event){
     public void onTouch(MotionEvent event) {
         Hole mediate;
-        Point Selected_Hole = new Point();
+        Point Selected_Hole = new Point(-1,-1);
         PointF hold;
         PointF inside = new PointF();
         int action = event.getAction();
@@ -384,7 +384,7 @@ public class MancalaAnimator implements Animator {
                     else {
                         mediate.setColor(Color.GREEN);
                         holes[i][j] = mediate;
-                        Selected_Hole = new Point(i,j);
+                        Selected_Hole.set(i,j);
                         //Is_Moving = true;
                         //To_Move = mediate;
                     }
