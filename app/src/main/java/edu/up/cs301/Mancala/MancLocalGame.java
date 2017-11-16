@@ -55,7 +55,8 @@ public class MancLocalGame extends LocalGame {
 
 
             int[][] marbles = gameState.getMarble_Pos(); //copy the marble positions array from the gamestate
-            Point z = gameState.getSelected_Hole(); // get the selected hole from the gameState that recieves the selected hole from the animation
+            Point z = cma.getSelected_Hole(); // get the selected hole from the gameState that recieves the selected hole from the animation
+            gameState.setSelected_Hole(z); //updates the game state to recieve the selected hole
             int pos= z.y; // get which number hole we are on based off the selected hole
             int side = z.x; //get the side of the board based off the location of the selected hole
             int numMarb = marbles[side][pos]; //get the number of marbles in the selected hole

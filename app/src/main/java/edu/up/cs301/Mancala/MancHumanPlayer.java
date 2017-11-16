@@ -84,17 +84,7 @@ public void tick(Canvas canvas) - preforms animation
      *
      * 		the button that was clicked
      */
-    public void onTouch(SurfaceView surface) {
-        // if we are not yet connected to a game, ignore
-        if (game == null) return;
-
-        // Construct the action and send it to the game
-        GameAction action = new MancMoveAction(this, true);
-
-        game.sendAction(action); // send action to the game
-    }// onTouch
-
-    /**
+/**
      * callback method when we get a message (e.g., from the game)
      *
      * @param info
@@ -160,7 +150,7 @@ public void tick(Canvas canvas) - preforms animation
         if (game == null) return false;
 
         // Construct the action and send it to the game
-        GameAction action = new MancMoveAction(this, true);
+        GameAction action = new MancMoveAction(this, recentState.getSelected_Hole());
 
         game.sendAction(action); // send action to the game
         return true;
