@@ -1,7 +1,9 @@
-package edu.up.cs301.counter;
+package edu.up.cs301.Mancala;
 
 import java.util.ArrayList;
 
+import edu.up.cs301.counter.CounterComputerPlayer1;
+import edu.up.cs301.counter.CounterComputerPlayer2;
 import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;

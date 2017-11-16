@@ -1,4 +1,6 @@
-package edu.up.cs301.counter;
+package edu.up.cs301.Mancala;
+
+import android.graphics.Point;
 
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.actionMsg.GameAction;
@@ -22,10 +24,10 @@ public class MancMoveAction extends GameAction {
      *
      * @param player
      *            the player making the move
-     * @param isConfirmed
-     *            value to initialize this.isConfirmed
+     * @param selectedHole
+     *
      */
-    public MancMoveAction(GamePlayer player, boolean isConfirmed) {
+    public MancMoveAction(GamePlayer player,  Point selectedHole) {
         super(player);
         this.isConfirmed = isConfirmed;
     }

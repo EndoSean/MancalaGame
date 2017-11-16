@@ -1,4 +1,4 @@
-package edu.up.cs301.counter;
+package edu.up.cs301.Mancala;
 
 import android.graphics.Point;
 

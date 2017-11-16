@@ -1,6 +1,4 @@
-package edu.up.cs301.counter;
-
-import java.util.ArrayList;
+package edu.up.cs301.Mancala;
 
 /**
  * Created by endo18 on 11/5/2017.

@@ -1,5 +1,6 @@
 package edu.up.cs301.counter;
 
+import edu.up.cs301.Mancala.MancalaAnimator;
 import edu.up.cs301.animation.AnimationSurface;
 import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GameMainActivity;
@@ -11,7 +12,6 @@ import android.graphics.Point;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 

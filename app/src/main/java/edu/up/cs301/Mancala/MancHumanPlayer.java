@@ -1,9 +1,8 @@
-package edu.up.cs301.counter;
+package edu.up.cs301.Mancala;
 
 import android.graphics.Point;
 import android.view.Display;
 import android.view.MotionEvent;
-import android.view.Surface;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.TextView;
@@ -149,7 +148,7 @@ public void tick(Canvas canvas) - preforms animation
         }
 
 
-        mySurface.setOnTouchListener(new edu.up.cs301.counter.MancHumanPlayer.onTouchEvent());
+        mySurface.setOnTouchListener(new MancHumanPlayer.onTouchEvent());
 
 
 

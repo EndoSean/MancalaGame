@@ -2,6 +2,9 @@ package edu.up.cs301.counter;
 
 import org.junit.Test;
 
+import edu.up.cs301.Mancala.MancLocalGame;
+import edu.up.cs301.Mancala.MancState;
+
 import static org.junit.Assert.*;
 
 /**
