@@ -138,14 +138,14 @@ public void tick(Canvas canvas) - preforms animation
         float maxX = (float)mdispSize.x;
         float maxY = (float)mdispSize.y;
         animator.getBounds(maxX,maxY);
-        animator.setHoles();
         if(recentState == null) {
-            animator.setMarbles2();
+            recentState = animator.setHoles();
+            recentState = animator.setMarbles2();
         }
         else {
-            int[][] Marble_Pos = recentState.getMarble_Pos();
-            Point Hole_Selected = recentState.getSelected_Hole();
-            animator.setMarbles(Marble_Pos, Hole_Selected);
+            //int[][] Marble_Pos = recentState.getMarble_Pos();
+            //Point Hole_Selected = recentState.getSelected_Hole();
+            recentState = animator.setMarbles(recentState);
         }
 
 
@@ -170,6 +170,7 @@ public void tick(Canvas canvas) - preforms animation
     private class onTouchEvent implements View.OnTouchListener{
         public boolean onTouch(View v, MotionEvent me){
             animator.onTouch(me);
+            recentState = animator.getUpdatedState();
             boolean set = PostonTouch(v,me);
 
 

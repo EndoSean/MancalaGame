@@ -23,6 +23,8 @@ public class MancState extends GameState {
     private int player0_Score;
     private int player1_Score;
     private Point Selected_Hole; //keeps track of the hole that has been selected // Endo
+    private Hole[][] holes = new Hole[2][7];        // Keeps track of marble placements GUI
+    private Marble[] marbles = new Marble[48];      // Keeps track of marble positions GUI
 
     /**
      * constructor, initializing the player turn, marble position array, player's scores.
@@ -52,6 +54,8 @@ public class MancState extends GameState {
         this.setPlayer1_Score(aMancState.getPlayer1_Score());
         this.setMarble_Pos(aMancState.getMarble_Pos());
         this.setSelected_Hole(aMancState.getSelected_Hole());
+        this.setHoles(aMancState.getHoles());
+        this.setMarbles(aMancState.getMarbles());
     }
 
 
@@ -87,6 +91,22 @@ public class MancState extends GameState {
 
     public Point getSelected_Hole(){
         return Selected_Hole;
+    }
+
+    public void setHoles(Hole[][] in){
+        holes = in;
+    }
+
+    public Hole[][] getHoles(){
+        return holes;
+    }
+
+    public void setMarbles(Marble[] in){
+        marbles = in;
+    }
+
+    public Marble[] getMarbles(){
+        return marbles;
     }
 
 }
