@@ -139,6 +139,9 @@ public class MancalaAnimator implements Animator {
 
         // sets up marbles to be moved
         // updates variables responsible for moving marbles
+        if(Selected_Hole.x==-1){
+            return CurrentState;
+        }
         int x = Selected_Hole.x;
         int y = Selected_Hole.y;
         Hole mediate = holes[x][y];             // holds the new state of holes to by copied

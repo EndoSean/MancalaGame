@@ -24,11 +24,11 @@ public class MancLocalGame extends LocalGame {
     @Override
     protected boolean canMove(int player) {
 
-        if(checkIfGameOver()!=null){
+        /*if(checkIfGameOver()!=null){
             return false;
         }else if(player != gameState.getSelected_Hole().x){
             return false;
-        }
+        }*/
         return true;
     }
 
@@ -48,7 +48,7 @@ public class MancLocalGame extends LocalGame {
         Log.i("action", action.getClass().toString());
 
 
-        if (action instanceof MancMoveAction && canMove(gameState.getPlayer_Turn())) {
+        if (action instanceof MancMoveAction ) {
 
 
             // cast so that we Java knows it's a MancMoveAction
@@ -57,9 +57,13 @@ public class MancLocalGame extends LocalGame {
 
             int[][] marbles = gameState.getMarble_Pos(); //copy the marble positions array from the gamestate
             Point z = cma.getSelected_Hole(); // get the selected hole from the gameState that recieves the selected hole from the animation
+
             gameState.setSelected_Hole(z); //updates the game state to recieve the selected hole
             int pos= z.y; // get which number hole we are on based off the selected hole
             int side = z.x; //get the side of the board based off the location of the selected hole
+            if(z.x ==-1 || z.y==-1){
+                return false;
+            }
             int numMarb = marbles[side][pos]; //get the number of marbles in the selected hole
             marbles[side][pos]=0; // set the selected hole to be empty
 

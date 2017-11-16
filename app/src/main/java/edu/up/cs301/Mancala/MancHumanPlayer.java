@@ -30,7 +30,7 @@ import edu.up.cs301.game.infoMsg.GameInfo;
 public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchListener {
 
 
-    private MancalaAnimator animator;
+    MancalaAnimator animator;
 
 	/* instance variables */
 
@@ -88,6 +88,7 @@ public void tick(Canvas canvas) - preforms animation
     public void receiveInfo(GameInfo info) {
         if (info instanceof MancState){
             recentState = (MancState)info;
+            //this.setAsGui(myActivity);
         }
         //if (recentState != null) {
         //    receiveInfo(info);
@@ -140,9 +141,9 @@ public void tick(Canvas canvas) - preforms animation
     }
 
 
-    private boolean PostonTouch(View view, MotionEvent motionEvent) {
+    public boolean PostonTouch(View view, MotionEvent motionEvent) {
         // if we are not yet connected to a game, ignore
-        if(this.playerNum != recentState.getPlayer_Turn()) return false;
+       // if(this.playerNum != recentState.getPlayer_Turn()) return false;
         if (game == null) return false;
 
         // Construct the action and send it to the game
