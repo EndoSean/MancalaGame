@@ -21,9 +21,8 @@ import edu.up.cs301.game.infoMsg.GameInfo;
 * device, this player will display a GUI that shows the value of the counter
 * as the game is being played.
 * 
-* @author Steven R. Vegdahl
-* @author Andrew M. Nuxoll
-* @version September 2013
+* @author Courtney Cox
+* @version November 2017
 */
 class MancComputerPlayer2 extends MancComputerPlayer1 {
 
@@ -32,7 +31,7 @@ class MancComputerPlayer2 extends MancComputerPlayer1 {
 	 */
 
 	// the most recent game state, as given to us by the CounterLocalGame
-	private CounterState currentGameState = null;
+	private MancState currentGameState = null;
 
 	// If this player is running the GUI, the activity (null if the player is
 	// not running a GUI).
@@ -72,9 +71,9 @@ class MancComputerPlayer2 extends MancComputerPlayer1 {
 		// if there is no game, ignore
 		if (game == null) {
 		}
-		else if (info instanceof CounterState) {
+		else if (info instanceof MancState) {
 			// if we indeed have a counter-state, update the GUI
-			currentGameState = (CounterState)info;
+			currentGameState = (MancState)info;
 			updateDisplay();
 		}
 	}
@@ -88,13 +87,7 @@ class MancComputerPlayer2 extends MancComputerPlayer1 {
 		// in the counter-display widget, doing it in the Activity's
 		// thread.
 		if (guiHandler != null) {
-			guiHandler.post(
-					new Runnable() {
-						public void run() {
-						if (counterValueTextView != null && currentGameState != null) {
-							counterValueTextView.setText("" + currentGameState.getCounter());
-						}
-					}});
+
 		}
 	}
 	
@@ -125,22 +118,8 @@ class MancComputerPlayer2 extends MancComputerPlayer1 {
 		this.guiHandler = new Handler();
 		
 		// Load the layout resource for the our GUI's configuration
-		activityForGui.setContentView(R.layout.counter_human_player);
+		activityForGui.setContentView(R.layout.manc_layout);
 
-		// remember who our text view is, for updating the counter value
-		this.counterValueTextView =
-				(TextView) activityForGui.findViewById(R.id.counterValueTextView);
-		
-		// disable the buttons, since they will have no effect anyway
-		Button plusButton = (Button)activityForGui.findViewById(R.id.plusButton);
-		plusButton.setEnabled(false);
-		Button minusButton = (Button)activityForGui.findViewById(R.id.minusButton);
-		minusButton.setEnabled(false);
-		
-		// if the state is non=null, update the display
-		if (currentGameState != null) {
-			updateDisplay();
-		}
 	}
 
 }

@@ -48,7 +48,7 @@ public class MancLocalGame extends LocalGame {
         Log.i("action", action.getClass().toString());
 
 
-        if (action instanceof MancMoveAction ) {
+        if (action instanceof MancMoveAction && canMove(gameState.getPlayer_Turn())) {
 
 
             // cast so that we Java knows it's a MancMoveAction
