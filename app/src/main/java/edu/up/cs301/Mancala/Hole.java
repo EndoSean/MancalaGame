@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Hole {
     private PointF location = new PointF();
     private int Color;
-    private ArrayList<Integer> marbles_inside = new ArrayList<Integer>();
+    ArrayList<Integer> marbles_inside = new ArrayList<Integer>();
 
     public Hole(){
         location.set(0,0);

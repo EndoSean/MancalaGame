@@ -82,7 +82,7 @@ public class CounterHumanPlayer extends GameHumanPlayer implements OnClickListen
 		if (game == null) return;
 
 		// Construct the action and send it to the game
-		GameAction action = null;
+		GameAction action;
 		if (button.getId() == R.id.plusButton) {
 			// plus button: create "increment" action
 			action = new CounterMoveAction(this, true);
@@ -171,7 +171,11 @@ public class CounterHumanPlayer extends GameHumanPlayer implements OnClickListen
 		 **/
 	}
 
-	private class onTouchEvent implements View.OnTouchListener{
+    public int getPlayerNum() {
+        return 0;
+    }
+
+    private class onTouchEvent implements View.OnTouchListener{
 		public boolean onTouch(View v, MotionEvent me){
 			animator.onTouch(me);
 			return true;

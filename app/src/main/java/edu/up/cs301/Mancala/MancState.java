@@ -77,7 +77,7 @@ public class MancState extends GameState {
         return player1_Score;
     }
 
-    public void setMarble_Pos(int[][] position) {   Marble_Pos = position;    }
+    public void setMarble_Pos(int[][] position) {   Marble_Pos = position;}
 
     public int[][] getMarble_Pos() {
         return Marble_Pos;

@@ -21,7 +21,7 @@ public class CounterComputerPlayer1 extends GameComputerPlayer implements Tickab
      * @param name
      * 		the player's name
      */
-    public CounterComputerPlayer1(String name) {
+	CounterComputerPlayer1(String name) {
         // invoke superclass constructor
         super(name);
         
@@ -54,5 +54,9 @@ public class CounterComputerPlayer1 extends GameComputerPlayer implements Tickab
 		
 		// send the move-action to the game
 		game.sendAction(new CounterMoveAction(this, move));
+	}
+
+	public int getPlayerNum() {
+		return this.playerNum;
 	}
 }
