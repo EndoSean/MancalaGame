@@ -1,11 +1,15 @@
 [
     {
-        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\manc_layout.xml",
-        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\manc_layout.xml"
+        "merged": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\manc_layout.xml",
+        "source": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\manc_layout.xml"
     },
     {
-        "merged": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
-        "source": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
+        "merged": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
+        "source": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\game_config_main.xml"
+    },
+    {
+        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\manc_layout.xml",
+        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\manc_layout.xml"
     },
     {
         "merged": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\counter_human_player.xml",
@@ -24,32 +28,24 @@
         "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
     },
     {
-        "merged": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
-        "source": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\game_config_main.xml"
-    },
-    {
         "merged": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
         "source": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\game_local_tab.xml"
     },
     {
-        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
-        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
+        "merged": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
+        "source": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\game_local_tab.xml"
     },
     {
         "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
         "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
     },
     {
-        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\counter_human_player.xml",
-        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\counter_human_player.xml"
-    },
-    {
-        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
-        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\game_no_gui.xml"
-    },
-    {
         "merged": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\manc_layout.xml",
         "source": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\manc_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
+        "source": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
     },
     {
         "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
@@ -62,5 +58,41 @@
     {
         "merged": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
         "source": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\game_no_gui.xml"
+    },
+    {
+        "merged": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
+        "source": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
+        "source": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\game_config_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\counter_human_player.xml",
+        "source": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\counter_human_player.xml"
+    },
+    {
+        "merged": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
+        "source": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
+        "source": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
+    },
+    {
+        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
+        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
+    },
+    {
+        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\counter_human_player.xml",
+        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\counter_human_player.xml"
+    },
+    {
+        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
+        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\game_no_gui.xml"
+    },
+    {
+        "merged": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
+        "source": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\layout\\game_no_gui.xml"
     }
 ]

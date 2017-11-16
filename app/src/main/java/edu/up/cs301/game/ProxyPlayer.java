@@ -139,5 +139,9 @@ public class ProxyPlayer implements GamePlayer {
     public boolean supportsGui() {
     	return false;
     }
+
+    public int getPlayerNum() {
+        return 0;
+    }
 }
 

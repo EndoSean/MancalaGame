@@ -46,13 +46,13 @@ public class MancMainActivity extends GameMainActivity {
         // a computer player type (player type 1)
         playerTypes.add(new GamePlayerType("Computer Player") {
             public GamePlayer createPlayer(String name) {
-                return new CounterComputerPlayer1(name); //This needs to be changed when we have a manc computer player****************
+                return new MancComputerPlayer1(name); //This needs to be changed when we have a manc computer player****************
             }});
 
         // a computer player type (player type 2)
         playerTypes.add(new GamePlayerType("Computer Player (GUI)") {
             public GamePlayer createPlayer(String name) {
-                return new CounterComputerPlayer2(name);//This needs to be changed when we have a mancala computer player****************
+                return new MancComputerPlayer2(name);//This needs to be changed when we have a mancala computer player****************
             }});
 
         // Create a game configuration class for Manc:

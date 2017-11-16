@@ -12,19 +12,19 @@ import edu.up.cs301.game.util.Tickable;
  * it just sends a randomly selected hole,
  *
  * @author Shayna Noone
- * @author
+ * @author Courtney Cox
  * @version November 2017
  */
-public class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
+class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
 
-    MancState recentState;
+    private MancState recentState;
     /**
      * Constructor for objects of class MancComputerPlayer1
      *
      * @param name
      * 		the player's name
      */
-    public MancComputerPlayer1(String name) {
+    MancComputerPlayer1(String name) {
         // invoke superclass constructor
         super(name);
         // start the timer, ticking 20 times per second
@@ -45,19 +45,30 @@ public class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
         }
     }
     protected void timerTicked() {
+        if(recentState != null){
         int marbles[][] = recentState.getMarble_Pos();
 
         int max = 5;
         int min = 0;
         int range = max - min + 1;
-        // generate random number from 1 to 10
-        int randPosition = (int) (Math.random()* range) + min;
+        Boolean repick = true;
+        int randPosition=0;
+        while(repick) {
 
+            randPosition = (int) (Math.random() * range) + min;
+            if (marbles[this.playerNum][randPosition]== 0){
+                repick=false;
+            }
+        }
 
         Point compSelected= new Point(this.playerNum,randPosition);
 
-        // send the move-action to the game
-        game.sendAction(new MancMoveAction(this, compSelected));
+        // send the move-action to the game if it is the computer turn
+        if(recentState.getPlayer_Turn()==this.playerNum) {
+            game.sendAction(new MancMoveAction(this, compSelected));
+
+
+        }}
     }
 
 }

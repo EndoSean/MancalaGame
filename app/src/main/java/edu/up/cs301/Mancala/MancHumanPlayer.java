@@ -10,6 +10,7 @@ import android.widget.TextView;
 import edu.up.cs301.animation.AnimationSurface;
 import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GameMainActivity;
+import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.R;
 import edu.up.cs301.game.actionMsg.GameAction;
 import edu.up.cs301.game.infoMsg.GameInfo;
@@ -29,7 +30,7 @@ import edu.up.cs301.game.infoMsg.GameInfo;
 public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchListener {
 
 
-    MancalaAnimator animator;
+    private MancalaAnimator animator;
 
 	/* instance variables */
 
@@ -78,13 +79,6 @@ public void tick(Canvas canvas) - preforms animation
     }
 
     /**
-     * this method gets called when the user clicks the '+' or '-' button. It
-     * creates a new CounterMoveAction to return to the parent activity.
-     *
-     *
-     * 		the button that was clicked
-     */
-/**
      * callback method when we get a message (e.g., from the game)
      *
      * @param info
@@ -145,8 +139,10 @@ public void tick(Canvas canvas) - preforms animation
 
     }
 
-    public boolean PostonTouch(View view, MotionEvent motionEvent) {
+
+    private boolean PostonTouch(View view, MotionEvent motionEvent) {
         // if we are not yet connected to a game, ignore
+        if(this.playerNum != recentState.getPlayer_Turn()) return false;
         if (game == null) return false;
 
         // Construct the action and send it to the game
@@ -158,12 +154,11 @@ public void tick(Canvas canvas) - preforms animation
 
     private class onTouchEvent implements View.OnTouchListener{
         public boolean onTouch(View v, MotionEvent me){
+
             animator.onTouch(me);
             recentState = animator.getUpdatedState();
-            boolean set = PostonTouch(v,me);
 
-
-            return set;
+            return PostonTouch(v,me);
 
         }
     }
