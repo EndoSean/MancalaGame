@@ -106,9 +106,9 @@ public void tick(Canvas canvas) - preforms animation
         if (info instanceof MancState){
             recentState = (MancState)info;
         }
-        if (recentState != null) {
-            receiveInfo(info);
-        }
+        //if (recentState != null) {
+        //    receiveInfo(info);
+        //}
     }
 
     /**
