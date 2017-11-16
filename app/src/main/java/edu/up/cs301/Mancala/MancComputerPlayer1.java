@@ -1,5 +1,7 @@
 package edu.up.cs301.Mancala;
 
+import android.graphics.Point;
+
 import edu.up.cs301.counter.CounterMoveAction;
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.infoMsg.GameInfo;
@@ -13,8 +15,9 @@ import edu.up.cs301.game.util.Tickable;
  * @author
  * @version November 2017
  */
-public class MancComputerPlayer1 extends GameComputerPlayer {
+public class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
 
+    MancState recentState;
     /**
      * Constructor for objects of class MancComputerPlayer1
      *
@@ -24,7 +27,9 @@ public class MancComputerPlayer1 extends GameComputerPlayer {
     public MancComputerPlayer1(String name) {
         // invoke superclass constructor
         super(name);
-
+        // start the timer, ticking 20 times per second
+        getTimer().setInterval(50);
+        getTimer().start();
     }
 
     /**
@@ -35,8 +40,24 @@ public class MancComputerPlayer1 extends GameComputerPlayer {
      */
     @Override
     protected void receiveInfo(GameInfo info) {
-        // Do nothing, as we ignore all state in deciding our next move. It
-        // depends totally on the timer and random numbers.
+        if (info instanceof MancState){
+            recentState = (MancState)info;
+        }
+    }
+    protected void timerTicked() {
+        int marbles[][] = recentState.getMarble_Pos();
+
+        int max = 5;
+        int min = 0;
+        int range = max - min + 1;
+        // generate random number from 1 to 10
+        int randPosition = (int) (Math.random()* range) + min;
+
+
+        Point compSelected= new Point(this.playerNum,randPosition);
+
+        // send the move-action to the game
+        game.sendAction(new MancMoveAction(this, compSelected));
     }
 
 }
