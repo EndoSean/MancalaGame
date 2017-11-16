@@ -324,7 +324,31 @@ public class MancalaAnimator implements Animator {
             }
         }
 
+        //Updates holes to account for change in marbles from action
+        //holes marble array is never accessed and may be redundant or we can reduce the number of
+        //marble arrays to be exclusively in the holes class and not have several different ones to navigate
+        mar_pos = Current_State.getMarble_Pos();
+        for(int r=0; r<2;r++ ){
+            for(int c=0; c<6; c++){
+                ArrayList tempHole = holes[r][c].takeMarbles();
+                if(mar_pos[r][c] < holes[r][c].marbles_inside.size()){ //if the current pos contains more marbles
+                    // than the hole says it does, then remove the last in the array
+                    int dif= tempHole.size()-mar_pos[r][c];
+                    for(int d=0; d<dif; d++) {
+                        tempHole.remove(tempHole.size()-1);
+                    }
+                    holes[r][c].marbles_inside=tempHole;
+                }
+                while(mar_pos[r][c] > holes[r][c].marbles_inside.size()){
+                    holes[r][c].addMarble(1); //unsure what location to add to
 
+                }
+            }
+        }
+
+        //Locations are never updated for marbles array even though mar_pos is changed.
+        //Might consider randomizing location of marbles to be contained within hole since who
+        // wants to specify 48 location if perchance all the marbles are put in one bank?
         for (int size = 0; size < 48; size++) {
             marble_hold = marbles[size];
             location = marble_hold.getLocation();
@@ -378,8 +402,8 @@ public class MancalaAnimator implements Animator {
                 inside.set(xPos-hold.x,yPos-hold.y);
                 if(Math.abs(inside.x) < maxX/18 && Math.abs(inside.y) < maxX/18 && action == MotionEvent.ACTION_UP){
                     if(mar_pos[i][j] == 0 || i == 0){ //check to see if any marbles are in the hole or on wrong side
-                       mediate.setColor(Color.RED);
-                       holes[i][j] = mediate;
+                        mediate.setColor(Color.RED);
+                        holes[i][j] = mediate;
                     }
                     else {
                         mediate.setColor(Color.GREEN);

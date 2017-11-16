@@ -63,12 +63,15 @@ public class MancLocalGame extends LocalGame {
             int numMarb = marbles[side][pos]; //get the number of marbles in the selected hole
             marbles[side][pos]=0; // set the selected hole to be empty
 
+
             while(numMarb>0){ //check to make sure that we still have holes to move
                 pos++; //go to the next postion in the marbles array
 
                 if(pos == 6){ //check to see if the hole is a goal
                     if(side == gameState.getPlayer_Turn()) { // checks to see if it is the current player's goal
                         marbles[side][pos]++; //add marbles to goal
+
+
                         numMarb--; // decrement marbles
                         if(side == 0){ //goes to the other side of the board
                             side =1;
@@ -84,6 +87,7 @@ public class MancLocalGame extends LocalGame {
                         }
                         pos = 0; //start from the beginning position from that side of the board
                         marbles[side][pos]++; //add marbles to the first position on the new side
+
                         numMarb--; // decrement marbles
                     }
 
