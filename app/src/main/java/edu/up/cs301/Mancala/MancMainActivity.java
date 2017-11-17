@@ -64,8 +64,8 @@ public class MancMainActivity extends GameMainActivity {
                 PORT_NUMBER);
 
         // Add the default players to the configuration
-        defaultConfig.addPlayer("Human", 0); // player 1: a human player
-        defaultConfig.addPlayer("Computer", 1); // player 2: a computer player
+        defaultConfig.addPlayer("Human", 1); // player 1: a human player
+        defaultConfig.addPlayer("Computer", 0); // player 2: a computer player
 
         // Set the default remote-player setup:
         // - player name: "Remote Player"

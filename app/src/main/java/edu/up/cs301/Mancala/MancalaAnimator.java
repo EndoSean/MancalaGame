@@ -430,5 +430,8 @@ public class MancalaAnimator implements Animator {
     public MancState getUpdatedState(){
         return Current_State;
     }
+    public void setState(MancState state) {
+        Current_State = state;
+    }
 
 }

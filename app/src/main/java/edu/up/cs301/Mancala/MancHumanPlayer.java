@@ -88,11 +88,10 @@ public void tick(Canvas canvas) - preforms animation
     public void receiveInfo(GameInfo info) {
         if (info instanceof MancState){
             recentState = (MancState)info;
-            //this.setAsGui(myActivity);
+            animator.setState(recentState);
+
         }
-        //if (recentState != null) {
-        //    receiveInfo(info);
-        //}
+
     }
 
     /**
@@ -141,11 +140,12 @@ public void tick(Canvas canvas) - preforms animation
     }
 
 
-    public boolean PostonTouch(View view, MotionEvent motionEvent) {
+    public boolean PostOnTouch(View view, MotionEvent motionEvent) {
         // if we are not yet connected to a game, ignore
-       // if(this.playerNum != recentState.getPlayer_Turn()) return false;
+        // if(this.playerNum != recentState.getPlayer_Turn()) return false;
         if (game == null) return false;
-
+        //returns if not players turn. In essence disables surface interface until it is its turn
+        if(recentState.getPlayer_Turn()!=this.playerNum) return false;
         // Construct the action and send it to the game
         GameAction action = new MancMoveAction(this, recentState.getSelected_Hole());
 
@@ -159,7 +159,7 @@ public void tick(Canvas canvas) - preforms animation
             animator.onTouch(me);
             recentState = animator.getUpdatedState();
 
-            return PostonTouch(v,me);
+            return PostOnTouch(v,me);
 
         }
     }

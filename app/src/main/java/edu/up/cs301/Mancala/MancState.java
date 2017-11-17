@@ -32,7 +32,7 @@ public class MancState extends GameState {
      */
     public MancState() {
 
-        player_Turn = 0;
+        player_Turn = 1;
         player0_Score = 0;
         player1_Score = 0;
         for (int i = 0; i < 2; i++) {
@@ -77,7 +77,10 @@ public class MancState extends GameState {
         return player1_Score;
     }
 
-    public void setMarble_Pos(int[][] position) {   Marble_Pos = position;}
+    public void setMarble_Pos(int[][] position) {
+        Marble_Pos = position;
+    setPlayer0_Score(Marble_Pos[0][6]);
+    setPlayer1_Score(Marble_Pos[1][6]);}
 
     public int[][] getMarble_Pos() {
         return Marble_Pos;
