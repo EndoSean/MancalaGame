@@ -67,9 +67,9 @@ public class MancLocalGame extends LocalGame {
             int numMarb = marbles[side][pos]; //get the number of marbles in the selected hole
             marbles[side][pos]=0; // set the selected hole to be empty
             pos++;
-
+            boolean bank =false;
             while(numMarb>0){ //check to make sure that we still have holes to move
-                 //go to the next postion in the marbles array
+                //go to the next postion in the marbles array
 
                 if(pos == 6){ //check to see if the hole is a goal
                     if(side == gameState.getPlayer_Turn()) { // checks to see if it is the current player's goal
@@ -77,6 +77,9 @@ public class MancLocalGame extends LocalGame {
 
 
                         numMarb--; // decrement marbles
+                        if(numMarb==0){
+                            bank=true;
+                        }
                         if(side == 0){ //goes to the other side of the board
                             side =1;
                         }else if(side ==1){
@@ -108,38 +111,33 @@ public class MancLocalGame extends LocalGame {
                     marbles[side][pos]++; //adds a marble
                     numMarb--; //one less marble to move
                 }
-                if(pos==6){
+                if(pos==6 && numMarb>0){
                     pos=0;//start from the beginning position from that side of the board
-                }else{
+                }else if(numMarb>0){
                     pos++;
                 }
-
-
-
+                if(numMarb==0 && !bank)
+                    // we are going to switch players if the last marb didnt land in the bank
+                    if(gameState.getPlayer_Turn()==1) {
+                        gameState.setPlayer_Turn(0);
+                    }else{
+                        gameState.setPlayer_Turn(1);
+                    }
             }
 
             gameState.setMarble_Pos(marbles);
             gameState.setPlayer0_Score(marbles[0][6]);
             gameState.setPlayer1_Score(marbles[1][6]);
 
-            if(pos==6&&numMarb==0 && side == gameState.getPlayer_Turn()){ //checks to see if the last marble landed in a goal of that player
-                gameState.setPlayer_Turn(gameState.getPlayer_Turn()); //if it did then its still that player's turn
-            }else{
-                int currPlayer = gameState.getPlayer_Turn(); // else we are going to switch players
-                if(currPlayer==1) {
-                    gameState.setPlayer_Turn(0);
-                }else{
-                    gameState.setPlayer_Turn(1);
-                }
-            }
-
+            sendUpdatedStateTo(players[0]);
+            sendUpdatedStateTo(players[1]);
             // denote that this was a legal/successful move
             return true;
-       }
+        }
         else {
             // denote that this was an illegal move
             return false;
-      }
+        }
     }//makeMove
 
     /**
@@ -170,7 +168,7 @@ public class MancLocalGame extends LocalGame {
         int count0=0; //if count not equal to zero then game not over
         int count1 =0;
         for (int i = 0; i < 6; i++) {
-           count0 += marbles[0][i];
+            count0 += marbles[0][i];
         }
         for (int i = 0; i < 6; i++) {
             count1 += marbles[1][i];
