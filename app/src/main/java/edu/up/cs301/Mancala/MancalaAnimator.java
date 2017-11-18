@@ -80,11 +80,13 @@ public class MancalaAnimator implements Animator {
                         hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
                         holes[i][j] = new Hole(hold, Color.BLACK);
                     }
-                    x_offset = maxX * (float) .12 * j;
-                    y_offset = maxY * (float) .45 * i;
-                    hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
-                    //////holes[i][j] = new PointF(hold.x,hold.y);
-                    holes[i][j] = new Hole(hold, Color.BLACK);
+                    else {
+                        x_offset = maxX * (float) .12 * j;
+                        y_offset = maxY * (float) .45 * i;
+                        hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
+                        //////holes[i][j] = new PointF(hold.x,hold.y);
+                        holes[i][j] = new Hole(hold, Color.BLACK);
+                    }
                 }
             }
             else {
@@ -95,11 +97,13 @@ public class MancalaAnimator implements Animator {
                         hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
                         holes[i][j] = new Hole(hold, Color.BLACK);
                     }
-                    x_offset = maxX * (float) .12 * (5-j);
-                    y_offset = maxY * (float) .45 * i;
-                    hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
-                    //////holes[i][j] = new PointF(hold.x,hold.y);
-                    holes[i][j] = new Hole(hold, Color.BLACK);
+                    else {
+                        x_offset = maxX * (float) .12 * (5 - j);
+                        y_offset = maxY * (float) .45 * i;
+                        hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
+                        //////holes[i][j] = new PointF(hold.x,hold.y);
+                        holes[i][j] = new Hole(hold, Color.BLACK);
+                    }
                 }
             }
         }
