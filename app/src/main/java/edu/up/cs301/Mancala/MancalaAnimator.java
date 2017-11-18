@@ -111,74 +111,79 @@ public class MancalaAnimator implements Animator {
     public MancState setMarbles(MancState CurrentState){
         // Update from gameState
         Current_State = CurrentState;
-        holes = Current_State.getHoles();
-        marbles = Current_State.getMarbles();
-        mar_pos = Current_State.getMarble_Pos();
-        Point Selected_Hole = Current_State.getSelected_Hole();
+        mar_pos = CurrentState.getMarble_Pos();
+
 
         //check if its the starting arrangement
-        //boolean begin = false;
-        //for(int i = 0; i<2; i++){
-        //    for(int j = 0; i<6; j++) {
-        //        if(Marble_Pos[i][j] == 4){
-        //            begin = true;
-        //        }
-        //        else{
-        //            begin = false;
-        //        }
-        //    }
-        //}
-        //if(begin){
-        //run initialize
-        //    this.setMarbles2();
-        //}
-        //else {
-        //run changes based on Selected_Hole
-        //clear previous values
-
-
-        // sets up marbles to be moved
-        // updates variables responsible for moving marbles
-        if(Selected_Hole.x==-1){
-            return CurrentState;
-        }
-        int x = Selected_Hole.x;
-        int y = Selected_Hole.y;
-        Hole mediate = holes[x][y];             // holds the new state of holes to by copied
-        Hole secondary;
-        //ArrayList<Marble> moving;
-        moving = mediate.takeMarbles();         //takes marbles and clears hole
-        holes[x][y] = mediate;                  // update hole
-        int size = moving.size();               // how many marbles are being moved
-        //int overflow = 0;
-        Point holding;
-        //Marble marble;
-        for(int a = 1; a<=size; a++) {           // for the number of marbles
-            if ((a + y) % 7 == 0) {/////////////////////////////////////////////
-                if (x == 1) {
-                    x = 0;
-                } else {
-                    x = 1;
+        boolean begin = true;
+        for(int i = 0; i<2; i++){
+            for(int j = 0; j<6; j++) {
+                if(mar_pos[i][j] == 4){
+                   // begin = true;
                 }
-                //overflow = 7 - (a+y);/////////////////////////////////////////////////////
-                y = -a;                          // begin index at 0 again
-                secondary = holes[x][y + a];
-                holding = new Point(x, y + a);                  // used to reference receiving holes
-                Receiving_Holes.add(holding);
-                secondary.addMarble(moving.get(a - 1));         // add the marble to the new hole
-                holes[x][y + a] = secondary;
-            } else {
-                secondary = holes[x][y + a];
-                holding = new Point(x, y + a);
-                Receiving_Holes.add(holding);
-                secondary.addMarble(moving.get(a - 1));
-                holes[x][y + a] = secondary;
+                else{
+                    begin = false;
+                }
+            }
+        }
+        if(begin){
+        //run initialize
+            Current_State = this.setMarbles2();
+        }
+        else {
+            //run changes based on Selected_Hole
+            //clear previous values
+
+
+            holes = Current_State.getHoles();
+            marbles = Current_State.getMarbles();
+            mar_pos = Current_State.getMarble_Pos();
+            Point Selected_Hole = Current_State.getSelected_Hole();
+
+
+            // sets up marbles to be moved
+            // updates variables responsible for moving marbles
+            if (Selected_Hole.x == -1) {
+                return CurrentState;
+            }
+            int x = Selected_Hole.x;
+            int y = Selected_Hole.y;
+            Hole mediate = holes[x][y];             // holds the new state of holes to by copied
+            Hole secondary;
+            //ArrayList<Marble> moving;
+            moving = mediate.takeMarbles();         //takes marbles and clears hole
+            holes[x][y] = mediate;                  // update hole
+            int size = moving.size();               // how many marbles are being moved
+            //int overflow = 0;
+            Point holding;
+            //Marble marble;
+            for (int a = 1; a <= size; a++) {           // for the number of marbles
+                if ((a + y) % 7 == 0) {/////////////////////////////////////////////
+                    if (x == 1) {
+                        x = 0;
+                    } else {
+                        x = 1;
+                    }
+                    //overflow = 7 - (a+y);/////////////////////////////////////////////////////
+                    y = -a;                          // begin index at 0 again
+                    secondary = holes[x][y + a];
+                    holding = new Point(x, y + a);                  // used to reference receiving holes
+                    Receiving_Holes.add(holding);
+                    secondary.addMarble(moving.get(a - 1));         // add the marble to the new hole
+                    holes[x][y + a] = secondary;
+                } else {
+                    secondary = holes[x][y + a];
+                    holding = new Point(x, y + a);
+                    Receiving_Holes.add(holding);
+                    secondary.addMarble(moving.get(a - 1));
+                    holes[x][y + a] = secondary;
+                }
+
             }
 
+            Current_State.setHoles(holes);
+            Current_State.setMarbles(marbles);
         }
-        // }
-        Current_State.setHoles(holes);
-        Current_State.setMarbles(marbles);
         return Current_State;
 
     }
@@ -325,6 +330,7 @@ public class MancalaAnimator implements Animator {
                 for (int len = 0; len < truth_table.length; len++) {         //remove element if done moving
                     if (!truth_table[len]) {
                         moving.remove(len);
+                        Receiving_Holes.remove(len);
                     }
                 }
             }
