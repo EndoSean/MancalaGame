@@ -3,30 +3,39 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\coxco19\StudioProjects\CounterGame-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9963621a9d8decac60d8229419facdc9836021ce">
-        <dex dex="C:\Users\coxco19\StudioProjects\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_e023d705b51d5e194bf7963b09b3fb6dfa40b2b7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\coxco19\StudioProjects\CounterGame-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Users\coxco19\StudioProjects\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_63087467e660f575e2df5d9ee3b327d005721162\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\coxco19\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jar="C:\Users\noones18\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="C:\Users\coxco19\StudioProjects\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_e37c1111675eeba77e8c70b5e08299dff803881d\classes.dex" />
+        <dex dex="C:\Users\noones18\StudioProjects\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_1373ee0d230fa6fc7d235e73123723e39e23d754\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\noones18\StudioProjects\CounterGame-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2ae712696db71f4672e383668f63e24e80b1ecdd">
+        <dex dex="C:\Users\noones18\StudioProjects\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_faaf36662f411e5e60a5314767de3c13681a00ca\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\noones18\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="C:\Users\noones18\StudioProjects\CounterGame-master\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_1373ee0d230fa6fc7d235e73123723e39e23d754.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\noones18\StudioProjects\CounterGame-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\noones18\StudioProjects\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_74e70239b818c71dda6ba6a578972cc04358272f\classes.dex" />
     </item>
 
 </items>

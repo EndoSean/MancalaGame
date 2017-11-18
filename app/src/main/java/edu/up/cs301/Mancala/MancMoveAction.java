@@ -18,7 +18,7 @@ public class MancMoveAction extends GameAction {
 
     //whether this move is a confirmed(true)
     private Point selected_Hole;
-
+    public int playerNumber;
     /**
      * Constructor for the MancMoveAction class.
      *
@@ -27,9 +27,10 @@ public class MancMoveAction extends GameAction {
      * @param selected
      *
      */
-    public MancMoveAction(GamePlayer player,  Point selected) {
+    public MancMoveAction(GamePlayer player,  Point selected, int playerNum) {
         super(player);
         this.selected_Hole = selected;
+        playerNumber= playerNum;
     }
 
     /**

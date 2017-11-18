@@ -67,11 +67,13 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
         if(recentState.getPlayer_Turn()==this.playerNum) {
             sleep(1000);
 
-            game.sendAction(new MancMoveAction(this, compSelected));
+            game.sendAction(new MancMoveAction(this, compSelected, this.playerNum));
 
 
         }}
     }
+
+    public int getPlayerNum(){return this.playerNum;}
 
 }
 

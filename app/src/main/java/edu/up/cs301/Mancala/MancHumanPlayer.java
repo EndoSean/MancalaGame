@@ -147,7 +147,7 @@ public void tick(Canvas canvas) - preforms animation
         //returns if not players turn. In essence disables surface interface until it is its turn
         if(recentState.getPlayer_Turn()!=this.playerNum) return false;
         // Construct the action and send it to the game
-        GameAction action = new MancMoveAction(this, recentState.getSelected_Hole());
+        GameAction action = new MancMoveAction(this, recentState.getSelected_Hole(), this.playerNum);
 
         game.sendAction(action); // send action to the game
         return true;
@@ -163,6 +163,7 @@ public void tick(Canvas canvas) - preforms animation
 
         }
     }
+    public int getPlayerNum(){return this.playerNum;}
 
 
 

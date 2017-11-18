@@ -1,5 +1,6 @@
 package edu.up.cs301.Mancala;
 
+import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
@@ -29,7 +30,11 @@ public class MancLocalGame extends LocalGame {
         }//else if(player != gameState.getSelected_Hole().x){
            // return false;
        // }
-        return true;
+        //is player turn = player number?
+        if(player==this.gameState.getPlayer_Turn()){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -54,6 +59,10 @@ public class MancLocalGame extends LocalGame {
             // cast so that we Java knows it's a MancMoveAction
             MancMoveAction cma = (MancMoveAction)action;
 
+
+            if(!canMove(cma.playerNumber)){
+                return false;
+            }
 
             int[][] marbles = gameState.getMarble_Pos(); //copy the marble positions array from the gamestate
             Point z = cma.getSelected_Hole(); // get the selected hole from the gameState that recieves the selected hole from the animation
@@ -116,14 +125,15 @@ public class MancLocalGame extends LocalGame {
                 }else if(numMarb>0){
                     pos++;
                 }
-                if(numMarb==0 && !bank)
-                    // we are going to switch players if the last marb didnt land in the bank
-                    if(gameState.getPlayer_Turn()==1) {
-                        gameState.setPlayer_Turn(0);
-                    }else{
-                        gameState.setPlayer_Turn(1);
-                    }
+
             }
+            if(numMarb==0 && !bank)
+                // we are going to switch players if the last marb didnt land in the bank
+                if(gameState.getPlayer_Turn()==1) {
+                    gameState.setPlayer_Turn(0);
+                }else{
+                    gameState.setPlayer_Turn(1);
+                }
 
             gameState.setMarble_Pos(marbles);
 
