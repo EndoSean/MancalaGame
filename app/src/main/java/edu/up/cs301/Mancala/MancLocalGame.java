@@ -24,11 +24,11 @@ public class MancLocalGame extends LocalGame {
     @Override
     protected boolean canMove(int player) {
 
-        /*if(checkIfGameOver()!=null){
+        if(checkIfGameOver()!=null){
             return false;
-        }else if(player != gameState.getSelected_Hole().x){
-            return false;
-        }*/
+        }//else if(player != gameState.getSelected_Hole().x){
+           // return false;
+       // }
         return true;
     }
 
@@ -126,8 +126,7 @@ public class MancLocalGame extends LocalGame {
             }
 
             gameState.setMarble_Pos(marbles);
-            gameState.setPlayer0_Score(marbles[0][6]);
-            gameState.setPlayer1_Score(marbles[1][6]);
+
 
             sendUpdatedStateTo(players[0]);
             sendUpdatedStateTo(players[1]);
@@ -174,12 +173,21 @@ public class MancLocalGame extends LocalGame {
             count1 += marbles[1][i];
         }
         if(count0==0||count1==0) {
+            //Adds remaining marbles to respective banks
+            marbles[1][6]+=count1;
+            marbles[0][6]+=count0;
+            //clears rows
+            for(int c=0; c<6;c++){
+                marbles[0][c]=0;
+                marbles[1][c]=0;
+            }
+
             if (player0Score > player1Score) {
 
-                return " player0 has won."; // playerNames[0]+" has won."
+                return  playerNames[0]+" has won.";
             } else if (player0Score < player1Score) {
 
-                return " player1 has won."; // playerNames[1]+" has won."
+                return  playerNames[1]+" has won.";
             } else if (player0Score == player1Score) {
 
                 return " Tie ";

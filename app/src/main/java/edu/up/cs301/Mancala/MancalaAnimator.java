@@ -73,7 +73,7 @@ public class MancalaAnimator implements Animator {
         float y_offset;
         for (int i = 1; i>=0; i--){
             if(i == 1) {
-                for (int j = 0; j < 6; j++) {
+                for (int j = 0; j < 7; j++) {
                     if(j == 6){
                         x_offset = (float).915*maxX;
                         y_offset = (float).425*maxY;
@@ -88,7 +88,7 @@ public class MancalaAnimator implements Animator {
                 }
             }
             else {
-                for (int j = 0; j < 6 ; j++) {
+                for (int j = 0; j < 7 ; j++) {
                     if(j == 6){
                         x_offset = (float).085*maxX;
                         y_offset = (float).425*maxY;
@@ -256,13 +256,16 @@ public class MancalaAnimator implements Animator {
         rectangles.setColor(Color.WHITE);
         g.drawRect((float) .04 * maxX, (float) .15 * maxY, (float) .13 * maxX, (float) .7 * maxY, rectangles);
         g.drawRect((float) .87 * maxX, (float) .15 * maxY, (float) .96 * maxX, (float) .7 * maxY, rectangles);
-        g.drawText(opp, (float) .03 * maxX, (float) .135 * maxY, Text_Color);
-        g.drawText(play, (float) .86 * maxX, (float) .135 * maxY, Text_Color);
 
+        g.drawText(opp, (float) .03 * maxX, (float) .135 * maxY, Text_Color); //Opponent
+        g.drawText(play, (float) .86 * maxX, (float) .135 * maxY, Text_Color);//Player
+
+        g.drawText(""+mar_pos[0][6], (float) .03 * maxX, (float) .135 * maxY-70, Text_Color);
+        g.drawText(""+mar_pos[1][6], (float) .86 * maxX, (float) .135 * maxY-70, Text_Color);
         //draw holes
         PointF hold = new PointF();
         Hole mediate;
-        for (int i = 0; i <=1; i++) {
+        for (int i = 0; i <2; i++) {
             for (int j = 0; j < 6; j++) {
                 mediate = holes[i][j];
                 //////hold = holes[i][j];
@@ -352,6 +355,7 @@ public class MancalaAnimator implements Animator {
         //Locations are never updated for marbles array even though mar_pos is changed.
         //Might consider randomizing location of marbles to be contained within hole since who
         // wants to specify 48 location if perchance all the marbles are put in one bank?
+
         for (int size = 0; size < 48; size++) {
             marble_hold = marbles[size];
             location = marble_hold.getLocation();
@@ -360,11 +364,6 @@ public class MancalaAnimator implements Animator {
         }
 
     }
-
-
-
-
-
     /**
      * Tells that we never pause.
      *
