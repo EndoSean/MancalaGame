@@ -30,7 +30,7 @@ import edu.up.cs301.game.infoMsg.GameInfo;
 public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchListener {
 
 
-    MancalaAnimator animator;
+    MancalaAnimatorTwo animator;
 
 	/* instance variables */
 
@@ -89,7 +89,7 @@ public void tick(Canvas canvas) - preforms animation
         if (info instanceof MancState){
             recentState = (MancState)info;
             animator.setState(recentState);
-
+            animator.setMarbles();
         }
 
     }
@@ -112,7 +112,7 @@ public void tick(Canvas canvas) - preforms animation
 
         AnimationSurface mySurface =
                 (AnimationSurface) myActivity.findViewById(R.id.animation_surface);
-        animator = new MancalaAnimator();
+        animator = new MancalaAnimatorTwo();
         mySurface.setAnimator(animator);
 
         Display mdisp = myActivity.getWindowManager().getDefaultDisplay();
@@ -123,12 +123,12 @@ public void tick(Canvas canvas) - preforms animation
         animator.getBounds(maxX,maxY);
         if(recentState == null) {
             recentState = animator.setHoles();
-            recentState = animator.setMarbles2();
+            recentState = animator.setMarbles();
         }
         else {
             //int[][] Marble_Pos = recentState.getMarble_Pos();
             //Point Hole_Selected = recentState.getSelected_Hole();
-            recentState = animator.setMarbles(recentState);
+            recentState = animator.setMarbles();
         }
 
 
@@ -148,6 +148,7 @@ public void tick(Canvas canvas) - preforms animation
         if(recentState.getPlayer_Turn()!=this.playerNum) return false;
         // Construct the action and send it to the game
         GameAction action = new MancMoveAction(this, recentState.getSelected_Hole(), this.playerNum);
+
 
         game.sendAction(action); // send action to the game
         return true;
