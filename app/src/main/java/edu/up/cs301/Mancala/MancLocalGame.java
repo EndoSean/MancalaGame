@@ -109,11 +109,13 @@ public class MancLocalGame extends LocalGame {
 
                 }else if(marbles[side][pos]==0 && numMarb==1 && side==gameState.getPlayer_Turn()) { //is the last marble going to land in an empty hole on the current players side
                     if(side ==1){//checks to see which player's turn it is
-                        marbles[1][6]+=marbles[0][pos];//adds the marbles from the hole opposite the previously empty hole to the player's goal
-                        marbles[0][pos]=0; //sets the hole across from the previously empty hole, empty.
-                    }else{
-                        marbles[0][6]+=marbles[1][pos];
-                        marbles[1][pos]=0;
+                        marbles[1][6]+=marbles[0][5-pos]+1;//adds the marbles from the hole opposite the previously empty hole to the player's goal
+                        marbles[0][5-pos]=0; //sets the hole across from the previously empty hole, empty.
+
+                    }else if (side==0){
+                        marbles[0][6]+=marbles[1][5-pos]+1;
+                        marbles[1][5-pos]=0;
+
                     }
                     numMarb--;//that was the last marble, makes numMarb=0
                 }else {
@@ -194,10 +196,10 @@ public class MancLocalGame extends LocalGame {
 
             if (player0Score > player1Score) {
 
-                return  playerNames[0]+" has won.";
+                return  playerNames[0]+" has won." +player0Score;
             } else if (player0Score < player1Score) {
 
-                return  playerNames[1]+" has won.";
+                return  playerNames[1]+" has won."+ player1Score;
             } else if (player0Score == player1Score) {
 
                 return " Tie ";

@@ -1,6 +1,7 @@
 package edu.up.cs301.Mancala;
 
 import android.app.Activity;
+import android.graphics.Point;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import edu.up.cs301.counter.CounterState;
 import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.R;
 import edu.up.cs301.game.infoMsg.GameInfo;
+import edu.up.cs301.game.util.Tickable;
 
 
 /**
@@ -24,14 +26,14 @@ import edu.up.cs301.game.infoMsg.GameInfo;
 * @author Courtney Cox
 * @version November 2017
 */
-class MancComputerPlayer2 extends MancComputerPlayer1 {
+class MancComputerPlayer2 extends MancComputerPlayer1 implements Tickable {
 
 	/*
 	 * instance variables
 	 */
 
 	// the most recent game state, as given to us by the CounterLocalGame
-	private MancState currentGameState = null;
+	private MancState recentState = null;
 
 	// If this player is running the GUI, the activity (null if the player is
 	// not running a GUI).
@@ -53,6 +55,8 @@ class MancComputerPlayer2 extends MancComputerPlayer1 {
 	 */
 	MancComputerPlayer2(String name) {
 		super(name);
+		getTimer().setInterval(50);
+		getTimer().start();
 	}
 	
     /**
@@ -73,11 +77,38 @@ class MancComputerPlayer2 extends MancComputerPlayer1 {
 		}
 		else if (info instanceof MancState) {
 			// if we indeed have a counter-state, update the GUI
-			currentGameState = (MancState)info;
+			recentState = (MancState)info;
 			updateDisplay();
 		}
 	}
-	
+	protected void timerTicked() {
+		if(recentState != null){ //still just making random moves
+			int marbles[][] = recentState.getMarble_Pos();
+
+			int max = 5;
+			int min = 0;
+			int range = max - min + 1;
+			Boolean repick = true; //why is this capital Boolean?
+			int randPosition=0;
+			while(repick) {
+
+				randPosition = (int) (Math.random() * range) + min;
+				if (marbles[this.playerNum][randPosition]!= 0){
+					repick=false;
+				}
+			}
+
+			Point compSelected= new Point(this.playerNum,randPosition);
+
+			// send the move-action to the game if it is the computer turn
+			if(recentState.getPlayer_Turn()==this.playerNum) {
+				sleep(1000);
+
+				game.sendAction(new MancMoveAction(this, compSelected, this.playerNum));
+
+
+			}}
+	}
 	
 	/** 
 	 * sets the counter value in the text view
