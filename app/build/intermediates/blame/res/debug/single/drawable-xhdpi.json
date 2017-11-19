@@ -1,7 +1,15 @@
 [
     {
+        "merged": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
         "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
         "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_action_search.png",
+        "source": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_search.png"
     },
     {
         "merged": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_action_search.png",

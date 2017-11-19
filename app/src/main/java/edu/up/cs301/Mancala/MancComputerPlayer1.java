@@ -9,7 +9,7 @@ import edu.up.cs301.game.util.Tickable;
 
 /**
  * A computer-version of a Mancala-player.  Since this is such a simple game,
- * it just sends a randomly selected hole,
+ * it just sends a randomly selected hole that contains marbles from its row.
  *
  * @author Shayna Noone
  * @author Courtney Cox
@@ -44,33 +44,41 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
             recentState = (MancState)info;
         }
     }
+
+    /**
+     * timerTicked is where the computer player selects a viable hole to send to game
+     * action when it isn't waiting for its turn.
+     */
     protected void timerTicked() {
+        //makes sure there is a game in play
         if(recentState != null){
-        int marbles[][] = recentState.getMarble_Pos();
+            //saves the array with the number of marbles in the holes
+            int marbles[][] = recentState.getMarble_Pos();
 
-        int max = 5;
-        int min = 0;
-        int range = max - min + 1;
-        Boolean repick = true;
-        int randPosition=0;
-        while(repick) {
+            //the holes range:
+            int max = 5;
+            int min = 0;
+            //boolean to see if
+            Boolean repick = true;
+            int randPosition=0;
+            while(repick) {
 
-            randPosition = (int) (Math.random() * range) + min;
-            if (marbles[this.playerNum][randPosition]!= 0){
-                repick=false;
+                randPosition = (int) (Math.random() * max - min + 1) + min;
+                if (marbles[this.playerNum][randPosition]!= 0){
+                    repick=false;
+                }
             }
-        }
 
-        Point compSelected= new Point(this.playerNum,randPosition);
+            Point compSelected= new Point(this.playerNum,randPosition);
 
-        // send the move-action to the game if it is the computer turn
-        if(recentState.getPlayer_Turn()==this.playerNum) {
-            sleep(1000);
+            // send the move-action to the game if it is the computer turn
+            if(recentState.getPlayer_Turn()==this.playerNum) {
+                sleep(5000);
 
-            game.sendAction(new MancMoveAction(this, compSelected, this.playerNum));
+                game.sendAction(new MancMoveAction(this, compSelected, this.playerNum));
 
 
-        }}
+            }}
     }
 
     public int getPlayerNum(){return this.playerNum;}
