@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="P:\CS301\CounterGame-master\CounterGame-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\noones18\StudioProjects\CounterGame-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="06184d31801506f9ab47c206b004aeac4688a203">
+        <dex dex="C:\Users\noones18\StudioProjects\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_faaf36662f411e5e60a5314767de3c13681a00ca\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\noones18\StudioProjects\CounterGame-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="P:\CS301\CounterGame-master\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a04694feed2eb6f13dc10fa33f1020af97d8cd52\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="P:\CS301\CounterGame-master\CounterGame-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="bce33a721a2e1e42b9cfed6f53de003edb7145f7">
-        <dex dex="P:\CS301\CounterGame-master\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_36291d070c35dccb4122e3dea93d67a1aa3847a4\classes.dex" />
+        <dex dex="C:\Users\noones18\StudioProjects\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_74e70239b818c71dda6ba6a578972cc04358272f\classes.dex" />
     </item>
 
 </items>

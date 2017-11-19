@@ -138,7 +138,8 @@ public class MancLocalGame extends LocalGame {
                 }
 
             gameState.setMarble_Pos(marbles);
-
+            gameState.setPlayer0_Score(marbles[0][6]);
+            gameState.setPlayer1_Score(marbles[1][6]);
 
             sendUpdatedStateTo(players[0]);
             sendUpdatedStateTo(players[1]);
@@ -173,9 +174,9 @@ public class MancLocalGame extends LocalGame {
     @Override
     protected String checkIfGameOver() {
 
-        int player0Score = this.gameState.getPlayer0_Score();
-        int player1Score = this.gameState.getPlayer1_Score();
-        int[][] marbles = this.gameState.getMarble_Pos();
+        int player0Score = gameState.getPlayer0_Score();
+        int player1Score = gameState.getPlayer1_Score();
+        int[][] marbles = gameState.getMarble_Pos();
         int count0=0; //if count not equal to zero then game not over
         int count1 =0;
         for (int i = 0; i < 6; i++) {
