@@ -145,7 +145,7 @@ public void tick(Canvas canvas) - preforms animation
         // if(this.playerNum != recentState.getPlayer_Turn()) return false;
         if (game == null) return false;
         //returns if not players turn. In essence disables surface interface until it is its turn
-        if(recentState.getPlayer_Turn()!=this.playerNum) return false;
+        //if(recentState.getPlayer_Turn()!=this.playerNum) return false;
         // Construct the action and send it to the game
         GameAction action = new MancMoveAction(this, recentState.getSelected_Hole(), this.playerNum);
 

@@ -206,7 +206,7 @@ class MancComputerPlayer2 extends MancComputerPlayer1 {
 			}
 			// send the move-action to the game if it is the computer turn
 			if(recentState.getPlayer_Turn()==this.playerNum) {
-				sleep(2000);
+				sleep(1000);
 
 				game.sendAction(new MancMoveAction(this, select, this.playerNum));
 

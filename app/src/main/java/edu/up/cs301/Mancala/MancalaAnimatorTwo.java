@@ -113,52 +113,24 @@ public class MancalaAnimatorTwo implements Animator {
                 mediate = holes[i][j];
                 hole = mediate.getLocation();
                 for(int len = 0; len < mar_pos[i][j]; len++){
-                    if(j == 7){
-                        random = ran.nextInt(4);
-                        if (random == 0) {
-                            placement.set(hole.x + maxX / (ran.nextInt(320 - 70) + 70), hole.y + maxX / (ran.nextInt(5 - 2) + 2));
-                            marbles[count] = new Marble(placement, New_Color[Color_Count], count);
-                            count++;
-                            if (Color_Count == 3){              //wrap array back around
-                                Color_Count = 0;
-                            }
-                            else {
-                                Color_Count++;
-                            }
+                    if(j == 6){
+                        random = 6;
+                        if(hole.x<.5*maxX) {
+                            placement.set((float) (.04*maxX +Math.random()*(.08*maxX-maxX/75)+maxX/75 ),
+                                    (float) (.15*maxY+Math.random()*(.55*maxY-2*maxX/75))+maxX/75);
+                        }else{
+                            placement.set((float) (.87*maxX  +Math.random()*(.08*maxX-maxX/75)+maxX/75 ),
+                                    (float) (.15*maxY+Math.random()*(.55*maxY-2*maxX/75)+maxX/75));
                         }
-                        else if (random == 1) {
-                            placement.set(hole.x + maxX / (ran.nextInt(320 - 70) + 70), hole.y - maxX / (ran.nextInt(5 - 2) + 2));
-                            marbles[count] = new Marble(placement, New_Color[Color_Count], count);
-                            count++;
-                            if (Color_Count == 3){              //wrap array back around
-                                Color_Count = 0;
-                            }
-                            else {
-                                Color_Count++;
-                            }
+                        marbles[count] = new Marble(placement, New_Color[Color_Count], count);
+                        count++;
+                        if (Color_Count == 3){              //wrap array back around
+                            Color_Count = 0;
                         }
-                        else if (random == 2) {
-                            placement.set(hole.x - maxX / (ran.nextInt(320 - 70) + 70), hole.y + maxX / (ran.nextInt(5 - 2) + 2));
-                            marbles[count] = new Marble(placement,New_Color[Color_Count], count);
-                            count++;
-                            if (Color_Count == 3){              //wrap array back around
-                                Color_Count = 0;
-                            }
-                            else {
-                                Color_Count++;
-                            }
+                        else {
+                            Color_Count++;
                         }
-                        else if (random == 3) {
-                            placement.set(hole.x - maxX / (ran.nextInt(320 - 70) + 70), hole.y - maxX / (ran.nextInt(5 - 2) + 2));
-                            marbles[count] = new Marble(placement, New_Color[Color_Count], count);
-                            count++;
-                            if (Color_Count == 3){              //wrap array back around
-                                Color_Count = 0;
-                            }
-                            else {
-                                Color_Count++;
-                            }
-                        }
+
                     }
                     else {
                         random = ran.nextInt(4);
@@ -324,6 +296,7 @@ public class MancalaAnimatorTwo implements Animator {
             location = marble_hold.getLocation();
             marble_color.setColor(marble_hold.getColor());
             g.drawCircle(location.x, location.y, maxX / 75, marble_color);
+
         }
     }
 
