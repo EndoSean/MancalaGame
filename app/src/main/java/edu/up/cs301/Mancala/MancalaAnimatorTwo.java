@@ -60,14 +60,17 @@ public class MancalaAnimatorTwo implements Animator {
                     if(j == 6){
                         x_offset = (float).915*maxX;
                         y_offset = (float).425*maxY;
-                        hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
+                        //hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
+                        hold.set(x_offset,y_offset);
                         holes[i][j] = new Hole(hold, Color.BLACK);
                     }
-                    x_offset = maxX * (float) .12 * j;
-                    y_offset = maxY * (float) .45 * i;
-                    hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
-                    //////holes[i][j] = new PointF(hold.x,hold.y);
-                    holes[i][j] = new Hole(hold, Color.BLACK);
+                    else {
+                        x_offset = maxX * (float) .12 * j;
+                        y_offset = maxY * (float) .45 * i;
+                        hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
+                        //////holes[i][j] = new PointF(hold.x,hold.y);
+                        holes[i][j] = new Hole(hold, Color.BLACK);
+                    }
                 }
             }
             else {
@@ -75,14 +78,17 @@ public class MancalaAnimatorTwo implements Animator {
                     if(j == 6){
                         x_offset = (float).085*maxX;
                         y_offset = (float).425*maxY;
-                        hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
+                        //hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
+                        hold.set(x_offset,y_offset);
                         holes[i][j] = new Hole(hold, Color.BLACK);
                     }
-                    x_offset = maxX * (float) .12 * (5-j);
-                    y_offset = maxY * (float) .45 * i;
-                    hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
-                    //////holes[i][j] = new PointF(hold.x,hold.y);
-                    holes[i][j] = new Hole(hold, Color.BLACK);
+                    else {
+                        x_offset = maxX * (float) .12 * (5 - j);
+                        y_offset = maxY * (float) .45 * i;
+                        hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
+                        //////holes[i][j] = new PointF(hold.x,hold.y);
+                        holes[i][j] = new Hole(hold, Color.BLACK);
+                    }
                 }
             }
         }
@@ -110,7 +116,7 @@ public class MancalaAnimatorTwo implements Animator {
                     if(j == 7){
                         random = ran.nextInt(4);
                         if (random == 0) {
-                            placement.set(hole.x + maxX / (ran.nextInt(320 - 70) + 70), hole.y + maxX / (ran.nextInt(320 - 60) + 60));
+                            placement.set(hole.x + maxX / (ran.nextInt(320 - 70) + 70), hole.y + maxX / (ran.nextInt(5 - 2) + 2));
                             marbles[count] = new Marble(placement, New_Color[Color_Count], count);
                             count++;
                             if (Color_Count == 3){              //wrap array back around
@@ -121,7 +127,7 @@ public class MancalaAnimatorTwo implements Animator {
                             }
                         }
                         else if (random == 1) {
-                            placement.set(hole.x + maxX / (ran.nextInt(320 - 70) + 70), hole.y - maxX / (ran.nextInt(320 - 60) + 60));
+                            placement.set(hole.x + maxX / (ran.nextInt(320 - 70) + 70), hole.y - maxX / (ran.nextInt(5 - 2) + 2));
                             marbles[count] = new Marble(placement, New_Color[Color_Count], count);
                             count++;
                             if (Color_Count == 3){              //wrap array back around
@@ -132,7 +138,7 @@ public class MancalaAnimatorTwo implements Animator {
                             }
                         }
                         else if (random == 2) {
-                            placement.set(hole.x - maxX / (ran.nextInt(320 - 70) + 70), hole.y + maxX / (ran.nextInt(320 - 60) + 60));
+                            placement.set(hole.x - maxX / (ran.nextInt(320 - 70) + 70), hole.y + maxX / (ran.nextInt(5 - 2) + 2));
                             marbles[count] = new Marble(placement,New_Color[Color_Count], count);
                             count++;
                             if (Color_Count == 3){              //wrap array back around
@@ -143,7 +149,7 @@ public class MancalaAnimatorTwo implements Animator {
                             }
                         }
                         else if (random == 3) {
-                            placement.set(hole.x - maxX / (ran.nextInt(320 - 70) + 70), hole.y - maxX / (ran.nextInt(320 - 60) + 60));
+                            placement.set(hole.x - maxX / (ran.nextInt(320 - 70) + 70), hole.y - maxX / (ran.nextInt(5 - 2) + 2));
                             marbles[count] = new Marble(placement, New_Color[Color_Count], count);
                             count++;
                             if (Color_Count == 3){              //wrap array back around
