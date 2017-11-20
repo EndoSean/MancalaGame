@@ -194,7 +194,9 @@ public class MancLocalGame extends LocalGame {
                 marbles[0][c]=0;
                 marbles[1][c]=0;
             }
-
+            gameState.setMarble_Pos(marbles);
+            player0Score = gameState.getPlayer0_Score();
+            player1Score = gameState.getPlayer1_Score();
             if (player0Score > player1Score) {
 
                 return  playerNames[0]+" has won." +player0Score;

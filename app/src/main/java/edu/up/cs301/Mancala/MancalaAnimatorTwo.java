@@ -29,6 +29,9 @@ public class MancalaAnimatorTwo implements Animator {
     private int[][] mar_pos = new int[2][7];
     // hold on to the gameState
     private MancState Current_State = new MancState();
+    // boolean to know if we should "invert" the board
+    // depends on what value the human player is
+    boolean invert;
 
     public MancalaAnimatorTwo(){
         Text_Color.setColor(Color.BLACK);
@@ -54,6 +57,15 @@ public class MancalaAnimatorTwo implements Animator {
         PointF hold = new PointF();
         float x_offset;
         float y_offset;
+
+        // check if inverted board is needed
+//        if (player_number == 0){
+//            invert = true;
+//        }
+//        else{
+//            invert = false;
+//        }
+
         for (int i = 1; i>=0; i--){
             if(i == 1) {
                 for (int j = 0; j < 7; j++) {
@@ -96,14 +108,31 @@ public class MancalaAnimatorTwo implements Animator {
         return Initialize_GUI;
     }
 
-    public MancState setMarbles(){
+    public MancState setMarbles(int player_number){
         mar_pos = Current_State.getMarble_Pos();
         PointF hole;
         Hole mediate;
         PointF placement = new PointF();
         Random ran = new Random();
 
+// check if inverted board is needed
+        if (player_number == 0){
+            invert = true;
+            int[][] mar_hold = new int[2][7];
+            for(int r = 0; r<2; r++){
+                for(int c = 0; c<7; c++){
+                    mar_hold[r][c] = mar_pos[1-r][c];
+                }
+            }
+            mar_pos = mar_hold;
+        }
+        else{
+            invert = false;
+        }
+
+
         int random;
+        // for rotating colors, the count steps through to the next color after a marble is set
         int[] New_Color = {Color.RED,Color.GREEN,Color.BLUE,Color.YELLOW};
         int Color_Count = 0;
 
@@ -113,7 +142,7 @@ public class MancalaAnimatorTwo implements Animator {
                 mediate = holes[i][j];
                 hole = mediate.getLocation();
                 for(int len = 0; len < mar_pos[i][j]; len++){
-                    if(j == 6){
+                    if(j == 6){                                 // set marble positions for the bank
                         random = 6;
                         if(hole.x<.5*maxX) {
                             placement.set((float) (.04*maxX +Math.random()*(.08*maxX-maxX/75)+maxX/75 ),
@@ -124,7 +153,7 @@ public class MancalaAnimatorTwo implements Animator {
                         }
                         marbles[count] = new Marble(placement, New_Color[Color_Count], count);
                         count++;
-                        if (Color_Count == 3){              //wrap array back around
+                        if (Color_Count == 3){                  //wrap array back around
                             Color_Count = 0;
                         }
                         else {
@@ -132,7 +161,7 @@ public class MancalaAnimatorTwo implements Animator {
                         }
 
                     }
-                    else {
+                    else {                                      // set the marble positions for the holes
                         random = ran.nextInt(4);
                         if (random == 0) {
                             placement.set(hole.x + maxX / (ran.nextInt(150 - 70) + 70), hole.y + maxX / (ran.nextInt(150 - 70) + 70));
@@ -173,28 +202,6 @@ public class MancalaAnimatorTwo implements Animator {
                         }
                     }
                 }
-
-
-
-//                mediate = holes[i][j];
-//                hole = mediate.getLocation();
-//                placement.set(hole.x+maxX/(ran.nextInt(200-1)+1),hole.y+maxX/(ran.nextInt(200-1)+1));
-//                marbles[count] = new Marble(placement,Color.RED,count);
-//                //mediate.addMarble(count);
-//                count++;
-//                placement.set(hole.x+maxX/(ran.nextInt(200-1)+1), hole.y+maxX/(ran.nextInt(200-1)+1));
-//                marbles[count] = new Marble(placement,Color.GREEN,count);
-//                //mediate.addMarble(count);
-//                count++;
-//                placement.set(hole.x-maxX/(ran.nextInt(200-1)+1),hole.y-maxX/(ran.nextInt(200-1)+1));
-//                marbles[count] = new Marble(placement,Color.BLUE,count);
-//                //mediate.addMarble(count);
-//                count++;
-//                placement.set(hole.x-maxX/(ran.nextInt(200-1)+1),hole.y-maxX/(ran.nextInt(200-1)+1));
-//                marbles[count] = new Marble(placement,Color.YELLOW,count);
-//                //mediate.addMarble(count);
-//                count++;
-//                holes[i][j] = mediate;
             }
         }
         Current_State.setMarbles(marbles);
@@ -242,8 +249,21 @@ public class MancalaAnimatorTwo implements Animator {
         g.drawText(opp, (float) .03 * maxX, (float) .135 * maxY, Text_Color); //Opponent
         g.drawText(play, (float) .86 * maxX, (float) .135 * maxY, Text_Color);//Player
 
+
         g.drawText("" + mar_pos[0][6], (float) .03 * maxX, (float) .135 * maxY - 70, Text_Color);
         g.drawText("" + mar_pos[1][6], (float) .86 * maxX, (float) .135 * maxY - 70, Text_Color);
+
+        mar_pos = Current_State.getMarble_Pos();
+        // invert board if necessary
+        if (invert){
+            int[][] mar_hold = new int[2][7];
+            for(int r = 0; r<2; r++){
+                for(int c = 0; c<7; c++){
+                    mar_hold[r][c] = mar_pos[1-r][c];
+                }
+            }
+            mar_pos = mar_hold;
+        }
 
         //draw holes
         PointF hold = new PointF();
@@ -269,7 +289,6 @@ public class MancalaAnimatorTwo implements Animator {
         //Updates holes to account for change in marbles from action
         //holes marble array is never accessed and may be redundant or we can reduce the number of
         //marble arrays to be exclusively in the holes class and not have several different ones to navigate
-        mar_pos = Current_State.getMarble_Pos();
         for(int r=0; r<2;r++ ){
             for(int c=0; c<6; c++){
                 ArrayList tempHole = holes[r][c].takeMarbles();
@@ -346,7 +365,12 @@ public class MancalaAnimatorTwo implements Animator {
                     else {
                         mediate.setColor(Color.GREEN);
                         holes[i][j] = mediate;
-                        Selected_Hole.set(i,j);
+                        if(invert){                     // send the inverted choice
+                            Selected_Hole.set(0,j);
+                        }
+                        else {
+                            Selected_Hole.set(i, j);
+                        }
                         //Is_Moving = true;
                         //To_Move = mediate;
                     }

@@ -89,7 +89,7 @@ public void tick(Canvas canvas) - preforms animation
         if (info instanceof MancState){
             recentState = (MancState)info;
             animator.setState(recentState);
-            animator.setMarbles();
+            animator.setMarbles(this.playerNum);
         }
 
     }
@@ -123,12 +123,12 @@ public void tick(Canvas canvas) - preforms animation
         animator.getBounds(maxX,maxY);
         if(recentState == null) {
             recentState = animator.setHoles();
-            recentState = animator.setMarbles();
+            recentState = animator.setMarbles(this.playerNum);
         }
         else {
             //int[][] Marble_Pos = recentState.getMarble_Pos();
             //Point Hole_Selected = recentState.getSelected_Hole();
-            recentState = animator.setMarbles();
+            recentState = animator.setMarbles(this.playerNum);
         }
 
 

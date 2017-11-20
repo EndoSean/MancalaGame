@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import edu.up.cs301.counter.CounterComputerPlayer1;
 import edu.up.cs301.counter.CounterState;
+import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.R;
 import edu.up.cs301.game.infoMsg.GameInfo;
@@ -45,7 +46,7 @@ import edu.up.cs301.game.util.Tickable;
  * @author Courtney Cox
  * @version November 2017
  */
-class MancComputerPlayer2 extends MancComputerPlayer1 {
+class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 
 	/*
 	 * instance variables
@@ -87,7 +88,8 @@ class MancComputerPlayer2 extends MancComputerPlayer1 {
 	@Override
 	protected void receiveInfo(GameInfo info) {
 		// perform superclass behavior
-		super.receiveInfo(info);
+		//super.receiveInfo(info);
+
 
 		Log.i("computer player", "receiving");
 
@@ -163,7 +165,7 @@ class MancComputerPlayer2 extends MancComputerPlayer1 {
 			//Checks for holes with marbles that will end in the bank
 			for(int c=0; c<6;c++){
 				int marb = marbles[this.playerNum][c];
-				if(marb == c+1 && !holeSelect){
+				if(marb == 6-c && !holeSelect){
 					select=new Point(this.playerNum, c);
 					holeSelect=true;
 				}
