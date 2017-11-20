@@ -1,5 +1,6 @@
 package edu.up.cs301.counter;
 
+import edu.up.cs301.Mancala.MancalaAnimator;
 import edu.up.cs301.animation.AnimationSurface;
 import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GameMainActivity;
@@ -11,7 +12,6 @@ import android.graphics.Point;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 
@@ -82,7 +82,7 @@ public class CounterHumanPlayer extends GameHumanPlayer implements OnClickListen
 		if (game == null) return;
 
 		// Construct the action and send it to the game
-		GameAction action = null;
+		GameAction action;
 		if (button.getId() == R.id.plusButton) {
 			// plus button: create "increment" action
 			action = new CounterMoveAction(this, true);
@@ -171,7 +171,11 @@ public class CounterHumanPlayer extends GameHumanPlayer implements OnClickListen
 		 **/
 	}
 
-	private class onTouchEvent implements View.OnTouchListener{
+    public int getPlayerNum() {
+        return 0;
+    }
+
+    private class onTouchEvent implements View.OnTouchListener{
 		public boolean onTouch(View v, MotionEvent me){
 			animator.onTouch(me);
 			return true;

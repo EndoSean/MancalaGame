@@ -1,5 +1,6 @@
-package edu.up.cs301.counter;
+package edu.up.cs301.Mancala;
 
+import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
@@ -26,10 +27,12 @@ public class MancLocalGame extends LocalGame {
 
         if(checkIfGameOver()!=null){
             return false;
-        }else if(player != gameState.getPlayer_Turn()){
-            return false;
         }
-        return true;
+        //is player turn = player number?
+        if(player==this.gameState.getPlayer_Turn()){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -46,7 +49,6 @@ public class MancLocalGame extends LocalGame {
     @Override
     protected boolean makeMove(GameAction action) {
         Log.i("action", action.getClass().toString());
-
 
         if (action instanceof MancMoveAction) {
 

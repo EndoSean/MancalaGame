@@ -1,9 +1,9 @@
-package edu.up.cs301.counter;
+package edu.up.cs301.Mancala;
 
 import android.graphics.Point;
 import android.view.Display;
 import android.view.MotionEvent;
-
+import android.view.Surface;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.TextView;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import edu.up.cs301.animation.AnimationSurface;
 import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GameMainActivity;
+import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.R;
 import edu.up.cs301.game.actionMsg.GameAction;
 import edu.up.cs301.game.infoMsg.GameInfo;
@@ -30,7 +31,7 @@ import edu.up.cs301.game.infoMsg.GameInfo;
 public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchListener {
 
 
-
+    MancalaAnimatorTwo animator;
 
 	/* instance variables */
     MancalaAnimator animator;
@@ -106,10 +107,10 @@ public void tick(Canvas canvas) - preforms animation
     public void receiveInfo(GameInfo info) {
         if (info instanceof MancState){
             recentState = (MancState)info;
+            animator.setState(recentState);
+            animator.setMarbles(this.playerNum);
         }
-        if (recentState != null) {
-            receiveInfo(info);
-        }
+
     }
 
     /**
@@ -158,13 +159,11 @@ public void tick(Canvas canvas) - preforms animation
     }
 
     public boolean PostonTouch(View view, MotionEvent motionEvent) {
-        if (this.playerNum!=recentState.getPlayer_Turn())return false;
         // if we are not yet connected to a game, ignore
         if (game == null) return false;
-        //////////////////////////////////NEEDS TO DETERMINE COLUMN HOLE IS IN//////////
-        int col = (int)motionEvent.getRawX();
+
         // Construct the action and send it to the game
-        GameAction action = new MancMoveAction(this,this.playerNum,col);
+        GameAction action = new MancMoveAction(this, true);
 
         game.sendAction(action); // send action to the game
         return true;
@@ -172,9 +171,9 @@ public void tick(Canvas canvas) - preforms animation
 
     private class onTouchEvent implements View.OnTouchListener{
         public boolean onTouch(View v, MotionEvent me){
-
             animator.onTouch(me);
             boolean set = PostonTouch(v,me);
+
 
             return set;
 

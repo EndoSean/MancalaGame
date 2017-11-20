@@ -21,10 +21,7 @@ public class CounterComputerPlayer1 extends GameComputerPlayer implements Tickab
      * @param name
      * 		the player's name
      */
-	// the most recent game state, as given to us by the CounterLocalGame
-	private MancState recentState;
-
-    public CounterComputerPlayer1(String name) {
+	CounterComputerPlayer1(String name) {
         // invoke superclass constructor
         super(name);
         
@@ -44,8 +41,6 @@ public class CounterComputerPlayer1 extends GameComputerPlayer implements Tickab
 		if (info instanceof MancState){
 		recentState = (MancState)info;}
 	}
-
-
 	
 	/**
 	 * callback method: the timer ticked
@@ -66,4 +61,7 @@ public class CounterComputerPlayer1 extends GameComputerPlayer implements Tickab
 		game.sendAction(new MancMoveAction(this,this.playerNum,c));
 	}
 
+	public int getPlayerNum() {
+		return this.playerNum;
+	}
 }

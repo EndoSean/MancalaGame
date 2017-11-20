@@ -1,7 +1,9 @@
-package edu.up.cs301.counter;
+package edu.up.cs301.Mancala;
 
 import java.util.ArrayList;
 
+import edu.up.cs301.counter.CounterComputerPlayer1;
+import edu.up.cs301.counter.CounterComputerPlayer2;
 import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
@@ -44,13 +46,13 @@ public class MancMainActivity extends GameMainActivity {
         // a computer player type (player type 1)
         playerTypes.add(new GamePlayerType("Computer Player") {
             public GamePlayer createPlayer(String name) {
-                return new CounterComputerPlayer1(name); //This needs to be changed when we have a manc computer player****************
+                return new MancComputerPlayer1(name); //This needs to be changed when we have a manc computer player****************
             }});
 
         // a computer player type (player type 2)
         playerTypes.add(new GamePlayerType("Computer Player (GUI)") {
             public GamePlayer createPlayer(String name) {
-                return new CounterComputerPlayer2(name);//This needs to be changed when we have a mancala computer player****************
+                return new MancComputerPlayer2(name);//This needs to be changed when we have a mancala computer player****************
             }});
 
         // Create a game configuration class for Manc:
@@ -62,8 +64,8 @@ public class MancMainActivity extends GameMainActivity {
                 PORT_NUMBER);
 
         // Add the default players to the configuration
-        defaultConfig.addPlayer("Human", 0); // player 1: a human player
-        defaultConfig.addPlayer("Computer", 1); // player 2: a computer player
+        defaultConfig.addPlayer("Human", 1); // player 1: a human player
+        defaultConfig.addPlayer("Computer", 0); // player 2: a computer player
 
         // Set the default remote-player setup:
         // - player name: "Remote Player"

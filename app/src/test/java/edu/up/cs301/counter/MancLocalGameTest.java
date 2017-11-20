@@ -2,6 +2,9 @@ package edu.up.cs301.counter;
 
 import org.junit.Test;
 
+import edu.up.cs301.Mancala.MancLocalGame;
+import edu.up.cs301.Mancala.MancState;
+
 import static org.junit.Assert.*;
 
 /**
@@ -27,7 +30,7 @@ public class MancLocalGameTest {
     public void checkIfGameOver() throws Exception {
 
     }
-
+/**
     @Test
     public void testCanMove(){
         MancLocalGame testing = new MancLocalGame();
@@ -63,7 +66,7 @@ public class MancLocalGameTest {
         assertEquals(thing, "player1 has won.");
 
     }
-
+**/
     /**
     @Test
     public void testMakeMove(){

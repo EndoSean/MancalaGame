@@ -1,4 +1,4 @@
-package edu.up.cs301.counter;
+package edu.up.cs301.Mancala;
 
 import android.graphics.Point;
 
@@ -23,6 +23,8 @@ public class MancState extends GameState {
     private int player0_Score;
     private int player1_Score;
     private Point Selected_Hole; //keeps track of the hole that has been selected // Endo
+    private Hole[][] holes = new Hole[2][7];        // Keeps track of marble placements GUI
+    private Marble[] marbles = new Marble[48];      // Keeps track of marble positions GUI
 
     /**
      * constructor, initializing the player turn, marble position array, player's scores.
@@ -30,7 +32,7 @@ public class MancState extends GameState {
      */
     public MancState() {
 
-        player_Turn = 0;
+        player_Turn = 1;
         player0_Score = 0;
         player1_Score = 0;
         for (int i = 0; i < 2; i++) {
@@ -38,7 +40,7 @@ public class MancState extends GameState {
                 Marble_Pos[i][j] = 4;
             }
         }
-        Selected_Hole = new Point();
+        Selected_Hole = new Point(-1,-1);
     }
 
     /**
@@ -52,6 +54,8 @@ public class MancState extends GameState {
         this.setPlayer1_Score(aMancState.getPlayer1_Score());
         this.setMarble_Pos(aMancState.getMarble_Pos());
         this.setSelected_Hole(aMancState.getSelected_Hole());
+        this.setHoles(aMancState.getHoles());
+        this.setMarbles(aMancState.getMarbles());
     }
 
 
@@ -73,7 +77,10 @@ public class MancState extends GameState {
         return player1_Score;
     }
 
-    public void setMarble_Pos(int[][] position) {   Marble_Pos = position;    }
+    public void setMarble_Pos(int[][] position) {
+        Marble_Pos = position;
+    setPlayer0_Score(Marble_Pos[0][6]);
+    setPlayer1_Score(Marble_Pos[1][6]);}
 
     public int[][] getMarble_Pos() {
         return Marble_Pos;
@@ -87,6 +94,22 @@ public class MancState extends GameState {
 
     public Point getSelected_Hole(){
         return Selected_Hole;
+    }
+
+    public void setHoles(Hole[][] in){
+        holes = in;
+    }
+
+    public Hole[][] getHoles(){
+        return holes;
+    }
+
+    public void setMarbles(Marble[] in){
+        marbles = in;
+    }
+
+    public Marble[] getMarbles(){
+        return marbles;
     }
 
 }

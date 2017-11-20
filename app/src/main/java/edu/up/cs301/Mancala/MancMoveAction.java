@@ -1,4 +1,6 @@
-package edu.up.cs301.counter;
+package edu.up.cs301.Mancala;
+
+import android.graphics.Point;
 
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.actionMsg.GameAction;
@@ -15,32 +17,30 @@ public class MancMoveAction extends GameAction {
     private static final long serialVersionUID = 28062013L;
 
     //whether this move is a confirmed(true)
-    private int row;
-    private int col;
-    private Boolean isSelected = false;
-
+    private Point selected_Hole;
+    public int playerNumber;
     /**
-     * Constructor for the CounterMoveAction class.
+     * Constructor for the MancMoveAction class.
      *
      * @param player
      *            the player making the move
-     * @param c
-     *            value to initialize this.hole
+     * @param selected
+     *
      */
-    public MancMoveAction(GamePlayer player, int c, int r) {
+    public MancMoveAction(GamePlayer player,  Point selected, int playerNum) {
         super(player);
-        this.row=r;
-        this.col=c;
+        this.selected_Hole = selected;
+        playerNumber= playerNum;
     }
 
     /**
      * getter method, to tell whether the move is confirmed
      *
      * @return
-     * 		a boolean that tells whether this move is confirmed
+     * 		the hole the player has selected to make a move
      */
-    public boolean isSelected() {
-        return isSelected;
+    public Point getSelected_Hole() {
+        return selected_Hole;
 
     }
 }//class MancMoveAction
