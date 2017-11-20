@@ -27,20 +27,15 @@ public class MancLocalGame extends LocalGame {
 
         if(checkIfGameOver()!=null){
             return false;
-        }//else if(player != gameState.getSelected_Hole().x){
-           // return false;
-       // }
-        //is player turn = player number?
-        if(player==this.gameState.getPlayer_Turn()){
-            return true;
         }
-        return false;
+        //is player turn = player number?
+        return player == this.gameState.getPlayer_Turn();
     }
 
     /**
-     * This ctor should be called when a new counter game is started
+     * This constructor should be called when a new Mancala game is started
      */
-    public MancLocalGame() {
+    MancLocalGame() {
         // initialize the game state,
         this.gameState = new MancState();
     }
@@ -58,7 +53,6 @@ public class MancLocalGame extends LocalGame {
 
             // cast so that we Java knows it's a MancMoveAction
             MancMoveAction cma = (MancMoveAction)action;
-
 
             if(!canMove(cma.playerNumber)){
                 return false;
@@ -129,20 +123,20 @@ public class MancLocalGame extends LocalGame {
                 }
 
             }
-            if(numMarb==0 && !bank)
+            if(numMarb==0 && !bank) {
                 // we are going to switch players if the last marb didnt land in the bank
-                if(gameState.getPlayer_Turn()==1) {
+                if (gameState.getPlayer_Turn() == 1) {
                     gameState.setPlayer_Turn(0);
-                }else{
+                } else {
                     gameState.setPlayer_Turn(1);
                 }
-
+            }
+            //update state
             gameState.setMarble_Pos(marbles);
-            gameState.setPlayer0_Score(marbles[0][6]);
-            gameState.setPlayer1_Score(marbles[1][6]);
-
+            //send updated state to players
             sendUpdatedStateTo(players[0]);
             sendUpdatedStateTo(players[1]);
+
             // denote that this was a legal/successful move
             return true;
         }
@@ -174,17 +168,16 @@ public class MancLocalGame extends LocalGame {
     @Override
     protected String checkIfGameOver() {
 
-        int player0Score = gameState.getPlayer0_Score();
-        int player1Score = gameState.getPlayer1_Score();
+
         int[][] marbles = gameState.getMarble_Pos();
         int count0=0; //if count not equal to zero then game not over
         int count1 =0;
+        //counts all marbles left in both rows
         for (int i = 0; i < 6; i++) {
             count0 += marbles[0][i];
-        }
-        for (int i = 0; i < 6; i++) {
             count1 += marbles[1][i];
         }
+        //if either row equals zero
         if(count0==0||count1==0) {
             //Adds remaining marbles to respective banks
             marbles[1][6]+=count1;
@@ -194,22 +187,23 @@ public class MancLocalGame extends LocalGame {
                 marbles[0][c]=0;
                 marbles[1][c]=0;
             }
+            //sends updated banks to state
             gameState.setMarble_Pos(marbles);
-            player0Score = gameState.getPlayer0_Score();
-            player1Score = gameState.getPlayer1_Score();
+            //gets new scores
+            int player0Score = gameState.getPlayer0_Score();
+            int player1Score = gameState.getPlayer1_Score();
+            //if player0 won
             if (player0Score > player1Score) {
 
                 return  playerNames[0]+" has won." +player0Score;
-            } else if (player0Score < player1Score) {
+            } //if player0 lost
+            else if (player0Score < player1Score) {
 
                 return  playerNames[1]+" has won."+ player1Score;
-            } else if (player0Score == player1Score) {
+
+            } else if (player0Score == player1Score) { //equal scores aka tie
 
                 return " Tie ";
-            } else {
-                // game is still between the two limit: return null, as the game
-                // is not yet over
-                return null;
             }
         }
         return null;

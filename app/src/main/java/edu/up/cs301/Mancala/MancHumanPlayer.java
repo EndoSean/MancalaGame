@@ -30,14 +30,15 @@ import edu.up.cs301.game.infoMsg.GameInfo;
 public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchListener {
 
 
-    MancalaAnimatorTwo animator;
 
 	/* instance variables */
+	//The animator
+    private MancalaAnimatorTwo animator;
 
     // The TextView the displays the current counter value
     private TextView counterValueTextView;
 
-    // the most recent game state, as given to us by the CounterLocalGame
+    // the most recent game state, as given to us by the MancLocalGame
     private MancState recentState;
 
     // the android activity that we are running
@@ -51,15 +52,7 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
     public MancHumanPlayer(String name) {
         super(name);
     }
-        /*
 
-            public void onTouch (View v) - handles touch events.
-
-
-
-public void tick(Canvas canvas) - preforms animation
-
-*/
     /**
      * Returns the GUI's top view object
      *
@@ -70,13 +63,6 @@ public void tick(Canvas canvas) - preforms animation
         return myActivity.findViewById(R.id.top_gui_layout);
     }
 
-    /**
-     * sets the counter value in the text view
-     */
-    protected void updateDisplay() {
-        // set the text in the appropriate widget
-
-    }
 
     /**
      * callback method when we get a message (e.g., from the game)
@@ -86,6 +72,7 @@ public void tick(Canvas canvas) - preforms animation
      */
     @Override
     public void receiveInfo(GameInfo info) {
+        //if receive mancState object set it as current state and send to animator
         if (info instanceof MancState){
             recentState = (MancState)info;
             animator.setState(recentState);
@@ -103,8 +90,6 @@ public void tick(Canvas canvas) - preforms animation
      */
     public void setAsGui(GameMainActivity activity) {
 
-
-
         myActivity = activity;
 
         // Load the layout resource for our GUI
@@ -121,13 +106,13 @@ public void tick(Canvas canvas) - preforms animation
         float maxX = (float)mdispSize.x;
         float maxY = (float)mdispSize.y;
         animator.getBounds(maxX,maxY);
+
         if(recentState == null) {
             recentState = animator.setHoles();
             recentState = animator.setMarbles(this.playerNum);
         }
         else {
-            //int[][] Marble_Pos = recentState.getMarble_Pos();
-            //Point Hole_Selected = recentState.getSelected_Hole();
+
             recentState = animator.setMarbles(this.playerNum);
         }
 
@@ -140,12 +125,10 @@ public void tick(Canvas canvas) - preforms animation
     }
 
 
-    public boolean PostOnTouch(View view, MotionEvent motionEvent) {
+    private boolean PostOnTouch(View view, MotionEvent motionEvent) {
         // if we are not yet connected to a game, ignore
-        // if(this.playerNum != recentState.getPlayer_Turn()) return false;
         if (game == null) return false;
-        //returns if not players turn. In essence disables surface interface until it is its turn
-        //if(recentState.getPlayer_Turn()!=this.playerNum) return false;
+
         // Construct the action and send it to the game
         GameAction action = new MancMoveAction(this, recentState.getSelected_Hole(), this.playerNum);
 
@@ -164,9 +147,5 @@ public void tick(Canvas canvas) - preforms animation
 
         }
     }
-    public int getPlayerNum(){return this.playerNum;}
-
-
-
 
 }
