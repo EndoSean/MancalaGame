@@ -39,6 +39,7 @@ public class MancalaAnimatorTwo implements Animator {
         for(int i = 0; i<2; i++) {
             for (int j = 0; j < 7; j++) {
                 if (j==6){
+                    mar_pos[i][j]=0;
                 }
                 else {
                     mar_pos[i][j] = 4;
@@ -58,13 +59,6 @@ public class MancalaAnimatorTwo implements Animator {
         float x_offset;
         float y_offset;
 
-        // check if inverted board is needed
-//        if (player_number == 0){
-//            invert = true;
-//        }
-//        else{
-//            invert = false;
-//        }
 
         for (int i = 1; i>=0; i--){
             if(i == 1) {
@@ -72,7 +66,6 @@ public class MancalaAnimatorTwo implements Animator {
                     if(j == 6){
                         x_offset = (float).915*maxX;
                         y_offset = (float).425*maxY;
-                        //hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
                         hold.set(x_offset,y_offset);
                         holes[i][j] = new Hole(hold, Color.BLACK);
                     }
@@ -80,7 +73,6 @@ public class MancalaAnimatorTwo implements Animator {
                         x_offset = maxX * (float) .12 * j;
                         y_offset = maxY * (float) .45 * i;
                         hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
-                        //////holes[i][j] = new PointF(hold.x,hold.y);
                         holes[i][j] = new Hole(hold, Color.BLACK);
                     }
                 }
@@ -90,7 +82,6 @@ public class MancalaAnimatorTwo implements Animator {
                     if(j == 6){
                         x_offset = (float).085*maxX;
                         y_offset = (float).425*maxY;
-                        //hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
                         hold.set(x_offset,y_offset);
                         holes[i][j] = new Hole(hold, Color.BLACK);
                     }
@@ -98,7 +89,6 @@ public class MancalaAnimatorTwo implements Animator {
                         x_offset = maxX * (float) .12 * (5 - j);
                         y_offset = maxY * (float) .45 * i;
                         hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
-                        //////holes[i][j] = new PointF(hold.x,hold.y);
                         holes[i][j] = new Hole(hold, Color.BLACK);
                     }
                 }
@@ -115,7 +105,7 @@ public class MancalaAnimatorTwo implements Animator {
         PointF placement = new PointF();
         Random ran = new Random();
 
-// check if inverted board is needed
+        // check if inverted board is needed
         if (player_number == 0){
             invert = true;
             int[][] mar_hold = new int[2][7];
@@ -143,7 +133,7 @@ public class MancalaAnimatorTwo implements Animator {
                 hole = mediate.getLocation();
                 for(int len = 0; len < mar_pos[i][j]; len++){
                     if(j == 6){                                 // set marble positions for the bank
-                        random = 6;
+
                         if(hole.x<.5*maxX) {
                             placement.set((float) (.04*maxX +Math.random()*(.08*maxX-maxX/75)+maxX/75 ),
                                     (float) (.15*maxY+Math.random()*(.55*maxY-2*maxX/75))+maxX/75);
@@ -229,7 +219,7 @@ public class MancalaAnimatorTwo implements Animator {
     public int backgroundColor() {
         // create/return the background color
         return Color.rgb(140,180,255); // light blue
-        //return Color.BLACK; // returns Black
+
     }
 
     public void tick(Canvas g) {
@@ -271,9 +261,9 @@ public class MancalaAnimatorTwo implements Animator {
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 6; j++) {
                 mediate = holes[i][j];
-                //////hold = holes[i][j];
+
                 hold = mediate.getLocation();
-                ///////rectangles.setColor(Color.BLACK);
+
                 rectangles.setColor(mediate.getColor());
                 g.drawCircle(hold.x, hold.y, maxX / 18, rectangles);
                 rectangles.setColor(Color.WHITE);
@@ -282,27 +272,6 @@ public class MancalaAnimatorTwo implements Animator {
                     g.drawText("" + mar_pos[i][j], hold.x - (float) .01 * maxX, hold.y - (float) .09 * maxY, Text_Color);
                 } else {
                     g.drawText("" + mar_pos[i][j], hold.x - (float) .01 * maxX, hold.y + (float) .12 * maxY, Text_Color);
-                }
-            }
-        }
-
-        //Updates holes to account for change in marbles from action
-        //holes marble array is never accessed and may be redundant or we can reduce the number of
-        //marble arrays to be exclusively in the holes class and not have several different ones to navigate
-        for(int r=0; r<2;r++ ){
-            for(int c=0; c<6; c++){
-                ArrayList tempHole = holes[r][c].takeMarbles();
-                if(mar_pos[r][c] < holes[r][c].marbles_inside.size()){ //if the current pos contains more marbles
-                    // than the hole says it does, then remove the last in the array
-                    int dif= tempHole.size()-mar_pos[r][c];
-                    for(int d=0; d<dif; d++) {
-                        tempHole.remove(tempHole.size()-1);
-                    }
-                    holes[r][c].marbles_inside=tempHole;
-                }
-                while(mar_pos[r][c] > holes[r][c].marbles_inside.size()){
-                    holes[r][c].addMarble(1); //unsure what location to add to
-
                 }
             }
         }

@@ -192,14 +192,16 @@ public class MancLocalGame extends LocalGame {
             //gets new scores
             int player0Score = gameState.getPlayer0_Score();
             int player1Score = gameState.getPlayer1_Score();
+            sendUpdatedStateTo(players[0]);
+            sendUpdatedStateTo(players[1]);
             //if player0 won
             if (player0Score > player1Score) {
 
-                return  playerNames[0]+" has won." +player0Score;
+                return  playerNames[0]+" has won. Score: " +player0Score+" to "+player1Score;
             } //if player0 lost
             else if (player0Score < player1Score) {
 
-                return  playerNames[1]+" has won."+ player1Score;
+                return  playerNames[1]+" has won. Score: "+ player1Score+ " to " +player0Score;
 
             } else if (player0Score == player1Score) { //equal scores aka tie
 
