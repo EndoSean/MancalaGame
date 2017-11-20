@@ -81,7 +81,5 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
             }}
     }
 
-    public int getPlayerNum(){return this.playerNum;}
-
 }
 

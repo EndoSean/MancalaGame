@@ -1,4 +1,4 @@
-package edu.up.cs301.counter;
+package edu.up.cs301.Mancala;
 
 import org.junit.Test;
 
@@ -12,6 +12,12 @@ import static org.junit.Assert.*;
 public class MancStateTest {
     @Test
     public void setPlayer_Turn() throws Exception {
+        MancState test = new MancState();
+        test.setPlayer_Turn(3);
+        assertEquals(3, test.getPlayer_Turn());
+        test.setPlayer_Turn(-1);
+        assertEquals(-1,test.getPlayer_Turn());
+
 
     }
 
@@ -42,6 +48,9 @@ public class MancStateTest {
 
     @Test
     public void setMarble_Pos() throws Exception {
+        MancState test = new MancState();
+
+
 
     }
 

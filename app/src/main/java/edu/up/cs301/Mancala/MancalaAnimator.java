@@ -340,27 +340,7 @@ public class MancalaAnimator implements Animator {
             }
         }
 
-        //Updates holes to account for change in marbles from action
-        //holes marble array is never accessed and may be redundant or we can reduce the number of
-        //marble arrays to be exclusively in the holes class and not have several different ones to navigate
-        mar_pos = Current_State.getMarble_Pos();
-        for(int r=0; r<2;r++ ){
-            for(int c=0; c<6; c++){
-                ArrayList tempHole = holes[r][c].takeMarbles();
-                if(mar_pos[r][c] < holes[r][c].marbles_inside.size()){ //if the current pos contains more marbles
-                    // than the hole says it does, then remove the last in the array
-                    int dif= tempHole.size()-mar_pos[r][c];
-                    for(int d=0; d<dif; d++) {
-                        tempHole.remove(tempHole.size()-1);
-                    }
-                    holes[r][c].marbles_inside=tempHole;
-                }
-                while(mar_pos[r][c] > holes[r][c].marbles_inside.size()){
-                    holes[r][c].addMarble(1); //unsure what location to add to
 
-                }
-            }
-        }
 
         //Locations are never updated for marbles array even though mar_pos is changed.
         //Might consider randomizing location of marbles to be contained within hole since who

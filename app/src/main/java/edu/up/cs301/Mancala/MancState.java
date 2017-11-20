@@ -80,6 +80,7 @@ public class MancState extends GameState {
     }
 
     void setMarble_Pos(int[][] position) {
+        if(position==null)return;
         Marble_Pos = position;
         //also calls to update scores with respect to the new array
         setPlayer0_Score(Marble_Pos[0][6]);

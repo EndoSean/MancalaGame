@@ -31,8 +31,8 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
 
 
 
-	/* instance variables */
-	//The animator
+    /* instance variables */
+    //The animator
     private MancalaAnimatorTwo animator;
 
     // The TextView the displays the current counter value
@@ -79,7 +79,7 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
             animator.setMarbles(this.playerNum);
         }
 
-    }
+    }//receiveInfo
 
     /**
      * callback method--our game has been chosen/rechosen to be the GUI,
@@ -114,14 +114,9 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
         else {
 
             recentState = animator.setMarbles(this.playerNum);
-        }
-
+        }//setAsGui
 
         mySurface.setOnTouchListener(new MancHumanPlayer.onTouchEvent());
-
-
-
-
     }
 
 
@@ -137,15 +132,18 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
         return true;
     }
 
+    /**
+     * onTouch listener
+     */
     private class onTouchEvent implements View.OnTouchListener{
         public boolean onTouch(View v, MotionEvent me){
-
+            //sends event to animator
             animator.onTouch(me);
             recentState = animator.getUpdatedState();
-
+            //send to PostOnTouch to handle human side
             return PostOnTouch(v,me);
 
         }
-    }
+    }//onTouchEvent
 
-}
+}//MancHumanPlayer
