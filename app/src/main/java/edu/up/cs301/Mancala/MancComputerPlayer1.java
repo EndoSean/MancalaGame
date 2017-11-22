@@ -56,7 +56,7 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
             int marbles[][] = recentState.getMarble_Pos();
 
             //the holes range:
-            int max = 5;
+            int max = 6;
             int min = 0;
             //boolean to see if
             Boolean repick = true;
