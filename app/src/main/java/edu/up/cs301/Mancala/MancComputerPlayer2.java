@@ -190,6 +190,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 			}
 			//if none of the above options, selects a random move.
 			if(!holeSelect) {
+
 				//the holes range:
 				int max = 5;
 				int min = 0;
