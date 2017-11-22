@@ -63,7 +63,7 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
             int randPosition=0;
             while(repick) {
 
-                randPosition = (int) (Math.random() * max - min + 1) + min;
+                randPosition = (int) (Math.random() * max - min) + min;
                 if (marbles[this.playerNum][randPosition]!= 0){
                     repick=false;
                 }

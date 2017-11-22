@@ -14,7 +14,7 @@ import edu.up.cs301.game.util.Tickable;
  * @version September 2013
  */
 public class CounterComputerPlayer1 extends GameComputerPlayer implements Tickable {
-	
+
     /**
      * Constructor for objects of class CounterComputerPlayer1
      * 
@@ -38,8 +38,8 @@ public class CounterComputerPlayer1 extends GameComputerPlayer implements Tickab
      */
 	@Override
 	protected void receiveInfo(GameInfo info) {
-		if (info instanceof MancState){
-		recentState = (MancState)info;}
+		// Do nothing, as we ignore all state in deciding our next move. It
+		// depends totally on the timer and random numbers.
 	}
 	
 	/**
@@ -47,18 +47,13 @@ public class CounterComputerPlayer1 extends GameComputerPlayer implements Tickab
 	 */
 	protected void timerTicked() {
 		// 5% of the time, increment or decrement the counter
-		int[][] marbArray = recentState.getMarble_Pos();
-		int c=0;
-		Boolean canMove = false;
-		while(canMove){
-			c = (int)Math.random()*6 +1;
-			if(marbArray[this.playerNum][c]>0){
-				canMove=true;
-			}
-		}
+		if (Math.random() >= 0.05) return; // do nothing 95% of the time
+
+		// "flip a coin" to determine whether to increment or decrement
+		boolean move = Math.random() >= 0.5;
 
 		// send the move-action to the game
-		game.sendAction(new MancMoveAction(this,this.playerNum,c));
+		game.sendAction(new CounterMoveAction(this, move));
 	}
 
 	public int getPlayerNum() {

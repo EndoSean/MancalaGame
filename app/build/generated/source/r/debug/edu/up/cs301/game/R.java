@@ -25,9 +25,7 @@ public final class R {
         public static final int table_row_vert_pad=0x7f070005;
     }
     public static final class drawable {
-        public static final int ic_action_search=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int purple_delete_button=0x7f020002;
+        public static final int purple_delete_button=0x7f020000;
     }
     public static final class id {
         public static final int addPlayerButton=0x7f0a0012;
@@ -75,8 +73,7 @@ public final class R {
         public static final int game_main=0x7f090000;
     }
     public static final class mipmap {
-        public static final int ic_launcher=0x7f030000;
-        public static final int mancala=0x7f030001;
+        public static final int manc_launcher=0x7f030000;
     }
     public static final class string {
         public static final int add_player=0x7f080000;
