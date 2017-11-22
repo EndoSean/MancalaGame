@@ -26,6 +26,8 @@ public class MancalaAnimatorTwo implements Animator {
     private Paint Text_Color = new Paint();
     private String opp = "Opponent";
     private String play = "Player";
+    private String Opponent_Turn = "Opponent's Turn";
+    private String Player_Turn = "Your Turn";
     private int[][] mar_pos = new int[2][7];
     // hold on to the gameState
     private MancState Current_State = new MancState();
@@ -238,6 +240,25 @@ public class MancalaAnimatorTwo implements Animator {
 
         g.drawText(opp, (float) .03 * maxX, (float) .135 * maxY, Text_Color); //Opponent
         g.drawText(play, (float) .86 * maxX, (float) .135 * maxY, Text_Color);//Player
+
+        Text_Color.setTextSize(100);
+        if(invert){
+            if(Current_State.getPlayer_Turn() == 0){
+                g.drawText(Player_Turn, (float) .4 * maxX, (float) .4 * maxY, Text_Color);
+            }
+            else{
+                g.drawText(Opponent_Turn, (float) .35 * maxX, (float) .4 * maxY, Text_Color);
+            }
+        }
+        else{
+            if(Current_State.getPlayer_Turn() == 1){
+                g.drawText(Player_Turn, (float) .4 * maxX, (float) .4 * maxY, Text_Color);
+            }
+            else{
+                g.drawText(Opponent_Turn, (float) .35 * maxX, (float) .4 * maxY, Text_Color);
+            }
+        }
+        Text_Color.setTextSize(50);
 
 
         g.drawText("" + mar_pos[0][6], (float) .03 * maxX, (float) .135 * maxY - 70, Text_Color);
