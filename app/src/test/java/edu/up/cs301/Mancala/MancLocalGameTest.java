@@ -8,6 +8,7 @@ import edu.up.cs301.Mancala.MancLocalGame;
 import edu.up.cs301.Mancala.MancState;
 import edu.up.cs301.game.GamePlayer;
 
+import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.*;
 
 /**
