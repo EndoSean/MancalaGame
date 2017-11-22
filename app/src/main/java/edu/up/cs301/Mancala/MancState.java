@@ -6,8 +6,8 @@ import edu.up.cs301.game.infoMsg.GameState;
 
 
 /**
- * This contains the state for the Counter game. The state consist of simply
- * the value of the counter.
+ * This contains the state for the Mancala game. The state consist of simply
+ * the values or the board, player turn, scores and holes.
  *
  * @author Shayna Noone
  * @version October 2017
@@ -58,7 +58,9 @@ public class MancState extends GameState {
         this.setMarbles(aMancState.getMarbles());
     }
 
-
+    /**
+     * getter and setter methods as follows
+     */
     public void setPlayer_Turn(int val) {   player_Turn = val;    }
 
     public int getPlayer_Turn() {   return player_Turn;    }
@@ -77,38 +79,40 @@ public class MancState extends GameState {
         return player1_Score;
     }
 
-    public void setMarble_Pos(int[][] position) {
+    void setMarble_Pos(int[][] position) {
+        if(position==null)return;
         Marble_Pos = position;
-    setPlayer0_Score(Marble_Pos[0][6]);
-    setPlayer1_Score(Marble_Pos[1][6]);}
+        //also calls to update scores with respect to the new array
+        setPlayer0_Score(Marble_Pos[0][6]);
+        setPlayer1_Score(Marble_Pos[1][6]);}
 
-    public int[][] getMarble_Pos() {
+    int[][] getMarble_Pos() {
         return Marble_Pos;
     }
 
 
     // for keeping track of which hole has been selected // Endo
-    public void setSelected_Hole(Point Select){
+    void setSelected_Hole(Point Select){
         Selected_Hole = Select;
     }
 
-    public Point getSelected_Hole(){
+    Point getSelected_Hole(){
         return Selected_Hole;
     }
 
-    public void setHoles(Hole[][] in){
+    void setHoles(Hole[][] in){
         holes = in;
     }
 
-    public Hole[][] getHoles(){
+    Hole[][] getHoles(){
         return holes;
     }
 
-    public void setMarbles(Marble[] in){
+    void setMarbles(Marble[] in){
         marbles = in;
     }
 
-    public Marble[] getMarbles(){
+    Marble[] getMarbles(){
         return marbles;
     }
 

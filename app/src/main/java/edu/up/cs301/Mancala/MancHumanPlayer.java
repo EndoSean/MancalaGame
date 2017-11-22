@@ -31,14 +31,16 @@ import edu.up.cs301.game.infoMsg.GameInfo;
 public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchListener {
 
 
-    MancalaAnimatorTwo animator;
 
-	/* instance variables */
-    MancalaAnimator animator;
+
+    /* instance variables */
+    //The animator
+    private MancalaAnimatorTwo animator;
+
     // The TextView the displays the current counter value
     private TextView counterValueTextView;
 
-    // the most recent game state, as given to us by the CounterLocalGame
+    // the most recent game state, as given to us by the MancLocalGame
     private MancState recentState;
 
     // the android activity that we are running
@@ -51,17 +53,8 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
      */
     public MancHumanPlayer(String name) {
         super(name);
-        this.game=new MancLocalGame();
     }
-        /*
 
-            public void onTouch (View v) - handles touch events.
-
-
-
-public void tick(Canvas canvas) - preforms animation
-
-*/
     /**
      * Returns the GUI's top view object
      *
@@ -72,30 +65,6 @@ public void tick(Canvas canvas) - preforms animation
         return myActivity.findViewById(R.id.top_gui_layout);
     }
 
-    /**
-     * sets the counter value in the text view
-     */
-    protected void updateDisplay() {
-        // set the text in the appropriate widget
-
-    }
-
-    /**
-     * this method gets called when the user clicks the '+' or '-' button. It
-     * creates a new CounterMoveAction to return to the parent activity.
-     *
-     *
-     * 		the button that was clicked
-     */
-    public void onTouch(SurfaceView surface) {
-        // if we are not yet connected to a game, ignore
-        if (game == null) return;
-
-        // Construct the action and send it to the game
-        GameAction action = new MancMoveAction(this,this.playerNum, 0);
-
-        game.sendAction(action); // send action to the game
-    }// onTouch
 
     /**
      * callback method when we get a message (e.g., from the game)
@@ -105,13 +74,14 @@ public void tick(Canvas canvas) - preforms animation
      */
     @Override
     public void receiveInfo(GameInfo info) {
+        //if receive mancState object set it as current state and send to animator
         if (info instanceof MancState){
             recentState = (MancState)info;
             animator.setState(recentState);
             animator.setMarbles(this.playerNum);
         }
 
-    }
+    }//receiveInfo
 
     /**
      * callback method--our game has been chosen/rechosen to be the GUI,
@@ -122,8 +92,6 @@ public void tick(Canvas canvas) - preforms animation
      */
     public void setAsGui(GameMainActivity activity) {
 
-
-
         myActivity = activity;
 
         // Load the layout resource for our GUI
@@ -131,7 +99,7 @@ public void tick(Canvas canvas) - preforms animation
 
         AnimationSurface mySurface =
                 (AnimationSurface) myActivity.findViewById(R.id.animation_surface);
-        animator = new MancalaAnimator();
+        animator = new MancalaAnimatorTwo();
         mySurface.setAnimator(animator);
 
         Display mdisp = myActivity.getWindowManager().getDefaultDisplay();
@@ -140,47 +108,44 @@ public void tick(Canvas canvas) - preforms animation
         float maxX = (float)mdispSize.x;
         float maxY = (float)mdispSize.y;
         animator.getBounds(maxX,maxY);
-        animator.setHoles();
+
         if(recentState == null) {
-            animator.setMarbles2();
+            recentState = animator.setHoles();
+            recentState = animator.setMarbles(this.playerNum);
         }
         else {
-            int[][] Marble_Pos = recentState.getMarble_Pos();
-            Point Hole_Selected = recentState.getSelected_Hole();
-            animator.setMarbles(Marble_Pos, Hole_Selected);
-        }
 
+            recentState = animator.setMarbles(this.playerNum);
+        }//setAsGui
 
-        mySurface.setOnTouchListener(new edu.up.cs301.counter.MancHumanPlayer.onTouchEvent());
-
-
-
-
+        mySurface.setOnTouchListener(new MancHumanPlayer.onTouchEvent());
     }
 
-    public boolean PostonTouch(View view, MotionEvent motionEvent) {
+
+    private boolean PostOnTouch(View view, MotionEvent motionEvent) {
         // if we are not yet connected to a game, ignore
         if (game == null) return false;
 
         // Construct the action and send it to the game
-        GameAction action = new MancMoveAction(this, true);
+        GameAction action = new MancMoveAction(this, recentState.getSelected_Hole(), this.playerNum);
+
 
         game.sendAction(action); // send action to the game
         return true;
     }
 
+    /**
+     * onTouch listener
+     */
     private class onTouchEvent implements View.OnTouchListener{
         public boolean onTouch(View v, MotionEvent me){
+            //sends event to animator
             animator.onTouch(me);
-            boolean set = PostonTouch(v,me);
-
-
-            return set;
+            recentState = animator.getUpdatedState();
+            //send to PostOnTouch to handle human side
+            return PostOnTouch(v,me);
 
         }
-    }
+    }//onTouchEvent
 
-
-
-
-}
+}//MancHumanPlayer

@@ -1,7 +1,23 @@
 [
     {
+        "merged": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_search.png",
+        "source": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\drawable-hdpi\\ic_action_search.png"
+    },
+    {
         "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_search.png",
         "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\drawable-hdpi\\ic_action_search.png"
+    },
+    {
+        "merged": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\purple_delete_button.png",
+        "source": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\drawable-hdpi\\purple_delete_button.png"
+    },
+    {
+        "merged": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_search.png",
+        "source": "C:\\Users\\noones18\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\drawable-hdpi\\ic_action_search.png"
+    },
+    {
+        "merged": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\purple_delete_button.png",
+        "source": "C:\\Users\\coxco19\\StudioProjects\\CounterGame-master\\app\\src\\main\\res\\drawable-hdpi\\purple_delete_button.png"
     },
     {
         "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\purple_delete_button.png",

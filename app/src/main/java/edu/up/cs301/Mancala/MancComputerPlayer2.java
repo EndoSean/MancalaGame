@@ -93,28 +93,14 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 
 		Log.i("computer player", "receiving");
 
-		// if there is no game, ignore
-		if (game == null) {
-		}
-		else if (info instanceof MancState) {
+		// if there is game and is a MancGame
+		if (game != null && info instanceof MancState) {
 			// if we indeed have a Manc-state, update the GUI
 			recentState = (MancState)info;
-			updateDisplay();
-		}
-	}
-
-
-	/**
-	 * sets the counter value in the text view
-	 *  */
-	private void updateDisplay() {
-		// if the guiHandler is available, set the new Mancala value
-		// in the manc-display, doing it in the Activity's
-		// thread.
-		if (guiHandler != null) {
 
 		}
-	}
+	}//receiveInfo
+
 
 	/**
 	 * Tells whether we support a GUI
@@ -124,7 +110,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 	 */
 	public boolean supportsGui() {
 		return true;
-	}
+	}//supportsGui
 
 	/**
 	 * callback method--our player has been chosen/rechosen to be the GUI,
@@ -145,7 +131,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 		// Load the layout resource for the our GUI's configuration
 		activityForGui.setContentView(R.layout.manc_layout);
 
-	}
+	}//setAsGui
 	/**
 	 * Implements the "brains" of the smart computer player.
 	 * checks for potential double moves and captures.
@@ -196,19 +182,23 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 				int min = 0;
 				//boolean to see if
 				Boolean repick = true;
+				//initialize column number to be zero
 				int randPosition = 0;
+
 				while (repick) {
 
 					randPosition = (int) (Math.random() * max - min + 1) + min;
+					//if hole isn't empty, break while loop
 					if (marbles[this.playerNum][randPosition] != 0) {
 						repick = false;
 					}
 				}
-
+				//set selcted hole to randomly chosen number
 				select = new Point(this.playerNum, randPosition);
 			}
 			// send the move-action to the game if it is the computer turn
 			if(recentState.getPlayer_Turn()==this.playerNum) {
+				//add some thinking time
 				sleep(1000);
 
 				game.sendAction(new MancMoveAction(this, select, this.playerNum));
@@ -217,5 +207,5 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 			}
 		}
 
-	}
+	}//timerTicked
 }
