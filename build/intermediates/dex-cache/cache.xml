@@ -3,30 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Shayna Noone\StudioProjects\CounterGame-master2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="P:\CS301\CounterGame-master\CounterGame-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Users\Shayna Noone\StudioProjects\CounterGame-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_ba174a098381d9beb2b90b384aced96b1796c182\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shayna Noone\StudioProjects\CounterGame-master2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9d558520568e06ebbbb6f74601a77f12e10c111d">
-        <dex dex="C:\Users\Shayna Noone\StudioProjects\CounterGame-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_d08b0dfcb3134d765dd2b8fc2c56d2ee42fed2e0\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Shayna Noone\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="C:\Users\Shayna Noone\StudioProjects\CounterGame-master2\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_54912b19b36fef160b585440f23ad26c59de49c2.jar" />
+        sha1="c697d0f278e91a87a4e00cbb5b0bd67a3d16f779">
+        <dex dex="P:\CS301\CounterGame-master\CounterGame-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_36291d070c35dccb4122e3dea93d67a1aa3847a4\classes.dex" />
     </item>
 
 </items>

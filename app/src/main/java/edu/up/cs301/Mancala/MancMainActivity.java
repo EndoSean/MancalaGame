@@ -43,13 +43,13 @@ public class MancMainActivity extends GameMainActivity {
             }});
 
         // a computer player type (player type 1)
-        playerTypes.add(new GamePlayerType("Computer Player") {
+        playerTypes.add(new GamePlayerType("Computer Player Easy") {
             public GamePlayer createPlayer(String name) {
                 return new MancComputerPlayer1(name);
             }});
 
         // a computer player type (player type 2)
-        playerTypes.add(new GamePlayerType("Computer Player (GUI)") {
+        playerTypes.add(new GamePlayerType("Computer Player Hard") {
             public GamePlayer createPlayer(String name) {
                 return new MancComputerPlayer2(name);
             }});
