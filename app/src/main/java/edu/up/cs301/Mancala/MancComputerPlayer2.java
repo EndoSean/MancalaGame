@@ -7,8 +7,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
-import edu.up.cs301.counter.CounterComputerPlayer1;
-import edu.up.cs301.counter.CounterState;
+
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.R;

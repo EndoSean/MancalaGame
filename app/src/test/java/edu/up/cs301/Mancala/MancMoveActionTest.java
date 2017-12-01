@@ -4,7 +4,7 @@ import android.graphics.Point;
 
 import org.junit.Test;
 
-import edu.up.cs301.game.GamePlayer;
+
 
 import static org.junit.Assert.*;
 

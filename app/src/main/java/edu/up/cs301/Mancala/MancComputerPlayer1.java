@@ -2,7 +2,7 @@ package edu.up.cs301.Mancala;
 
 import android.graphics.Point;
 
-import edu.up.cs301.counter.CounterMoveAction;
+
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.infoMsg.GameInfo;
 import edu.up.cs301.game.util.Tickable;
@@ -18,6 +18,7 @@ import edu.up.cs301.game.util.Tickable;
 class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
 
     private MancState recentState;
+    private boolean turn;
     /**
      * Constructor for objects of class MancComputerPlayer1
      *
@@ -42,6 +43,10 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
     protected void receiveInfo(GameInfo info) {
         if (info instanceof MancState){
             recentState = (MancState)info;
+            turn=false;
+            if(recentState.getPlayer_Turn()==this.playerNum){
+                turn=true;
+            }
         }
     }
 
@@ -51,7 +56,7 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
      */
     protected void timerTicked() {
         //makes sure there is a game in play
-        if(recentState != null){
+        if(recentState != null && turn){
             //saves the array with the number of marbles in the holes
             int marbles[][] = recentState.getMarble_Pos();
 
@@ -72,13 +77,14 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
             Point compSelected= new Point(this.playerNum,randPosition);
 
             // send the move-action to the game if it is the computer turn
-            if(recentState.getPlayer_Turn()==this.playerNum) {
-                sleep(3000);
 
-                game.sendAction(new MancMoveAction(this, compSelected, this.playerNum));
+            sleep(3000);
+
+            game.sendAction(new MancMoveAction(this, compSelected, this.playerNum));
+            turn=false;
 
 
-            }}
+        }
     }
 
 }

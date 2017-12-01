@@ -134,8 +134,9 @@ public class MancLocalGame extends LocalGame {
             //update state
             gameState.setMarble_Pos(marbles);
             //send updated state to players
-            sendUpdatedStateTo(players[0]);
             sendUpdatedStateTo(players[1]);
+            sendUpdatedStateTo(players[0]);
+            //sendUpdatedStateTo(players[gameState.getPlayer_Turn()]);
 
             // denote that this was a legal/successful move
             return true;
