@@ -18,6 +18,7 @@ import edu.up.cs301.game.util.Tickable;
 class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
 
     private MancState recentState;
+    private MancalaAnimatorTwo animator;
     /**
      * Constructor for objects of class MancComputerPlayer1
      *
@@ -42,8 +43,10 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
     protected void receiveInfo(GameInfo info) {
         if (info instanceof MancState){
             recentState = (MancState)info;
+
         }
     }
+
 
     /**
      * timerTicked is where the computer player selects a viable hole to send to game

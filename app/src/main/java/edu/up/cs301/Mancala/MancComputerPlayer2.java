@@ -131,6 +131,8 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 		// Load the layout resource for the our GUI's configuration
 		activityForGui.setContentView(R.layout.manc_layout);
 
+
+
 	}//setAsGui
 	/**
 	 * Implements the "brains" of the smart computer player.

@@ -60,7 +60,7 @@ public class MancMainActivity extends GameMainActivity {
         // - from 1 to 2 players
         // - name of game is "Manc Game"
         // - port number as defined above
-        GameConfig defaultConfig = new GameConfig(playerTypes, 1, 2, "Manc Game",
+        GameConfig defaultConfig = new GameConfig(playerTypes, 2, 2, "Manc Game",
                 PORT_NUMBER);
 
         // Add the default players to the configuration
