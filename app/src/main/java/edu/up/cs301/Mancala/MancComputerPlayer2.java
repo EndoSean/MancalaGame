@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.graphics.Point;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Display;
 import android.widget.Button;
 import android.widget.TextView;
 
 
+import edu.up.cs301.animation.AnimationSurface;
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.R;
@@ -53,10 +55,11 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 
 	// the most recent game state, as given to us by the CounterLocalGame
 	private MancState recentState = null;
-
+	private boolean turn;
 	// If this player is running the GUI, the activity (null if the player is
 	// not running a GUI).
 	private Activity activityForGui = null;
+	private MancalaAnimatorTwo animator;
 
 	// If this player is running the GUI, the widget containing the counter's
 	// value (otherwise, null);
@@ -96,6 +99,12 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 		if (game != null && info instanceof MancState) {
 			// if we indeed have a Manc-state, update the GUI
 			recentState = (MancState)info;
+			turn=false;
+			if(recentState.getPlayer_Turn()==this.playerNum){
+				turn=true;
+			}
+			animator.setState(recentState);
+			animator.setMarbles(this.playerNum);
 
 		}
 	}//receiveInfo
@@ -130,7 +139,26 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 		// Load the layout resource for the our GUI's configuration
 		activityForGui.setContentView(R.layout.manc_layout);
 
+		AnimationSurface mySurface =
+				(AnimationSurface) activityForGui.findViewById(R.id.animation_surface);
+		animator = new MancalaAnimatorTwo();
+		mySurface.setAnimator(animator);
 
+		Display mdisp = activityForGui.getWindowManager().getDefaultDisplay();
+		Point mdispSize = new Point();
+		mdisp.getSize(mdispSize);
+		float maxX = (float)mdispSize.x;
+		float maxY = (float)mdispSize.y;
+		animator.getBounds(maxX,maxY);
+
+		if(recentState == null) {
+			recentState = animator.setHoles();
+			recentState = animator.setMarbles(this.playerNum);
+		}
+		else {
+
+			recentState = animator.setMarbles(this.playerNum);
+		}//setAsGui
 
 	}//setAsGui
 	/**
@@ -142,7 +170,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 	protected void timerTicked() {
 		super.timerTicked();
 		//checks if there is a game
-		if(recentState != null){
+		if(recentState != null && turn){
 			//saves the array with the number of marbles in the holes
 			int marbles[][] = recentState.getMarble_Pos();
 
@@ -179,7 +207,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 			if(!holeSelect) {
 
 				//the holes range:
-				int max = 5;
+				int max = 6;
 				int min = 0;
 				//boolean to see if
 				Boolean repick = true;
@@ -188,7 +216,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 
 				while (repick) {
 
-					randPosition = (int) (Math.random() * max - min + 1) + min;
+					randPosition = (int) (Math.random() * max - min) + min;
 					//if hole isn't empty, break while loop
 					if (marbles[this.playerNum][randPosition] != 0) {
 						repick = false;
@@ -198,14 +226,15 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 				select = new Point(this.playerNum, randPosition);
 			}
 			// send the move-action to the game if it is the computer turn
-			if(recentState.getPlayer_Turn()==this.playerNum) {
+
 				//add some thinking time
 				sleep(1000);
 
 				game.sendAction(new MancMoveAction(this, select, this.playerNum));
+				turn=false;
 
 
-			}
+
 		}
 
 	}//timerTicked
