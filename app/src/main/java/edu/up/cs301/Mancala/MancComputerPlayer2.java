@@ -103,8 +103,10 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 			if(recentState.getPlayer_Turn()==this.playerNum){
 				turn=true;
 			}
-			animator.setState(recentState);
-			animator.setMarbles(this.playerNum);
+			if(activityForGui!=null) {
+				animator.setState(recentState);
+				animator.setMarbles(this.playerNum);
+			}
 
 		}
 	}//receiveInfo
@@ -129,7 +131,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 	 */
 	@Override
 	public void setAsGui(GameMainActivity a) {
-		
+
 		// remember who our activity is
 		this.activityForGui = a;
 
@@ -222,18 +224,18 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 						repick = false;
 					}
 				}
-				//set selcted hole to randomly chosen number
+				//set selected hole to randomly chosen number
 				select = new Point(this.playerNum, randPosition);
 			}
 			// send the move-action to the game if it is the computer turn
 
-				//add some thinking time
-				sleep(1000);
+			//add some thinking time
+			sleep(4000);
 
-				//game.sendAction(new MancMoveAction(this, select, this.playerNum));
-                recentState.setSelected_Hole(select);
-                game.sendAction(new MancMoveAction(this, recentState, this.playerNum));
-				turn=false;
+			//game.sendAction(new MancMoveAction(this, select, this.playerNum));
+			recentState.setSelected_Hole(select);
+			game.sendAction(new MancMoveAction(this, recentState, this.playerNum));
+			turn=false;
 
 
 

@@ -44,6 +44,7 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
         if (info instanceof MancState){
             recentState = (MancState)info;
             turn=false;
+            //initializes boolean to keep track of turn
             if(recentState.getPlayer_Turn()==this.playerNum){
                 turn=true;
             }
@@ -55,7 +56,7 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
      * action when it isn't waiting for its turn.
      */
     protected void timerTicked() {
-        //makes sure there is a game in play
+        //makes sure there is a game in play and it is computer turn
         if(recentState != null && turn){
             //saves the array with the number of marbles in the holes
             int marbles[][] = recentState.getMarble_Pos();
@@ -76,8 +77,7 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
 
             Point compSelected= new Point(this.playerNum,randPosition);
 
-            // send the move-action to the game if it is the computer turn
-
+            //sleep for computer "thinking"
             sleep(4000);
 
            // game.sendAction(new MancMoveAction(this, compSelected, this.playerNum));

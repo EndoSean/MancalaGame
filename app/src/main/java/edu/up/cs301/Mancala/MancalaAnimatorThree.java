@@ -42,8 +42,8 @@ public class MancalaAnimatorThree implements Animator {
     boolean Same_Hole = false;                                  // To avoid overwrites due to weird multi-threading
     boolean initialized = false;                                // Keeps track if board has been initialized
     // Speed of the marble animations (does not the speed of 25)
-    private float xvel = 20;
-    private float yvel = 20;
+    private float xvel = 25;
+    private float yvel = 25;
 
     ArrayList<Point> Receiving_Holes = new ArrayList<Point>();      // used to reference holes while marble is moving
     ArrayList<Integer> moving;                                      // keeps track of marbles in motion
@@ -116,11 +116,11 @@ public class MancalaAnimatorThree implements Animator {
         PointF hole;
         Hole mediate;
         PointF placement = new PointF();
-        Random ran = new Random();
+
 
         // Check end game status
         if ((mar_pos[0][6] + mar_pos[1][6]) == 48){
-            this.endGame();
+            this.endGame(player_number);
             Current_State.setHoles(holes);
             Current_State.setMarbles(marbles);
             wait = false;
@@ -132,7 +132,7 @@ public class MancalaAnimatorThree implements Animator {
             int count = 0;
             for (int i = 0; i < 2; i++) {
                 for (int j = 0; j < 6; j++) {
-                    ///////////hole = holes[i][j];
+
                     mediate = holes[i][j];
                     hole = mediate.getLocation();
                     placement.set(hole.x + maxX / 75, hole.y);
@@ -160,10 +160,6 @@ public class MancalaAnimatorThree implements Animator {
             return Current_State;
         }
 
-
-        while (Currently_Moving) {
-            // loop until marbles are done moving
-        }
 
         // check if inverted board is needed
         if (player_number == 0) {
@@ -214,9 +210,9 @@ public class MancalaAnimatorThree implements Animator {
             holes[x][y] = mediate2;                  // update hole
             int player = x;                         // keep track of whose side
             int size = moving.size();               // how many marbles are being moved
-            //int overflow = 0;
+
             Point holding;
-            //Marble marble;
+
             for (int a = 1; a <= size; a++) {           // for the number of marbles
                 if ((a + y) % 7 == 0) {/////////////////////////////////////////////
                     if (x == 1) {
@@ -224,7 +220,7 @@ public class MancalaAnimatorThree implements Animator {
                     } else {
                         x = 1;
                     }
-                    //overflow = 7 - (a+y);/////////////////////////////////////////////////////
+
                     y = -a;                          // begin index at 0 again
 
                     if (a == size) {                         // last marble
@@ -351,10 +347,22 @@ public class MancalaAnimatorThree implements Animator {
     }
 
 
-    public void endGame(){              // draw marbles in their banks
+    public void endGame(int player_number){              // draw marbles in their banks
         PointF hole;
         Hole mediate;
         PointF placement = new PointF();
+        if (player_number == 0) {
+            invert = true;
+            int[][] mar_hold = new int[2][7];
+            for (int r = 0; r < 2; r++) {
+                for (int c = 0; c < 7; c++) {
+                    mar_hold[r][c] = mar_pos[1 - r][c];
+                }
+            }
+            mar_pos = mar_hold;
+        } else {
+            invert = false;
+        }
         // for rotating colors, the count steps through to the next color after a marble is set
         int[] New_Color = {Color.RED,Color.GREEN,Color.BLUE,Color.YELLOW};
         int Color_Count = 0;
@@ -577,12 +585,13 @@ public class MancalaAnimatorThree implements Animator {
     //@Override
     //public Point onTouch(MotionEvent event){
     public void onTouch(MotionEvent event) {
+        Point Selected_Hole = new Point(-1, -1);
         if(Currently_Moving || wait){
+            Current_State.setHoles(holes);
+            Current_State.setSelected_Hole(Selected_Hole);
             return;
         }
-        //sleep(200);
         Hole mediate;
-        Point Selected_Hole = new Point(-1, -1);
         PointF hold;
         PointF inside = new PointF();
         int action = event.getAction();
@@ -605,8 +614,6 @@ public class MancalaAnimatorThree implements Animator {
                         } else {
                             Selected_Hole.set(i, j);
                         }
-                        //Is_Moving = true;
-                        //To_Move = mediate;
                     }
                 } else {
                     mediate.setColor(Color.BLACK);
@@ -614,7 +621,6 @@ public class MancalaAnimatorThree implements Animator {
                 }
             }
         }
-        //Current_State.setMarbles(marbles);
         Current_State.setHoles(holes);
         Current_State.setSelected_Hole(Selected_Hole);
     }
