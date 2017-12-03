@@ -17,7 +17,8 @@ public class MancMoveAction extends GameAction {
     private static final long serialVersionUID = 28062013L;
 
     //whether this move is a confirmed(true)
-    private Point selected_Hole;
+    //private Point selected_Hole;
+    private MancState State;
     public int playerNumber;
     /**
      * Constructor for the MancMoveAction class.
@@ -27,9 +28,14 @@ public class MancMoveAction extends GameAction {
      * @param selected
      *
      */
-    public MancMoveAction(GamePlayer player,  Point selected, int playerNum) {
+//    public MancMoveAction(GamePlayer player,  Point selected, int playerNum) {
+//        super(player);
+//        this.selected_Hole = selected;
+//        playerNumber= playerNum;
+//    }
+    public MancMoveAction(GamePlayer player,  MancState Current_State, int playerNum) {
         super(player);
-        this.selected_Hole = selected;
+        State = Current_State;
         playerNumber= playerNum;
     }
 
@@ -39,8 +45,12 @@ public class MancMoveAction extends GameAction {
      * @return
      * 		the hole the player has selected to make a move
      */
-    public Point getSelected_Hole() {
-        return selected_Hole;
+//    public Point getSelected_Hole() {
+//        return selected_Hole;
+//
+//    }
 
+    public MancState getState(){
+        return State;
     }
 }//class MancMoveAction

@@ -1,13 +1,5 @@
 [
     {
-        "merged": "P:\\JR\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\counter_human_player.xml",
-        "source": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\layout-land\\counter_human_player.xml"
-    },
-    {
-        "merged": "C:\\Users\\Shayna Noone\\StudioProjects\\CounterGame-master2\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\counter_human_player.xml",
-        "source": "C:\\Users\\Shayna Noone\\StudioProjects\\CounterGame-master2\\app\\src\\main\\res\\layout-land\\counter_human_player.xml"
-    },
-    {
         "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\counter_human_player.xml",
         "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout-land\\counter_human_player.xml"
     }

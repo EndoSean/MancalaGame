@@ -78,6 +78,6 @@ public class MancLocalGameTest {
         MancMoveAction action2 = new MancMoveAction(player2,new Point(-1,3),1);
         assertTrue(!test.makeMove(action2));*/
 
-    }
-
-}*/
+//    }
+//
+//}**/

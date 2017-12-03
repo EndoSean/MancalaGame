@@ -78,9 +78,11 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
 
             // send the move-action to the game if it is the computer turn
 
-            sleep(3000);
+            sleep(4000);
 
-            game.sendAction(new MancMoveAction(this, compSelected, this.playerNum));
+           // game.sendAction(new MancMoveAction(this, compSelected, this.playerNum));
+            recentState.setSelected_Hole(compSelected);
+            game.sendAction(new MancMoveAction(this, recentState, this.playerNum));
             turn=false;
 
 

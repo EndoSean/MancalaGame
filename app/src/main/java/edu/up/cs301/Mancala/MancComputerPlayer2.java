@@ -230,7 +230,9 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 				//add some thinking time
 				sleep(1000);
 
-				game.sendAction(new MancMoveAction(this, select, this.playerNum));
+				//game.sendAction(new MancMoveAction(this, select, this.playerNum));
+                recentState.setSelected_Hole(select);
+                game.sendAction(new MancMoveAction(this, recentState, this.playerNum));
 				turn=false;
 
 

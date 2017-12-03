@@ -1,29 +1,5 @@
 [
     {
-        "outputFile": "C:\\Users\\Shayna Noone\\StudioProjects\\CounterGame-master2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 62,
-                    "endOffset": 113
-                },
-                "from": {
-                    "file": "C:\\Users\\Shayna Noone\\StudioProjects\\CounterGame-master2\\app\\src\\main\\res\\values-v11\\styles.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 19,
-                        "endColumn": 63,
-                        "endOffset": 78
-                    }
-                }
-            }
-        ]
-    },
-    {
         "outputFile": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
         "map": [
             {
@@ -42,30 +18,6 @@
                         "startOffset": 17,
                         "endColumn": 63,
                         "endOffset": 76
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "P:\\JR\\CounterGame-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 62,
-                    "endOffset": 113
-                },
-                "from": {
-                    "file": "P:\\JR\\CounterGame-master\\app\\src\\main\\res\\values-v11\\styles.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 19,
-                        "endColumn": 63,
-                        "endOffset": 78
                     }
                 }
             }

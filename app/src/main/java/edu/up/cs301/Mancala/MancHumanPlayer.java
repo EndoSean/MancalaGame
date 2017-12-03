@@ -35,7 +35,7 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
 
     /* instance variables */
     //The animator
-    //private MancalaAnimatorTwo animator;
+//    private MancalaAnimatorTwo animator;
     private MancalaAnimatorThree animator;
 
     // The TextView the displays the current counter value
@@ -100,7 +100,7 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
 
         AnimationSurface mySurface =
                 (AnimationSurface) myActivity.findViewById(R.id.animation_surface);
-        //animator = new MancalaAnimatorTwo();
+//        animator = new MancalaAnimatorTwo();
         animator = new MancalaAnimatorThree();
         mySurface.setAnimator(animator);
 
@@ -129,7 +129,8 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
         if (game == null) return false;
 
         // Construct the action and send it to the game
-        GameAction action = new MancMoveAction(this, recentState.getSelected_Hole(), this.playerNum);
+//        GameAction action = new MancMoveAction(this, recentState.getSelected_Hole(), this.playerNum);
+        GameAction action = new MancMoveAction(this, recentState, this.playerNum);
 
 
         game.sendAction(action); // send action to the game

@@ -36,12 +36,14 @@ public class MancalaAnimatorThree implements Animator {
     boolean invert;
 
     Point Selected_Hole = new Point();
+    boolean Currently_Moving = false;
     boolean Same_Hole = false;
     boolean initialized = false;                                // Keeps track if board has been initialized
-    private float xvel = 10;
-    private float yvel = 10;
+    private float xvel = 20;
+    private float yvel = 20;
     ArrayList<Point> Receiving_Holes = new ArrayList<Point>();      // used to reference holes while marble is moving
     ArrayList<Integer> moving;                                      // keeps track of marbles in motion
+    boolean help = true;
 
     public MancalaAnimatorThree(){
         Text_Color.setColor(Color.BLACK);
@@ -161,6 +163,10 @@ public class MancalaAnimatorThree implements Animator {
         }
 
 
+        while(Currently_Moving){
+            // loop until marbles are done moving
+        }
+
         // check if inverted board is needed
         if (player_number == 0) {
             invert = true;
@@ -175,56 +181,157 @@ public class MancalaAnimatorThree implements Animator {
             invert = false;
         }
 
-        if(Selected_Hole == Current_State.getSelected_Hole()){
-            Same_Hole = true;
-        }
-        else {
-            Selected_Hole = Current_State.getSelected_Hole();
-        }
-
-        // sets up marbles to be moved
-        // updates variables responsible for moving marbles
-        if (Selected_Hole.x == -1) {
-            return Current_State;
-        }
-        int x = Selected_Hole.x;
-        int y = Selected_Hole.y;
-        Hole mediate2 = holes[x][y];             // holds the new state of holes to by copied
-        Hole secondary;
-        //ArrayList<Integer> moving;
-
-
-        if(!Same_Hole) {
-            moving = mediate2.takeMarbles();         //takes marbles and clears hole
-        }
-        holes[x][y] = mediate2;                  // update hole
-        int size = moving.size();               // how many marbles are being moved
-        //int overflow = 0;
-        Point holding;
-        //Marble marble;
-        for (int a = 1; a <= size; a++) {           // for the number of marbles
-            if ((a + y) % 7 == 0) {/////////////////////////////////////////////
-                if (x == 1) {
-                    x = 0;
-                } else {
-                    x = 1;
-                }
-                //overflow = 7 - (a+y);/////////////////////////////////////////////////////
-                y = -a;                          // begin index at 0 again
-                secondary = holes[x][y + a];
-                holding = new Point(x, y + a);                  // used to reference receiving holes
-                Receiving_Holes.add(holding);
-                secondary.addMarble(moving.get(a - 1));         // add the marble to the new hole
-                holes[x][y + a] = secondary;
+        // prevents the overwriting of moving variable
+            if (Selected_Hole == Current_State.getSelected_Hole()) {
+                Same_Hole = true;
             } else {
-                secondary = holes[x][y + a];
-                holding = new Point(x, y + a);
-                Receiving_Holes.add(holding);
-                secondary.addMarble(moving.get(a - 1));
-                holes[x][y + a] = secondary;
+                Selected_Hole = Current_State.getSelected_Hole();
             }
+            // sets up marbles to be moved
+            // updates variables responsible for moving marbles
+            if (Selected_Hole.x == -1) {
+                return Current_State;
+            }
+            int x = Selected_Hole.x;
+            int y = Selected_Hole.y;
+            Hole mediate2 = holes[x][y];             // holds the new state of holes to by copied
+            Hole secondary;
+            //ArrayList<Integer> moving;
 
-        }
+
+            if (!Same_Hole) {
+                moving = mediate2.takeMarbles();         //takes marbles and clears hole
+
+                holes[x][y] = mediate2;                  // update hole
+                int player = x;                         // keep track of whose side
+                int size = moving.size();               // how many marbles are being moved
+                //int overflow = 0;
+                Point holding;
+                //Marble marble;
+                for (int a = 1; a <= size; a++) {           // for the number of marbles
+                    if ((a + y) % 7 == 0) {/////////////////////////////////////////////
+                        if (x == 1) {
+                            x = 0;
+                        } else {
+                            x = 1;
+                        }
+                        //overflow = 7 - (a+y);/////////////////////////////////////////////////////
+                        y = -a;                          // begin index at 0 again
+
+                        if (a == size){                         // last marble
+                            if(player == x && (y+a != 6) && mar_pos[x][y+a] == 0) {                    // last marble is on same side
+                                secondary = holes[x][6];
+                                holding = new Point(x, 6);                  // bank
+                                Receiving_Holes.add(holding);
+                                secondary.addMarble(moving.get(a - 1));         // add the marble to the bank
+                                holes[x][6] = secondary;
+                                //this.SpecialMove(x, y + a);
+
+                                int other;
+                                if (x == 0){                                      // flip sides
+                                    other = 1;
+                                }
+                                else{
+                                    other = 0;
+                                }
+                                Hole mediate3 = holes[other][5-(y+a)];             // holds the new state of holes to by copied
+                                Hole secondary2;
+                                if(mediate3.NumberMarbles() != 0) {
+                                    ArrayList<Integer> moving2 = mediate3.takeMarbles();         //takes marbles and clears hole
+                                    int leng = moving2.size();
+                                    for(int b=0; b<leng; leng++){
+                                        moving.add(moving2.get(b));
+                                    }
+                                    holes[other][5 - (y+a)] = mediate3;                  // update hole
+                                    int size2 = moving.size();               // how many marbles are being moved
+                                    Point holding2;
+                                    for (int a2 = a+1; a2 <= size2; a2++) {           // for the number of marbles
+                                        secondary2 = holes[x][6];
+                                        holding2 = new Point(x, 6);                  // bank
+                                        Receiving_Holes.add(holding2);
+                                        secondary2.addMarble(moving.get(a2 - 1));         // add the marble to the bank
+                                        holes[x][6] = secondary2;
+                                    }
+                                }
+
+
+
+                            }
+                            else{
+                                secondary = holes[x][y + a];
+                                holding = new Point(x, y + a);                  // used to reference receiving holes
+                                Receiving_Holes.add(holding);
+                                secondary.addMarble(moving.get(a - 1));         // add the marble to the new hole
+                                holes[x][y + a] = secondary;
+                            }
+                        }
+                        else {
+                            secondary = holes[x][y + a];
+                            holding = new Point(x, y + a);                  // used to reference receiving holes
+                            Receiving_Holes.add(holding);
+                            secondary.addMarble(moving.get(a - 1));         // add the marble to the new hole
+                            holes[x][y + a] = secondary;
+                        }
+                    } else {
+                        if (x != player && y + a == 6) {
+                            // do nothing
+                        } else {
+                            if (a == size){                         // last marble
+                                if(player == x && (y+a != 6) && mar_pos[x][y+a] == 0) {  // last marble is on same side
+                                    secondary = holes[x][6];
+                                    holding = new Point(x, 6);                  // bank
+                                    Receiving_Holes.add(holding);
+                                    secondary.addMarble(moving.get(a - 1));         // add the marble to the bank
+                                    holes[x][6] = secondary;
+                                    //this.SpecialMove(x, y + a);
+
+                                    int other;
+                                    if (x == 0){                                      // flip sides
+                                        other = 1;
+                                    }
+                                    else{
+                                        other = 0;
+                                    }
+                                    Hole mediate3 = holes[other][5-(y+a)];             // holds the new state of holes to by copied
+                                    Hole secondary2;
+                                        if (mediate3.NumberMarbles() != 0) {
+                                            ArrayList<Integer> moving2 = mediate3.takeMarbles();         //takes marbles and clears hole
+                                            int leng = moving2.size();
+                                            for (int b = 0; b < leng; leng++) {
+                                                moving.add(moving2.get(b));
+                                            }
+                                            holes[other][5 - (y + a)] = mediate3;                  // update hole
+                                            int size2 = moving.size();               // how many marbles are being moved
+                                            Point holding2;
+                                            for (int a2 =1; a2 <= leng; a2++) {           // for the number of marbles
+                                                secondary2 = holes[x][6];
+                                                holding2 = new Point(x, 6);                  // bank
+                                                Receiving_Holes.add(holding2);
+                                                secondary2.addMarble(moving2.get(a2 - 1));         // add the marble to the bank
+                                                holes[x][6] = secondary2;
+                                            }
+                                        }
+                                }
+                                else{
+                                    secondary = holes[x][y + a];
+                                    holding = new Point(x, y + a);
+                                    Receiving_Holes.add(holding);
+                                    secondary.addMarble(moving.get(a - 1));
+                                    holes[x][y + a] = secondary;
+                                }
+                            }
+                            else {
+                                secondary = holes[x][y + a];
+                                holding = new Point(x, y + a);
+                                Receiving_Holes.add(holding);
+                                secondary.addMarble(moving.get(a - 1));
+                                holes[x][y + a] = secondary;
+                            }
+                        }
+                    }
+
+                }
+            }
         Current_State.setHoles(holes);
         Current_State.setMarbles(marbles);
         return Current_State;
@@ -340,6 +447,7 @@ public class MancalaAnimatorThree implements Animator {
         //make adjustments to the marbles that are moving
         if(moving != null) {
             if (moving.size() != 0) {                                   // if there is something to move
+                Currently_Moving = true;
                 boolean[] truth_table = new boolean[moving.size()];     // tells when to stop updating the marbles
                 for (int length = 0; length < moving.size(); length++) {
                     truth_table[length] = true;                         // set to "need to move"
@@ -355,7 +463,7 @@ public class MancalaAnimatorThree implements Animator {
                     // stop the moving of the marbles by removing the marble from arraylist
                     location = New_Hole.getLocation();
                     check.set(Marble_Location.x - location.x, Marble_Location.y - location.y);
-                    if (Math.abs(check.x) < maxX / 50 && Math.abs(check.y) < maxX / 50) {
+                    if (Math.abs(check.x) < maxX / 75 && Math.abs(check.y) < maxX / 75) {
                         truth_table[inc] = false;                       //signifies to be deleted
                     } else {
                         location = New_Hole.getLocation();
@@ -371,11 +479,23 @@ public class MancalaAnimatorThree implements Animator {
                     if (!truth_table[len]) {
                         moving.remove(len);
                         Receiving_Holes.remove(len);
-                        if (len == 1){
-                            Same_Hole = false;
-                        }
+                        break;
+//                        if (len == 1){
+//                                Same_Hole = false;
+//                                moving.clear();
+//                                Receiving_Holes.clear();
+//                        }
                     }
                 }
+            }
+        }
+
+        if(moving != null) {
+            if (moving.size() == 0) {
+                Currently_Moving = false;
+                Same_Hole = false;
+                moving.clear();
+                Receiving_Holes.clear();
             }
         }
 

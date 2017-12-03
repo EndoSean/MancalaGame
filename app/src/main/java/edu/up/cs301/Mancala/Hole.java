@@ -52,4 +52,8 @@ public class Hole {
         return hold;
     }
 
+    public int NumberMarbles(){
+        return marbles_inside.size();
+    }
+
 }
