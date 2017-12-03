@@ -141,6 +141,7 @@ public class MancLocalGame extends LocalGame {
             // endo edit
             gameState.setMarbles(Player_State.getMarbles());
             gameState.setHoles(Player_State.getHoles());
+            // end endo edit
 
 
             //send updated state to players
