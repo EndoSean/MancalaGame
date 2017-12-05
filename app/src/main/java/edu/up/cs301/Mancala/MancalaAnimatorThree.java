@@ -74,7 +74,6 @@ public class MancalaAnimatorThree implements Animator {
         float x_offset;
         float y_offset;
 
-
         for (int i = 1; i >= 0; i--) {
             if (i == 1) {
                 for (int j = 0; j < 7; j++) {
@@ -157,6 +156,7 @@ public class MancalaAnimatorThree implements Animator {
             Current_State.setHoles(holes);
             Current_State.setMarbles(marbles);
             initialized = true;
+            wait = false;
             return Current_State;
         }
 
@@ -184,6 +184,7 @@ public class MancalaAnimatorThree implements Animator {
         // sets up marbles to be moved
         // updates variables responsible for moving marbles
         if (Selected_Hole.x == -1) {
+            wait = false;
             return Current_State;
         }
         // Inversion of board
@@ -214,15 +215,13 @@ public class MancalaAnimatorThree implements Animator {
             Point holding;
 
             for (int a = 1; a <= size; a++) {           // for the number of marbles
-                if ((a + y) % 7 == 0) {/////////////////////////////////////////////
+                if ((a + y) % 7 == 0) {
                     if (x == 1) {
                         x = 0;
                     } else {
                         x = 1;
                     }
-
                     y = -a;                          // begin index at 0 again
-
                     if (a == size) {                         // last marble
                         if (player == x && (y + a != 6) && mar_pos[x][y + a] == 0) {                    // last marble is on same side
                             secondary = holes[x][6];
@@ -230,7 +229,6 @@ public class MancalaAnimatorThree implements Animator {
                             Receiving_Holes.add(holding);
                             secondary.addMarble(moving.get(a - 1));         // add the marble to the bank
                             holes[x][6] = secondary;
-                            //this.SpecialMove(x, y + a);
 
                             int other;
                             if (x == 0) {                                      // flip sides
