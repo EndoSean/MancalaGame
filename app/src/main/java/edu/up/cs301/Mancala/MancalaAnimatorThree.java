@@ -48,6 +48,8 @@ public class MancalaAnimatorThree implements Animator {
     ArrayList<Point> Receiving_Holes = new ArrayList<Point>();      // used to reference holes while marble is moving
     ArrayList<Integer> moving;                                      // keeps track of marbles in motion
     boolean wait = false;                                       // Tells the animation to wait for setMarbles to finish
+    boolean capture = false;
+    private String Capture_Text = "Captured!!!";
 
     public MancalaAnimatorThree() {
         Text_Color.setColor(Color.BLACK);
@@ -223,12 +225,13 @@ public class MancalaAnimatorThree implements Animator {
                     }
                     y = -a;                          // begin index at 0 again
                     if (a == size) {                         // last marble
-                        if (player == x && (y + a != 6) && mar_pos[x][y + a] == 0) {                    // last marble is on same side
+                        if (player == x && (y + a != 6) && mar_pos[x][y + a] == 0) {  // last marble is on same side
                             secondary = holes[x][6];
                             holding = new Point(x, 6);                  // bank
                             Receiving_Holes.add(holding);
                             secondary.addMarble(moving.get(a - 1));         // add the marble to the bank
                             holes[x][6] = secondary;
+
 
                             int other;
                             if (x == 0) {                                      // flip sides
@@ -241,21 +244,21 @@ public class MancalaAnimatorThree implements Animator {
                             if (mediate3.NumberMarbles() != 0) {
                                 ArrayList<Integer> moving2 = mediate3.takeMarbles();         //takes marbles and clears hole
                                 int leng = moving2.size();
-                                for (int b = 0; b < leng; leng++) {
+                                for (int b = 0; b < leng; b++) {
                                     moving.add(moving2.get(b));
                                 }
                                 holes[other][5 - (y + a)] = mediate3;                  // update hole
                                 int size2 = moving.size();               // how many marbles are being moved
                                 Point holding2;
-                                for (int a2 = a + 1; a2 <= size2; a2++) {           // for the number of marbles
+                                for (int a2 = 1; a2 <= leng; a2++) {           // for the number of marbles
                                     secondary2 = holes[x][6];
                                     holding2 = new Point(x, 6);                  // bank
                                     Receiving_Holes.add(holding2);
-                                    secondary2.addMarble(moving.get(a2 - 1));         // add the marble to the bank
+                                    secondary2.addMarble(moving2.get(a2 - 1));         // add the marble to the bank
                                     holes[x][6] = secondary2;
                                 }
                             }
-
+                            capture = true;
 
                         } else {
                             secondary = holes[x][y + a];
@@ -319,6 +322,7 @@ public class MancalaAnimatorThree implements Animator {
                                         holes[x][6] = secondary2;
                                     }
                                 }
+                                capture = true;
                             } else {
                                 secondary = holes[x][y + a];
                                 holding = new Point(x, y + a);
@@ -446,6 +450,10 @@ public class MancalaAnimatorThree implements Animator {
                 g.drawText(Opponent_Turn, (float) .35 * maxX, (float) .4 * maxY, Text_Color);
             }
         }
+        if(capture){
+            g.drawText(Capture_Text, (float) .4 * maxX, (float) .85 * maxY, Text_Color);
+        }
+
         Text_Color.setTextSize(50);
 
 
@@ -552,6 +560,7 @@ public class MancalaAnimatorThree implements Animator {
                 Same_Hole = false;
                 moving.clear();
                 Receiving_Holes.clear();
+                capture = false;
             }
         }
 
