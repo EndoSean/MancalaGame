@@ -18,7 +18,9 @@ import edu.up.cs301.game.config.GamePlayerType;
  *
  * @author Shayna Noone
  * @author Courtney Cox
+ * @author Sean Endo
  * @version Nov 11
+ * enhanchments: Displays who's turn it is in text, displays when a piece is captured as a hint, reset in drop down menu
  */
 public class MancMainActivity extends GameMainActivity {
 
