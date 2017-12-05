@@ -86,7 +86,7 @@ public class MancMainActivity extends GameMainActivity {
      * create a local game
      *
      * @return
-     * 		the local game, a counter game
+     * 		the local game, a mancala game
      */
     @Override
     public LocalGame createLocalGame() {

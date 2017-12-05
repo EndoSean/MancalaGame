@@ -81,10 +81,15 @@ public class MancState extends GameState {
 
     void setMarble_Pos(int[][] position) {
         if(position==null)return;
-        Marble_Pos = position;
+       // Marble_Pos = position;
         //also calls to update scores with respect to the new array
-        setPlayer0_Score(Marble_Pos[0][6]);
-        setPlayer1_Score(Marble_Pos[1][6]);}
+        for(int i=0; i<position.length;i++){
+            for(int j=0; j<position[i].length;j++){
+                this.Marble_Pos[i][j]=position[i][j];
+            }
+        }
+        this.setPlayer0_Score(Marble_Pos[0][6]);
+        this.setPlayer1_Score(Marble_Pos[1][6]);}
 
     public int[][] getMarble_Pos() {
         return Marble_Pos;
@@ -93,7 +98,7 @@ public class MancState extends GameState {
 
     // for keeping track of which hole has been selected // Endo
     void setSelected_Hole(Point Select){
-        Selected_Hole = Select;
+         Selected_Hole = Select;
     }
 
     Point getSelected_Hole(){
@@ -101,7 +106,12 @@ public class MancState extends GameState {
     }
 
     void setHoles(Hole[][] in){
-        holes = in;
+        //holes = in;
+        for(int i=0; i<in.length;i++){
+            for(int j=0; j<in[i].length;j++){
+                this.holes[i][j]=in[i][j];
+            }
+        }
     }
 
     Hole[][] getHoles(){
@@ -110,10 +120,13 @@ public class MancState extends GameState {
 
     void setMarbles(Marble[] in){
         marbles = in;
+
     }
 
     Marble[] getMarbles(){
         return marbles;
     }
+
+
 
 }

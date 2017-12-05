@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CounterGame-master2.iml" filepath="$PROJECT_DIR$/CounterGame-master2.iml" />
+      <module fileurl="file://C:\Users\Shayna Noone\StudioProjects\MancalaGame\CounterGame-master2.iml" filepath="C:\Users\Shayna Noone\StudioProjects\MancalaGame\CounterGame-master2.iml" />
       <module fileurl="file://$PROJECT_DIR$/MancalaGame.iml" filepath="$PROJECT_DIR$/MancalaGame.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
