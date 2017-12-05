@@ -55,7 +55,12 @@ public class MancState extends GameState {
         this.setMarble_Pos(aMancState.getMarble_Pos());
         this.setSelected_Hole(aMancState.getSelected_Hole());
         this.setHoles(aMancState.getHoles());
-        this.setMarbles(aMancState.getMarbles());
+        Marble[] marbles = aMancState.getMarbles();
+        Marble[] marbleCopy = new Marble[marbles.length];
+        for (int i = 0; i < marbles.length; i++) {
+            marbleCopy[i] = marbles[i];
+        }
+        this.setMarbles(marbleCopy);
     }
 
     /**
