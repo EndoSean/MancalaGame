@@ -25,7 +25,8 @@ public class MancMoveAction extends GameAction {
      *
      * @param player
      *            the player making the move
-     * @param selected
+     * @param Current_State
+     * @param  playerNum
      *
      */
 //    public MancMoveAction(GamePlayer player,  Point selected, int playerNum) {
@@ -35,7 +36,8 @@ public class MancMoveAction extends GameAction {
 //    }
     public MancMoveAction(GamePlayer player,  MancState Current_State, int playerNum) {
         super(player);
-        State = Current_State;
+
+        State = new MancState(Current_State);
         playerNumber= playerNum;
     }
 
