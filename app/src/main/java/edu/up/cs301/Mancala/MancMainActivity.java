@@ -1,16 +1,20 @@
 package edu.up.cs301.Mancala;
 
+import android.provider.ContactsContract;
+import android.view.MenuItem;
+
 import java.util.ArrayList;
 
 
 import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
+import edu.up.cs301.game.R;
 import edu.up.cs301.game.config.GameConfig;
 import edu.up.cs301.game.config.GamePlayerType;
 
 /**
- * this is the primary activity for Counter game
+ * this is the primary activity for Mancala game
  *
  * @author Shayna Noone
  * @author Courtney Cox
@@ -24,8 +28,8 @@ public class MancMainActivity extends GameMainActivity {
     /**
      * Create the default configuration for this game:
      * - one human player vs. one computer player
-     * - minimum of 1 player, maximum of 2
-     * - one kind of computer player and one kind of human player available
+     * - minimum and maximum of 2 players
+     * - two kinds of computer players and one kind of human player available
      *
      * @return
      * 		the new configuration object, representing the default configuration
@@ -76,6 +80,7 @@ public class MancMainActivity extends GameMainActivity {
         // return the configuration
         return defaultConfig;
     }//createDefaultConfig
+
 
     /**
      * create a local game

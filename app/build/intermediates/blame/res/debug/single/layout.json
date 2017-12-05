@@ -8,40 +8,8 @@
         "source": "P:\\JR\\MancalaGame\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
     },
     {
-        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\manc_layout.xml",
-        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\manc_layout.xml"
-    },
-    {
-        "merged": "P:\\JR\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\counter_human_player.xml",
-        "source": "P:\\JR\\MancalaGame\\app\\src\\main\\res\\layout\\counter_human_player.xml"
-    },
-    {
         "merged": "P:\\JR\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
         "source": "P:\\JR\\MancalaGame\\app\\src\\main\\res\\layout\\game_no_gui.xml"
-    },
-    {
-        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
-        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\game_config_main.xml"
-    },
-    {
-        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
-        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
-    },
-    {
-        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
-        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
-    },
-    {
-        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
-        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
-    },
-    {
-        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\counter_human_player.xml",
-        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\counter_human_player.xml"
-    },
-    {
-        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
-        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\game_no_gui.xml"
     },
     {
         "merged": "P:\\JR\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
@@ -50,10 +18,6 @@
     {
         "merged": "P:\\JR\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
         "source": "P:\\JR\\MancalaGame\\app\\src\\main\\res\\layout\\game_local_tab.xml"
-    },
-    {
-        "merged": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
-        "source": "P:\\CS301\\CounterGame-master\\CounterGame-master\\app\\src\\main\\res\\layout\\game_local_tab.xml"
     },
     {
         "merged": "P:\\JR\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",

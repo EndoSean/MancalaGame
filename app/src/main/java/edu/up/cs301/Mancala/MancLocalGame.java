@@ -47,7 +47,10 @@ public class MancLocalGame extends LocalGame {
     protected boolean makeMove(GameAction action) {
         Log.i("action", action.getClass().toString());
 
-
+        //if(action instanceof ResetAction){
+            //this.Reset();
+            //return true;
+      //  }
         if (action instanceof MancMoveAction ) {
 
 
@@ -147,7 +150,7 @@ public class MancLocalGame extends LocalGame {
             //send updated state to players
             sendUpdatedStateTo(players[1]);
             sendUpdatedStateTo(players[0]);
-            //sendUpdatedStateTo(players[gameState.getPlayer_Turn()]);
+
 
             // denote that this was a legal/successful move
             return true;
@@ -157,6 +160,32 @@ public class MancLocalGame extends LocalGame {
             return false;
         }
     }//makeMove
+
+    public void Reset(){
+        int[][] marbles = gameState.getMarble_Pos();
+
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (j == 6) {
+                    marbles[i][j] = 0;
+                } else {
+                    marbles[i][j] = 4;
+                }
+
+            }
+        }
+        gameState.setMarble_Pos(marbles);
+
+        gameState.setMarbles(gameState.getMarbles());
+        gameState.setHoles(gameState.getHoles());
+
+
+
+        //send updated state to players
+        sendUpdatedStateTo(players[1]);
+        sendUpdatedStateTo(players[0]);
+
+    }
 
     /**
      * send the updated state to a given player
@@ -222,5 +251,6 @@ public class MancLocalGame extends LocalGame {
         }
         return null;
     }
+
 
 }

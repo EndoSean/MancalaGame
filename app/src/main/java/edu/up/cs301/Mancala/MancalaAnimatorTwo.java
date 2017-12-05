@@ -361,8 +361,7 @@ public class MancalaAnimatorTwo implements Animator {
                         else {
                             Selected_Hole.set(i, j);
                         }
-                        //Is_Moving = true;
-                        //To_Move = mediate;
+
                     }
                 }
                 else{
@@ -371,7 +370,7 @@ public class MancalaAnimatorTwo implements Animator {
                 }
             }
         }
-        //Current_State.setMarbles(marbles);
+
         Current_State.setHoles(holes);
         Current_State.setSelected_Hole(Selected_Hole);
     }

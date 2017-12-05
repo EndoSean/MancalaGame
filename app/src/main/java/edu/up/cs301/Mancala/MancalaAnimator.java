@@ -401,8 +401,7 @@ public class MancalaAnimator implements Animator {
                         mediate.setColor(Color.GREEN);
                         holes[i][j] = mediate;
                         Selected_Hole.set(i,j);
-                        //Is_Moving = true;
-                        //To_Move = mediate;
+
                     }
                 }
                 else{

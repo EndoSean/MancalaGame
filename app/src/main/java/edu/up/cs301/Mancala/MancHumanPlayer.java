@@ -2,6 +2,7 @@ package edu.up.cs301.Mancala;
 
 import android.graphics.Point;
 import android.view.Display;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.SurfaceView;
@@ -35,7 +36,7 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
 
     /* instance variables */
     //The animator
-//    private MancalaAnimatorTwo animator;
+  // private MancalaAnimatorTwo animator;
     private MancalaAnimatorThree animator;
 
     // The TextView the displays the current counter value
@@ -100,7 +101,7 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
 
         AnimationSurface mySurface =
                 (AnimationSurface) myActivity.findViewById(R.id.animation_surface);
-//        animator = new MancalaAnimatorTwo();
+       //animator = new MancalaAnimatorTwo();
         animator = new MancalaAnimatorThree();
         mySurface.setAnimator(animator);
 

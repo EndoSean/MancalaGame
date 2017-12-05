@@ -294,7 +294,7 @@ public class MancalaAnimatorThree implements Animator {
                                 Receiving_Holes.add(holding);
                                 secondary.addMarble(moving.get(a - 1));         // add the marble to the bank
                                 holes[x][6] = secondary;
-                                //this.SpecialMove(x, y + a);
+
 
                                 int other;
                                 if (x == 0) {                                      // flip sides
@@ -340,6 +340,7 @@ public class MancalaAnimatorThree implements Animator {
 
             }
         }
+
         Current_State.setHoles(holes);
         Current_State.setMarbles(marbles);
         wait = false;
@@ -386,6 +387,7 @@ public class MancalaAnimatorThree implements Animator {
                     Color_Count++;
                 }
             }
+
         }
     }
 
@@ -515,7 +517,15 @@ public class MancalaAnimatorThree implements Animator {
                         // stop the moving of the marbles by removing the marble from arraylist
                         location = New_Hole.getLocation();
                         check.set(Marble_Location.x - location.x, Marble_Location.y - location.y);
-                        if (Math.abs(check.x) < maxX / 75 && Math.abs(check.y) < maxX / 75) {
+                        double ran = 3*Math.random(); //Cox edit to space out marbles a bit more
+                        if(location.y==.425 * maxY && Marble_Location.y > (maxY *.145) &&
+                                Marble_Location.y< maxY*.705 && Math.abs(check.x)<(maxX / 20)- (1+ran)*(maxX/75)){
+
+                            truth_table[inc] = false;                       //signifies to be deleted
+
+                        }
+                        else if (Math.abs(check.x) < (maxX / 20)- (1+ran)*(maxX/75) &&
+                                Math.abs(check.y) < (maxX / 20)- (1+ran)*(maxX/75)) {
                             truth_table[inc] = false;                       //signifies to be deleted
                         } else {
                             location = New_Hole.getLocation();
