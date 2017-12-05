@@ -1,10 +1,6 @@
 [
     {
-        "merged": "P:\\JR\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\menu\\game_main.xml",
-        "source": "P:\\JR\\MancalaGame\\app\\src\\main\\res\\menu\\game_main.xml"
-    },
-    {
-        "merged": "P:\\CS301\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\menu\\game_main.xml",
-        "source": "P:\\CS301\\MancalaGame\\app\\src\\main\\res\\menu\\game_main.xml"
+        "merged": "C:\\Users\\Shayna Noone\\StudioProjects\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\menu\\game_main.xml",
+        "source": "C:\\Users\\Shayna Noone\\StudioProjects\\MancalaGame\\app\\src\\main\\res\\menu\\game_main.xml"
     }
 ]
