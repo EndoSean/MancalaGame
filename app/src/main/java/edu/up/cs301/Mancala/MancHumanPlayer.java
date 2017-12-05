@@ -131,7 +131,7 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
 
         // Construct the action and send it to the game
 //        GameAction action = new MancMoveAction(this, recentState.getSelected_Hole(), this.playerNum);
-        GameAction action = new MancMoveAction(this, recentState, this.playerNum);
+        GameAction action = new MancMoveAction(this, new MancState(recentState), this.playerNum);
 
 
         game.sendAction(action); // send action to the game

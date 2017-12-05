@@ -35,7 +35,7 @@ public class MancMoveAction extends GameAction {
 //    }
     public MancMoveAction(GamePlayer player,  MancState Current_State, int playerNum) {
         super(player);
-        State = Current_State;
+        State = new MancState(Current_State);
         playerNumber= playerNum;
     }
 

@@ -82,6 +82,7 @@ public class MancState extends GameState {
     void setMarble_Pos(int[][] position) {
         if(position==null)return;
         Marble_Pos = position;
+
         //also calls to update scores with respect to the new array
         setPlayer0_Score(Marble_Pos[0][6]);
         setPlayer1_Score(Marble_Pos[1][6]);}
@@ -93,6 +94,9 @@ public class MancState extends GameState {
 
     // for keeping track of which hole has been selected // Endo
     void setSelected_Hole(Point Select){
+//        int x = Select.x;
+//        int y = Select.y;
+//        Selected_Hole.set(x,y);
         Selected_Hole = Select;
     }
 

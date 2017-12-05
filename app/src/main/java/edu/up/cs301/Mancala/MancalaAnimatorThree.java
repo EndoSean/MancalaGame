@@ -109,7 +109,7 @@ public class MancalaAnimatorThree implements Animator {
         return Initialize_GUI;
     }
 
-    public MancState setMarbles(int player_number) {
+    public synchronized MancState setMarbles(int player_number) {
         wait = true; // halt the animation
         mar_pos = Current_State.getMarble_Pos();
         PointF hole;
