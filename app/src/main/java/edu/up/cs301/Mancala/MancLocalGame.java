@@ -25,7 +25,7 @@ public class MancLocalGame extends LocalGame {
     @Override
     protected boolean canMove(int player) {
 
-        if(checkIfGameOver()!=null){
+        if(checkIfGameOver()!=null){//check if the game is over
             return false;
         }
         //is player turn = player number?

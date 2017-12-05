@@ -112,7 +112,7 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
         float maxY = (float)mdispSize.y;
         animator.getBounds(maxX,maxY);
 
-        if(recentState == null) {
+        if(recentState == null) { //sets the recent state
             recentState = animator.setHoles();
             recentState = animator.setMarbles(this.playerNum);
         }

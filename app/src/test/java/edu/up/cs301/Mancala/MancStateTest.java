@@ -49,7 +49,8 @@ public class MancStateTest {
     @Test
     public void setMarble_Pos() throws Exception {
         MancState test = new MancState();
-
+        int[][] testArray = new int[7][3];
+        //test.setMarble_Pos(testArray);
 
 
     }
