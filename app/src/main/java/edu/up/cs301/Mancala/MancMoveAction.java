@@ -25,7 +25,9 @@ public class MancMoveAction extends GameAction {
      *
      * @param player
      *            the player making the move
-     * @param selected
+     * @param Current_State
+     *            a recent state of the game to copy and send
+     * @param playerNum
      *
      */
 //    public MancMoveAction(GamePlayer player,  Point selected, int playerNum) {
