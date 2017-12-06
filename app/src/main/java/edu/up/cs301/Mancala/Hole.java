@@ -2,13 +2,16 @@ package edu.up.cs301.Mancala;
 
 import android.graphics.PointF;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by endo18 on 11/5/2017.
  */
 
-public class Hole {
+public class Hole implements Serializable{
+    private static final long serialVersionUID = 5727393762469851826L;
+
     private PointF location = new PointF();
     private int Color;
     ArrayList<Integer> marbles_inside = new ArrayList<Integer>();
