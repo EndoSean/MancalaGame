@@ -17,7 +17,7 @@ public class MancState extends GameState {
     // to satisfy Serializable interface
     private static final long serialVersionUID = 7737393762469851826L;
 
-
+    //Instance Variables
     private int player_Turn;
     private int[][] Marble_Pos = new int[2][7];//keeps track of the number of marbles in each hole and bank
     private int player0_Score;
@@ -53,6 +53,7 @@ public class MancState extends GameState {
         this.setPlayer0_Score(aMancState.getPlayer0_Score());
         this.setPlayer1_Score(aMancState.getPlayer1_Score());
 
+        // deep copy of marblepos to be serializable
         int[][] marblepos = aMancState.getMarble_Pos();
         int[][] marbleposCopy = new int[2][7];
         for (int i = 0; i < 2; i++) {
@@ -61,11 +62,11 @@ public class MancState extends GameState {
             }
         }
 
-
         this.setMarble_Pos(marbleposCopy);
 
         this.setSelected_Hole(aMancState.getSelected_Hole());
 
+        //Deep copy of holes
         Hole[][] holes = aMancState.getHoles();
         Hole[][] holesCopy = new Hole[2][7];
         for (int i = 0; i < 2; i++) {
@@ -75,6 +76,7 @@ public class MancState extends GameState {
         }
         this.setHoles(holesCopy);
 
+        //deep copy of marbles
         Marble[] marbles = aMancState.getMarbles();
         Marble[] marbleCopy = new Marble[marbles.length];
         for (int i = 0; i < marbles.length; i++) {
@@ -86,52 +88,51 @@ public class MancState extends GameState {
     /**
      * getter and setter methods as follows
      */
-    public void setPlayer_Turn(int val) {   player_Turn = val;    }
+     void setPlayer_Turn(int val) {   player_Turn = val;    }
 
-    public int getPlayer_Turn() {   return player_Turn;    }
+     int getPlayer_Turn() {   return player_Turn;    }
 
-    public void setPlayer0_Score(int val) { player0_Score = val;    }
+     void setPlayer0_Score(int val) { player0_Score = val;    }
 
-    public int getPlayer0_Score() {
+     int getPlayer0_Score() {
         return player0_Score;
     }
 
-    public void setPlayer1_Score(int val) {
+     void setPlayer1_Score(int val) {
         player1_Score = val;
     }
 
-    public int getPlayer1_Score() {
+     int getPlayer1_Score() {
         return player1_Score;
     }
 
     void setMarble_Pos(int[][] position) {
         if(position==null)return;
-       // Marble_Pos = position;
-        //also calls to update scores with respect to the new array
+        //Updates marble position based on new position array
         for(int i=0; i<position.length;i++){
             for(int j=0; j<position[i].length;j++){
                 this.Marble_Pos[i][j]=position[i][j];
             }
         }
+        //calls to update scores with respect to the new array
         this.setPlayer0_Score(Marble_Pos[0][6]);
         this.setPlayer1_Score(Marble_Pos[1][6]);}
 
-    public int[][] getMarble_Pos() {
+     int[][] getMarble_Pos() {
         return Marble_Pos;
     }
 
 
     // for keeping track of which hole has been selected // Endo
     void setSelected_Hole(Point Select){
-         Selected_Hole = Select;
+        Selected_Hole = Select;
     }
-
     Point getSelected_Hole(){
         return Selected_Hole;
     }
 
     void setHoles(Hole[][] in){
-        //holes = in;
+
         for(int i=0; i<in.length;i++){
             for(int j=0; j<in[i].length;j++){
                 this.holes[i][j]=in[i][j];
@@ -143,15 +144,10 @@ public class MancState extends GameState {
         return holes;
     }
 
-    void setMarbles(Marble[] in){
-        marbles = in;
-
-    }
+    void setMarbles(Marble[] in){ marbles = in;}
 
     Marble[] getMarbles(){
         return marbles;
     }
 
-
-
-}
+}//MancState
