@@ -25,13 +25,13 @@ public class Marble implements Serializable{
 
     }
 
-    public Marble(PointF xy, int color, int count){
+    public Marble(MyPointF xy, int color){
         location.setMyPointF(xy.x, xy.y);
         Color = color;
 
     }
 
-    public void setLocation(PointF xy){
+    public void setLocation(MyPointF xy){
         location.setMyPointF(xy.x, xy.y);
     }
 
