@@ -9,7 +9,7 @@ import android.util.Log;
 /**
  * A class that represents the state of a game.
  */
- class MancLocalGame extends LocalGame {
+class MancLocalGame extends LocalGame {
 
     private MancState gameState;
 
@@ -109,18 +109,20 @@ import android.util.Log;
                         numMarb--; // decrement marbles
                     }
 
-                }else if(marbles[side][pos]==0 && numMarb==1 && side==gameState.getPlayer_Turn()) { //is the last marble going to land in an empty hole on the current players side
-                    if(side ==1){//checks to see which player's turn it is
-                        marbles[1][6]+=marbles[0][5-pos]+1;//adds the marbles from the hole opposite the previously empty hole to the player's goal
-                        marbles[0][5-pos]=0; //sets the hole across from the previously empty hole, empty.
-
-                    }else if (side==0){
-                        marbles[0][6]+=marbles[1][5-pos]+1;
-                        marbles[1][5-pos]=0;
-
-                    }
+                }else if(marbles[side][pos]==0 && numMarb==1 && side==gameState.getPlayer_Turn() &&
+                        side ==1 && marbles[0][5-pos]>0) { //is the last marble going to land in an empty hole on the current players side
+                    //checks to see which player's turn it is
+                    marbles[1][6]+=marbles[0][5-pos]+1;//adds the marbles from the hole opposite the previously empty hole to the player's goal
+                    marbles[0][5-pos]=0; //sets the hole across from the previously empty hole, empty.
                     numMarb--;//that was the last marble, makes numMarb=0
-                }else {
+                }else if (marbles[side][pos]==0 && numMarb==1 && side==gameState.getPlayer_Turn()
+                        && side==0&& marbles[1][5-pos]>0){
+                    marbles[0][6]+=marbles[1][5-pos]+1;
+                    marbles[1][5-pos]=0;
+                    numMarb--;//that was the last marble, makes numMarb=0
+                }
+
+                else {
                     marbles[side][pos]++; //adds a marble
                     numMarb--; //one less marble to move
                 }
