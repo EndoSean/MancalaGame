@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="P:\CS301\MancalaGame\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Shayna Noone\StudioProjects\MancalaGame\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="P:\CS301\MancalaGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c1766dc0ae5fd45f707d872893583acad8455ea4\classes.dex" />
+        <dex dex="C:\Users\Shayna Noone\StudioProjects\MancalaGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_92a229d68f3263b785e05bd566f85b0c7ad14b23\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="P:\CS301\MancalaGame\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\Shayna Noone\StudioProjects\MancalaGame\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="973aaf62232d6deff6ce4a26c814cd6bb9b55b29">
-        <dex dex="P:\CS301\MancalaGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_801166d2c58e8464976926233e6bb3a65479c5e2\classes.dex" />
+        sha1="39b7e1384fbb50d8bbb9c3432b84b586232b0dd9">
+        <dex dex="C:\Users\Shayna Noone\StudioProjects\MancalaGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_9f312dc0715a7c61ff98e80140d189178e10f387\classes.dex" />
     </item>
 
 </items>

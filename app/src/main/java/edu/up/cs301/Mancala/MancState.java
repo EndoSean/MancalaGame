@@ -52,10 +52,35 @@ public class MancState extends GameState {
         this.setPlayer_Turn(aMancState.getPlayer_Turn());
         this.setPlayer0_Score(aMancState.getPlayer0_Score());
         this.setPlayer1_Score(aMancState.getPlayer1_Score());
-        this.setMarble_Pos(aMancState.getMarble_Pos());
+
+        int[][] marblepos = aMancState.getMarble_Pos();
+        int[][] marbleposCopy = new int[2][7];
+        for (int i = 0; i < 2; i++) {
+            for(int j=0; j< 7; j++){
+                marbleposCopy[i][j]=marblepos[i][j];
+            }
+        }
+
+
+        this.setMarble_Pos(marbleposCopy);
+
         this.setSelected_Hole(aMancState.getSelected_Hole());
-        this.setHoles(aMancState.getHoles());
-        this.setMarbles(aMancState.getMarbles());
+
+        Hole[][] holes = aMancState.getHoles();
+        Hole[][] holesCopy = new Hole[2][7];
+        for (int i = 0; i < 2; i++) {
+            for(int j=0; j< 7; j++){
+                holesCopy[i][j]=holes[i][j];
+            }
+        }
+        this.setHoles(holesCopy);
+
+        Marble[] marbles = aMancState.getMarbles();
+        Marble[] marbleCopy = new Marble[marbles.length];
+        for (int i = 0; i < marbles.length; i++) {
+            marbleCopy[i] = marbles[i];
+        }
+        this.setMarbles(marbleCopy);
     }
 
     /**

@@ -508,9 +508,13 @@ public class MancalaAnimatorThree implements Animator {
             if (moving != null) {
                 if (moving.size() != 0) {                                   // if there is something to move
                     Currently_Moving = true;
-                    boolean[] truth_table = new boolean[moving.size()];     // tells when to stop updating the marbles
-                    for (int length = 0; length < moving.size(); length++) {
-                        truth_table[length] = true;                         // set to "need to move"
+//                    boolean truth_table = new boolean[moving.size()];     // tells when to stop updating the marbles
+//                    for (int length = 0; length < moving.size(); length++) {
+//                        truth_table[length] = true;                         // set to "need to move"
+//                    }
+                    ArrayList<Boolean> truth_table = new ArrayList<Boolean>();
+                    for (int length = 0; length < moving.size(); length++){
+                        truth_table.add(true);
                     }
                     //int row;
                     //int col;
@@ -527,12 +531,13 @@ public class MancalaAnimatorThree implements Animator {
                         if(location.y==.425 * maxY && Marble_Location.y > (maxY *.145) &&
                                 Marble_Location.y< maxY*.705 && Math.abs(check.x)<(maxX / 20)- (1+ran)*(maxX/75)){
 
-                            truth_table[inc] = false;                       //signifies to be deleted
-
+                            //truth_table[inc] = false;                       //signifies to be deleted
+                            truth_table.set(inc,false);
                         }
                         else if (Math.abs(check.x) < (maxX / 20)- (1+ran)*(maxX/75) &&
                                 Math.abs(check.y) < (maxX / 20)- (1+ran)*(maxX/75)) {
-                            truth_table[inc] = false;                       //signifies to be deleted
+                            //truth_table[inc] = false;                       //signifies to be deleted
+                            truth_table.set(inc,false);
                         } else {
                             location = New_Hole.getLocation();
                             vector = new PointF(location.x - Marble_Location.x, location.y - Marble_Location.y);
@@ -543,11 +548,14 @@ public class MancalaAnimatorThree implements Animator {
                             marbles[moving.get(inc)] = marble_hold;
                         }
                     }
-                    for (int len = 0; len < truth_table.length; len++) {         //remove element if done moving
-                        if (!truth_table[len]) {
+                    for (int len = 0; len < truth_table.size(); len++) {         //remove element if done moving
+                        //if (!truth_table[len]) {
+                        if(!truth_table.get(len)){
                             moving.remove(len);
                             Receiving_Holes.remove(len);
-                            break;
+                            truth_table.remove(len);
+                            len--;
+                            //break;
                         }
                     }
                 }
