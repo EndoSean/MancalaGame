@@ -177,7 +177,7 @@ public class MancalaAnimatorTwo implements Animator {
                             placement.set((float) (.87*maxX  +Math.random()*(.08*maxX-maxX/75)+maxX/75 ),
                                     (float) (.15*maxY+Math.random()*(.55*maxY-2*maxX/75)+maxX/75));
                         }
-                        marbles[count] = new Marble(placement, New_Color[Color_Count], count);
+                        marbles[count] = new Marble(placement, New_Color[Color_Count]);
                         count++;
                         if (Color_Count == 3){                  //wrap array back around
                             Color_Count = 0;
@@ -191,7 +191,7 @@ public class MancalaAnimatorTwo implements Animator {
                         random = ran.nextInt(4);
                         if (random == 0) {
                             placement.set(hole.x + maxX / (ran.nextInt(150 - 70) + 70), hole.y + maxX / (ran.nextInt(150 - 70) + 70));
-                            marbles[count] = new Marble(placement, New_Color[Color_Count], count);
+                            marbles[count] = new Marble(placement, New_Color[Color_Count]);
                             count++;
                             if (Color_Count == 3) {              //wrap array back around
                                 Color_Count = 0;
