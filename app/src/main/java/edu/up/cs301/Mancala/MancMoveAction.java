@@ -11,15 +11,14 @@ import edu.up.cs301.game.actionMsg.GameAction;
  * @author Shayna Noone
  * @version October 2017
  */
-public class MancMoveAction extends GameAction {
+ class MancMoveAction extends GameAction {
 
     // to satisfy the serializable interface
     private static final long serialVersionUID = 28062013L;
 
-    //whether this move is a confirmed(true)
-    //private Point selected_Hole;
-    private MancState State;
-    public int playerNumber;
+    //Instance variables
+    private MancState State;    //State of game at start of move
+     int playerNumber;    //the player number of player who created action
     /**
      * Constructor for the MancMoveAction class.
      *
@@ -28,30 +27,22 @@ public class MancMoveAction extends GameAction {
      * @param Current_State
      *            a recent state of the game to copy and send
      * @param playerNum
+     *            the number of player how committed the move
      *
      */
-//    public MancMoveAction(GamePlayer player,  Point selected, int playerNum) {
-//        super(player);
-//        this.selected_Hole = selected;
-//        playerNumber= playerNum;
-//    }
-    public MancMoveAction(GamePlayer player,  MancState Current_State, int playerNum) {
+
+     MancMoveAction(GamePlayer player,  MancState Current_State, int playerNum) {
         super(player);
         State = new MancState(Current_State);
         playerNumber= playerNum;
     }
 
     /**
-     * getter method, to tell whether the move is confirmed
+     * getter method, to tell current state
      *
      * @return
-     * 		the hole the player has selected to make a move
+     * 		the current state of the Mancala game
      */
-//    public Point getSelected_Hole() {
-//        return selected_Hole;
-//
-//    }
-
     public MancState getState(){
         return State;
     }

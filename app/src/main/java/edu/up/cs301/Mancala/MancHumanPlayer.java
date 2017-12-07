@@ -29,7 +29,7 @@ import edu.up.cs301.game.infoMsg.GameInfo;
  *
  */
 
-public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchListener {
+class MancHumanPlayer extends GameHumanPlayer {
 
 
 
@@ -53,7 +53,7 @@ public class MancHumanPlayer extends GameHumanPlayer {//implements View.OnTouchL
      * @param name
      * 		the player's name
      */
-    public MancHumanPlayer(String name) {
+    MancHumanPlayer(String name) {
         super(name);
     }
 

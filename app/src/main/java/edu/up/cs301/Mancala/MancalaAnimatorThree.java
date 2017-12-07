@@ -146,19 +146,19 @@ public class MancalaAnimatorThree implements Animator {
                     mediate = holes[i][j];
                     hole = mediate.getLocation();
                     placement.set(hole.x + maxX / 75, hole.y);
-                    marbles[count] = new Marble(placement, Color.RED, count);
+                    marbles[count] = new Marble(placement, Color.RED);
                     mediate.addMarble(count);
                     count++;
                     placement.set(hole.x, hole.y + maxX / 75);
-                    marbles[count] = new Marble(placement, Color.GREEN, count);
+                    marbles[count] = new Marble(placement, Color.GREEN);
                     mediate.addMarble(count);
                     count++;
                     placement.set(hole.x - maxX / 75, hole.y);
-                    marbles[count] = new Marble(placement, Color.BLUE, count);
+                    marbles[count] = new Marble(placement, Color.BLUE);
                     mediate.addMarble(count);
                     count++;
                     placement.set(hole.x, hole.y - maxX / 75);
-                    marbles[count] = new Marble(placement, Color.YELLOW, count);
+                    marbles[count] = new Marble(placement, Color.YELLOW);
                     mediate.addMarble(count);
                     count++;
                     holes[i][j] = mediate;
@@ -391,7 +391,7 @@ public class MancalaAnimatorThree implements Animator {
                     placement.set((float) (.87 * maxX + Math.random() * (.08 * maxX - maxX / 75) + maxX / 75),
                             (float) (.15 * maxY + Math.random() * (.55 * maxY - 2 * maxX / 75) + maxX / 75));
                 }
-                marbles[count] = new Marble(placement, New_Color[Color_Count], count);
+                marbles[count] = new Marble(placement, New_Color[Color_Count]);
                 count++;
                 if (Color_Count == 3) {                  //wrap array back around
                     Color_Count = 0;

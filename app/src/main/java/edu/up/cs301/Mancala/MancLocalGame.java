@@ -1,6 +1,4 @@
 package edu.up.cs301.Mancala;
-
-import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
@@ -11,7 +9,7 @@ import android.util.Log;
 /**
  * A class that represents the state of a game.
  */
-public class MancLocalGame extends LocalGame {
+ class MancLocalGame extends LocalGame {
 
     private MancState gameState;
 
