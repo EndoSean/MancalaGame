@@ -11,31 +11,31 @@ import java.io.Serializable;
 public class Marble implements Serializable{
     private static final long serialVersionUID = 1437393762469851826L;
 
-    private PointF location = new PointF();
+    private MyPointF location = new MyPointF();
     private int Color;
 
 
     public Marble(){
-        location.set(0,0);
+        location.setMyPointF(0,0);
         Color = 0;
 
     }
 
     public Marble(PointF xy, int color, int count){
-        location.set(xy);
+        location.setMyPointF(xy.x, xy.y);
         Color = color;
 
     }
 
     public void setLocation(PointF xy){
-        location.set(xy);
+        location.setMyPointF(xy.x, xy.y);
     }
 
     public void setColor(int color){
         Color = color;
     }
 
-    public PointF getLocation(){
+    public MyPointF getLocation(){
         return location;
     }
 

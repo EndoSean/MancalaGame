@@ -58,6 +58,7 @@ public class MancalaAnimatorTwo implements Animator {
     public MancState setHoles(){
         MancState Initialize_GUI = new MancState();
         PointF hold = new PointF();
+        MyPointF myHold = new MyPointF();
         float x_offset;
         float y_offset;
 
@@ -69,13 +70,15 @@ public class MancalaAnimatorTwo implements Animator {
                         x_offset = (float).915*maxX;
                         y_offset = (float).425*maxY;
                         hold.set(x_offset,y_offset);
-                        holes[i][j] = new Hole(hold, Color.BLACK);
+                        myHold.setMyPointF(hold.x, hold.y);
+                        holes[i][j] = new Hole(myHold, Color.BLACK);
                     }
                     else {
                         x_offset = maxX * (float) .12 * j;
                         y_offset = maxY * (float) .45 * i;
                         hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
-                        holes[i][j] = new Hole(hold, Color.BLACK);
+                        myHold.setMyPointF(hold.x, hold.y);
+                        holes[i][j] = new Hole(myHold, Color.BLACK);
                     }
                 }
             }
@@ -85,13 +88,15 @@ public class MancalaAnimatorTwo implements Animator {
                         x_offset = (float).085*maxX;
                         y_offset = (float).425*maxY;
                         hold.set(x_offset,y_offset);
-                        holes[i][j] = new Hole(hold, Color.BLACK);
+                        myHold.setMyPointF(hold.x, hold.y);
+                        holes[i][j] = new Hole(myHold, Color.BLACK);
                     }
                     else {
                         x_offset = maxX * (float) .12 * (5 - j);
                         y_offset = maxY * (float) .45 * i;
                         hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
-                        holes[i][j] = new Hole(hold, Color.BLACK);
+                        myHold.setMyPointF(hold.x, hold.y);
+                        holes[i][j] = new Hole(myHold, Color.BLACK);
                     }
                 }
             }
@@ -102,7 +107,7 @@ public class MancalaAnimatorTwo implements Animator {
 
     public MancState setMarbles(int player_number){
         mar_pos = Current_State.getMarble_Pos();
-        PointF hole;
+        MyPointF hole;
         Hole mediate;
         PointF placement = new PointF();
         Random ran = new Random();
@@ -277,7 +282,7 @@ public class MancalaAnimatorTwo implements Animator {
         }
 
         //draw holes
-        PointF hold = new PointF();
+        MyPointF hold = new MyPointF();
         Hole mediate;
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 6; j++) {
@@ -299,7 +304,7 @@ public class MancalaAnimatorTwo implements Animator {
 
         //draw the marbles
         Marble marble_hold;
-        PointF location;
+        MyPointF location;
         for (int size = 0; size < 48; size++) {
             marble_hold = marbles[size];
             location = marble_hold.getLocation();
@@ -337,7 +342,7 @@ public class MancalaAnimatorTwo implements Animator {
     public void onTouch(MotionEvent event) {
         Hole mediate;
         Point Selected_Hole = new Point(-1,-1);
-        PointF hold;
+        MyPointF hold;
         PointF inside = new PointF();
         int action = event.getAction();
         float xPos = event.getX();

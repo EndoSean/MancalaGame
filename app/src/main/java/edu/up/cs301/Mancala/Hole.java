@@ -1,7 +1,5 @@
 package edu.up.cs301.Mancala;
 
-import android.graphics.PointF;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -12,29 +10,29 @@ import java.util.ArrayList;
 public class Hole implements Serializable{
     private static final long serialVersionUID = 5727393762469851826L;
 
-    private PointF location = new PointF();
+    private MyPointF location = new MyPointF();
     private int Color;
     ArrayList<Integer> marbles_inside = new ArrayList<Integer>();
 
     public Hole(){
-        location.set(0,0);
+        location.setMyPointF(0,0);
         Color = 0;
     }
 
-    public Hole(PointF xy, int color){
-        location.set(xy);
+    public Hole(MyPointF xy, int color){
+        location.setMyPointF(xy.x, xy.y);
         Color = color;
     }
 
-    public void setLocation(PointF xy){
-        location.set(xy);
+    public void setLocation(MyPointF xy){
+        location.setMyPointF(xy.x, xy.y);
     }
 
     public void setColor(int color){
         Color = color;
     }
 
-    public PointF getLocation(){
+    public MyPointF getLocation(){
         return location;
     }
 

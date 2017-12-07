@@ -77,7 +77,7 @@ public class MancMainActivity extends GameMainActivity {
         // - player name: "Remote Player"
         // - IP code: (empty string)
         // - default player type: human player
-        defaultConfig.setRemoteData("Remote Player", "", 0);
+        defaultConfig.setRemoteData("Remote Player", "", 1);
 
         // return the configuration
         return defaultConfig;

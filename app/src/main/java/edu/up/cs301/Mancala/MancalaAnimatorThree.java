@@ -16,7 +16,6 @@ import static android.os.SystemClock.sleep;
 
 /**
  * Created by endo18 on 11/27/2017.
- */
 
 public class MancalaAnimatorThree implements Animator {
     private Paint rectangles = new Paint();
@@ -67,10 +66,11 @@ public class MancalaAnimatorThree implements Animator {
         maxX = X;
         maxY = Y;
     }
-
+/*
     public MancState setHoles() {
         MancState Initialize_GUI = new MancState();
         PointF hold = new PointF();
+        MyPointF myHold = new MyPointF();
         float x_offset;
         float y_offset;
 
@@ -81,12 +81,14 @@ public class MancalaAnimatorThree implements Animator {
                         x_offset = (float) .915 * maxX;
                         y_offset = (float) .425 * maxY;
                         hold.set(x_offset, y_offset);
-                        holes[i][j] = new Hole(hold, Color.BLACK);
+                        myHold.setMyPointF(hold.x, hold.y);
+                        holes[i][j] = new Hole(myHold, Color.BLACK);
                     } else {
                         x_offset = maxX * (float) .12 * j;
                         y_offset = maxY * (float) .45 * i;
                         hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
-                        holes[i][j] = new Hole(hold, Color.BLACK);
+                        myHold.setMyPointF(hold.x, hold.y);
+                        holes[i][j] = new Hole(myHold, Color.BLACK);
                     }
                 }
             } else {
@@ -95,12 +97,14 @@ public class MancalaAnimatorThree implements Animator {
                         x_offset = (float) .085 * maxX;
                         y_offset = (float) .425 * maxY;
                         hold.set(x_offset, y_offset);
-                        holes[i][j] = new Hole(hold, Color.BLACK);
+                        myHold.setMyPointF(hold.x, hold.y);
+                        holes[i][j] = new Hole(myHold, Color.BLACK);
                     } else {
                         x_offset = maxX * (float) .12 * (5 - j);
                         y_offset = maxY * (float) .45 * i;
                         hold.set(maxX * (float) .2 + x_offset, maxY * (float) .15 + y_offset);
-                        holes[i][j] = new Hole(hold, Color.BLACK);
+                        myHold.setMyPointF(hold.x, hold.y);
+                        holes[i][j] = new Hole(myHold, Color.BLACK);
                     }
                 }
             }
@@ -133,6 +137,7 @@ public class MancalaAnimatorThree implements Animator {
                 for (int j = 0; j < 6; j++) {
 
                     mediate = holes[i][j];
+                    PointF temp = new Point(mediate.x, mediate.y)
                     hole = mediate.getLocation();
                     placement.set(hole.x + maxX / 75, hole.y);
                     marbles[count] = new Marble(placement, Color.RED, count);
@@ -395,7 +400,7 @@ public class MancalaAnimatorThree implements Animator {
      * per second).
      *
      * @return the time interval between frames, in milliseconds.
-     */
+
     //@Override
     public int interval() {
         return 30;
@@ -405,7 +410,7 @@ public class MancalaAnimatorThree implements Animator {
      * The background color: black.
      *
      * @return the background color onto which we will draw the image.
-     */
+
     //@Override
     public int backgroundColor() {
         // create/return the background color
@@ -581,9 +586,9 @@ public class MancalaAnimatorThree implements Animator {
      * @return indication of whether to pause
      */
     //@Override
-    public boolean doPause() {
-        return false;
-    }
+   // public boolean doPause() {
+    //    return false;
+   // }
 
     /**
      * Tells that we never stop the animation.
@@ -591,13 +596,13 @@ public class MancalaAnimatorThree implements Animator {
      * @return indication of whether to quit.
      */
     //@Override
-    public boolean doQuit() {
+/*    public boolean doQuit() {
         return false;
-    }
+    }*/
 
     /**
      * event method when screen is touched
-     */
+
     //@Override
     //public Point onTouch(MotionEvent event){
     public void onTouch(MotionEvent event) {
@@ -648,6 +653,6 @@ public class MancalaAnimatorThree implements Animator {
     public void setState(MancState state) {
         Current_State = state;
     }
+*/
 
-}
 
