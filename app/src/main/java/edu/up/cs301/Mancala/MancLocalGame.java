@@ -47,10 +47,6 @@ public class MancLocalGame extends LocalGame {
     protected boolean makeMove(GameAction action) {
         Log.i("action", action.getClass().toString());
 
-        //if(action instanceof ResetAction){
-            //this.Reset();
-            //return true;
-      //  }
         if (action instanceof MancMoveAction ) {
 
 
@@ -61,13 +57,19 @@ public class MancLocalGame extends LocalGame {
                 return false;
             }
 
-            int[][] marbles = gameState.getMarble_Pos(); //copy the marble positions array from the gamestate
 
             // endo edit
             MancState Player_State = cma.getState();
             Point z = Player_State.getSelected_Hole();
-
+            gameState = Player_State;
+            int[][] marbles = gameState.getMarble_Pos(); //copy the marble positions array from the gamestate
             //Point z = cma.getSelected_Hole(); // get the selected hole from the gameState that recieves the selected hole from the animation
+
+            // Check if Reset
+            if(gameState.getReset()){
+                this.Reset();
+                return true;
+            }
 
             gameState.setSelected_Hole(z); //updates the game state to recieve the selected hole
             int pos= z.y; // get which number hole we are on based off the selected hole
@@ -162,22 +164,23 @@ public class MancLocalGame extends LocalGame {
     }//makeMove
 
     public void Reset(){
-        int[][] marbles = gameState.getMarble_Pos();
+//        int[][] marbles = gameState.getMarble_Pos();
 
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 7; j++) {
-                if (j == 6) {
-                    marbles[i][j] = 0;
-                } else {
-                    marbles[i][j] = 4;
-                }
+//        for (int i = 0; i < 2; i++) {
+//            for (int j = 0; j < 7; j++) {
+//                if (j == 6) {
+//                    marbles[i][j] = 0;
+//                } else {
+//                    marbles[i][j] = 4;
+//                }
+//
+//            }
+//        }
+//        gameState.setMarble_Pos(marbles);
+        boolean resetVal = gameState.getReset();
+        gameState = new MancState();
+        gameState.setReset(resetVal);
 
-            }
-        }
-        gameState.setMarble_Pos(marbles);
-
-        gameState.setMarbles(gameState.getMarbles());
-        gameState.setHoles(gameState.getHoles());
 
 
 
@@ -233,6 +236,8 @@ public class MancLocalGame extends LocalGame {
             //gets new scores
             int player0Score = gameState.getPlayer0_Score();
             int player1Score = gameState.getPlayer1_Score();
+            Point hole = new Point(-1,-1);
+            gameState.setSelected_Hole(hole);
             sendUpdatedStateTo(players[0]);
             sendUpdatedStateTo(players[1]);
             //if player0 won

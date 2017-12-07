@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.PointF;
+import android.graphics.RectF;
 import android.view.MotionEvent;
 
 import java.util.ArrayList;
@@ -50,6 +51,7 @@ public class MancalaAnimatorThree implements Animator {
     boolean wait = false;                                       // Tells the animation to wait for setMarbles to finish
     boolean capture = false;
     private String Capture_Text = "Captured!!!";
+    boolean end = false;
 
     public MancalaAnimatorThree() {
         Text_Color.setColor(Color.BLACK);
@@ -119,21 +121,28 @@ public class MancalaAnimatorThree implements Animator {
         PointF placement = new PointF();
 
 
+//        if(end){
+//            return Current_State;
+//        }
         // Check end game status
         if ((mar_pos[0][6] + mar_pos[1][6]) == 48){
             this.endGame(player_number);
             Current_State.setHoles(holes);
             Current_State.setMarbles(marbles);
+            //end = true;
+            Receiving_Holes.clear();
+            moving.clear();
             wait = false;
             return Current_State;
         }
 
         // Initial Setup
-        if (!initialized) {
+        if (!initialized || Current_State.getReset()) {
             int count = 0;
+            setHoles();
+            marbles = new Marble[48];
             for (int i = 0; i < 2; i++) {
                 for (int j = 0; j < 6; j++) {
-
                     mediate = holes[i][j];
                     hole = mediate.getLocation();
                     placement.set(hole.x + maxX / 75, hole.y);
@@ -157,6 +166,7 @@ public class MancalaAnimatorThree implements Animator {
             }
             Current_State.setHoles(holes);
             Current_State.setMarbles(marbles);
+            Current_State.setReset(false);
             initialized = true;
             wait = false;
             return Current_State;
@@ -436,6 +446,14 @@ public class MancalaAnimatorThree implements Animator {
         g.drawText(opp, (float) .03 * maxX, (float) .135 * maxY, Text_Color); //Opponent
         g.drawText(play, (float) .86 * maxX, (float) .135 * maxY, Text_Color);//Player
 
+        // Reset Button
+        rectangles.setColor(Color.BLACK);
+        g.drawRect((float) .85 * maxX, (float) .80 * maxY, (float) .94 * maxX, (float) .89 * maxY, rectangles);
+        rectangles.setColor(Color.RED);
+        g.drawRect((float) .855 * maxX, (float) .805 * maxY, (float) .935 * maxX, (float) .885 * maxY, rectangles);
+        Text_Color.setTextSize(50);
+        g.drawText("Reset",(float) .86 * maxX,(float) .85 * maxY, Text_Color);
+
         Text_Color.setTextSize(100);
         if (invert) {
             if (Current_State.getPlayer_Turn() == 0) {
@@ -577,6 +595,9 @@ public class MancalaAnimatorThree implements Animator {
         //PointF location;
         for (int size = 0; size < 48; size++) {
             marble_hold = marbles[size];
+            if(marble_hold == null){
+                break;
+            }
             location = marble_hold.getLocation();
             marble_color.setColor(marble_hold.getColor());
             g.drawCircle(location.x, location.y, maxX / 75, marble_color);
@@ -622,6 +643,15 @@ public class MancalaAnimatorThree implements Animator {
         int action = event.getAction();
         float xPos = event.getX();
         float yPos = event.getY();
+
+        // Check Reset Button
+        RectF reset = new RectF((float) .85 * maxX, (float) .80 * maxY, (float) .94 * maxX, (float) .89 * maxY);
+        if (reset.contains(xPos,yPos)){
+            Current_State.setReset(true);
+            return;
+        }
+
+        // Check to see what hole has been touched
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 6; j++) {
                 mediate = holes[i][j];

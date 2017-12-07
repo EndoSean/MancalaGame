@@ -25,6 +25,7 @@ public class MancState extends GameState {
     private Point Selected_Hole; //keeps track of the hole that has been selected // Endo
     private Hole[][] holes = new Hole[2][7];        // Keeps track of marble placements GUI
     private Marble[] marbles = new Marble[48];      // Keeps track of marble positions GUI
+    private boolean Reset = false;
 
     /**
      * constructor, initializing the player turn, marble position array, player's scores.
@@ -81,6 +82,7 @@ public class MancState extends GameState {
             marbleCopy[i] = marbles[i];
         }
         this.setMarbles(marbleCopy);
+        this.setReset(aMancState.getReset());
     }
 
     /**
@@ -150,6 +152,14 @@ public class MancState extends GameState {
 
     Marble[] getMarbles(){
         return marbles;
+    }
+
+    void setReset(boolean val){
+        Reset = val;
+    }
+
+    boolean getReset(){
+        return Reset;
     }
 
 
