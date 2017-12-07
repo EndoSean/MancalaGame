@@ -37,7 +37,7 @@ class MancHumanPlayer extends GameHumanPlayer {
     /* instance variables */
     //The animator
   // private MancalaAnimatorTwo animator;
-    private MancalaAnimatorThree animator;
+    private MancalaAnimatorTwo animator;
 
     // The TextView the displays the current counter value
     private TextView counterValueTextView;
@@ -102,7 +102,7 @@ class MancHumanPlayer extends GameHumanPlayer {
         AnimationSurface mySurface =
                 (AnimationSurface) myActivity.findViewById(R.id.animation_surface);
        //animator = new MancalaAnimatorTwo();
-        animator = new MancalaAnimatorThree();
+        animator = new MancalaAnimatorTwo();
         mySurface.setAnimator(animator);
 
         Display mdisp = myActivity.getWindowManager().getDefaultDisplay();
