@@ -1,5 +1,13 @@
 [
     {
+        "merged": "P:\\JR\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\manc_layout.xml",
+        "source": "P:\\JR\\MancalaGame\\app\\src\\main\\res\\layout\\manc_layout.xml"
+    },
+    {
+        "merged": "P:\\JR\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
+        "source": "P:\\JR\\MancalaGame\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
+    },
+    {
         "merged": "C:\\Users\\Shayna Noone\\StudioProjects\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\manc_layout.xml",
         "source": "C:\\Users\\Shayna Noone\\StudioProjects\\MancalaGame\\app\\src\\main\\res\\layout\\manc_layout.xml"
     },
@@ -16,15 +24,35 @@
         "source": "C:\\Users\\Shayna Noone\\StudioProjects\\MancalaGame\\app\\src\\main\\res\\layout\\game_local_tab.xml"
     },
     {
+        "merged": "P:\\JR\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
+        "source": "P:\\JR\\MancalaGame\\app\\src\\main\\res\\layout\\game_no_gui.xml"
+    },
+    {
         "merged": "C:\\Users\\Shayna Noone\\StudioProjects\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
         "source": "C:\\Users\\Shayna Noone\\StudioProjects\\MancalaGame\\app\\src\\main\\res\\layout\\game_no_gui.xml"
+    },
+    {
+        "merged": "P:\\JR\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
+        "source": "P:\\JR\\MancalaGame\\app\\src\\main\\res\\layout\\game_config_main.xml"
+    },
+    {
+        "merged": "P:\\JR\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
+        "source": "P:\\JR\\MancalaGame\\app\\src\\main\\res\\layout\\game_local_tab.xml"
     },
     {
         "merged": "C:\\Users\\Shayna Noone\\StudioProjects\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
         "source": "C:\\Users\\Shayna Noone\\StudioProjects\\MancalaGame\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
     },
     {
+        "merged": "P:\\JR\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
+        "source": "P:\\JR\\MancalaGame\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
+    },
+    {
         "merged": "C:\\Users\\Shayna Noone\\StudioProjects\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
         "source": "C:\\Users\\Shayna Noone\\StudioProjects\\MancalaGame\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
+    },
+    {
+        "merged": "P:\\JR\\MancalaGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
+        "source": "P:\\JR\\MancalaGame\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
     }
 ]
