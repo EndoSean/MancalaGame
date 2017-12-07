@@ -176,14 +176,14 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 			//saves the array with the number of marbles in the holes
 			int marbles[][] = recentState.getMarble_Pos();
 
-			Point select= new Point(0,0);
+			MyPointF select= new MyPointF(0,0);
 			boolean holeSelect = false;
 
 			//Checks for holes with marbles that will end in the bank
 			for(int c=0; c<6;c++){
 				int marb = marbles[this.playerNum][c];
 				if(marb == 6-c && !holeSelect){
-					select=new Point(this.playerNum, c);
+					select=new MyPointF(this.playerNum, c);
 					holeSelect=true;
 				}
 			}
@@ -205,7 +205,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 						}
 
 						if(future==0 && marbles[op][5-marb]>0){
-							select = new Point(this.playerNum, c);
+                            select = new MyPointF(this.playerNum, c);
 							holeSelect = true;
 						}
 
@@ -233,7 +233,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 					}
 				}
 				//set selected hole to randomly chosen number
-				select = new Point(this.playerNum, randPosition);
+				select = new MyPointF(this.playerNum, randPosition);
 			}
 			// send the move-action to the game if it is the computer turn
 

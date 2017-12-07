@@ -22,7 +22,7 @@ public class MancState extends GameState {
     private int[][] Marble_Pos = new int[2][7];//keeps track of the number of marbles in each hole and bank
     private int player0_Score;
     private int player1_Score;
-    private Point Selected_Hole; //keeps track of the hole that has been selected // Endo
+    private MyPointF Selected_Hole; //keeps track of the hole that has been selected // Endo
     private Hole[][] holes = new Hole[2][7];        // Keeps track of marble placements GUI
     private Marble[] marbles = new Marble[48];      // Keeps track of marble positions GUI
     private boolean Reset = false;
@@ -41,7 +41,7 @@ public class MancState extends GameState {
                 Marble_Pos[i][j] = 4;
             }
         }
-        Selected_Hole = new Point(-1,-1);
+        Selected_Hole = new MyPointF(-1,-1);
     }
 
     /**
@@ -126,10 +126,10 @@ public class MancState extends GameState {
 
 
     // for keeping track of which hole has been selected // Endo
-    void setSelected_Hole(Point Select){
+    void setSelected_Hole(MyPointF Select){
         Selected_Hole = Select;
     }
-    Point getSelected_Hole(){
+    MyPointF getSelected_Hole(){
         return Selected_Hole;
     }
 
