@@ -3,15 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="C:\AndroidSDK\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="P:\CS301\MancalaGame\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_bf6372499ab7d9c7586f81e3c8610d4c63b58b3f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="P:\CS301\MancalaGame\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
@@ -25,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="9702dd0437ef86a33b25a27fdb8ef88563b7d9f5">
+        sha1="6e35248f9677f0d981a77e07c2b17d9116839fa3">
         <dex dex="P:\CS301\MancalaGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_801166d2c58e8464976926233e6bb3a65479c5e2\classes.dex" />
     </item>
 

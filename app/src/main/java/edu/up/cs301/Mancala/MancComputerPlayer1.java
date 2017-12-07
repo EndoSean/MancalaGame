@@ -75,7 +75,7 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
                 }
             }
 
-            Point compSelected= new Point(this.playerNum,randPosition);
+            MyPointF compSelected= new MyPointF(this.playerNum,randPosition);
 
             //sleep for computer "thinking"
             sleep(4000);

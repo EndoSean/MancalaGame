@@ -36,7 +36,7 @@ public class MancalaAnimator implements Animator {
     // depends on what value the human player is
     boolean invert;
 
-    Point Selected_Hole = new Point();
+    MyPointF Selected_Hole = new MyPointF();
     boolean Currently_Moving = false;                           // Halts setMarbles until marbles are done moving
     boolean Same_Hole = false;                                  // To avoid overwrites due to weird multi-threading
     boolean initialized = false;                                // Keeps track if board has been initialized
@@ -204,10 +204,10 @@ public class MancalaAnimator implements Animator {
             } else {
                 x = 0;
             }
-            y = Selected_Hole.y;
+            y = (int)Selected_Hole.y;
         } else {
-            x = Selected_Hole.x;
-            y = Selected_Hole.y;
+            x = (int)Selected_Hole.x;
+            y = (int)Selected_Hole.y;
         }
         Hole mediate2 = holes[x][y];             // holds the new state of holes to by copied
         Hole secondary;
@@ -677,7 +677,7 @@ public class MancalaAnimator implements Animator {
     //public Point onTouch(MotionEvent event){
     public void onTouch(MotionEvent event) {
         //sleep(50);
-        Point Selected_Hole = new Point(-1, -1);
+        MyPointF Selected_Hole = new MyPointF(-1, -1);
         if(Currently_Moving || wait){
             Current_State.setHoles(holes);
             Current_State.setSelected_Hole(Selected_Hole);
@@ -711,9 +711,9 @@ public class MancalaAnimator implements Animator {
                         mediate.setColor(Color.GREEN);
                         holes[i][j] = mediate;
                         if (invert) {                     // send the inverted choice
-                            Selected_Hole.set(0, j);
+                            Selected_Hole.setMyPointF(0, j);
                         } else {
-                            Selected_Hole.set(i, j);
+                            Selected_Hole.setMyPointF(i, j);
                         }
                     }
                 } else {

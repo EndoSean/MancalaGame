@@ -58,7 +58,7 @@ class MancLocalGame extends LocalGame {
 
             // endo edit
             MancState Player_State = cma.getState();
-            Point z = Player_State.getSelected_Hole();
+            MyPointF z = Player_State.getSelected_Hole();
             gameState = Player_State;
             int[][] marbles = gameState.getMarble_Pos(); //copy the marble positions array from the gamestate
             //Point z = cma.getSelected_Hole(); // get the selected hole from the gameState that recieves the selected hole from the animation
@@ -70,8 +70,8 @@ class MancLocalGame extends LocalGame {
             }
 
             gameState.setSelected_Hole(z); //updates the game state to recieve the selected hole
-            int pos= z.y; // get which number hole we are on based off the selected hole
-            int side = z.x; //get the side of the board based off the location of the selected hole
+            int pos= (int) z.y; // get which number hole we are on based off the selected hole
+            int side = (int) z.x; //get the side of the board based off the location of the selected hole
             if(z.x ==-1 || z.y==-1){
                 return false;
             }
@@ -236,7 +236,7 @@ class MancLocalGame extends LocalGame {
             //gets new scores
             int player0Score = gameState.getPlayer0_Score();
             int player1Score = gameState.getPlayer1_Score();
-            Point hole = new Point(-1,-1);
+            MyPointF hole = new MyPointF(-1,-1);
             gameState.setSelected_Hole(hole);
             sendUpdatedStateTo(players[0]);
             sendUpdatedStateTo(players[1]);

@@ -59,8 +59,8 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 	// If this player is running the GUI, the activity (null if the player is
 	// not running a GUI).
 	private Activity activityForGui = null;
-	private MancalaAnimatorTwo animator;
-
+//	private MancalaAnimatorTwo animator;
+	private MancalaAnimator animator;
 	// If this player is running the GUI, the widget containing the counter's
 	// value (otherwise, null);
 	private TextView counterValueTextView = null;
@@ -143,7 +143,8 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 
 		AnimationSurface mySurface =
 				(AnimationSurface) activityForGui.findViewById(R.id.animation_surface);
-		animator = new MancalaAnimatorTwo();
+//		animator = new MancalaAnimatorTwo();
+		animator = new MancalaAnimator();
 		mySurface.setAnimator(animator);
 
 		Display mdisp = activityForGui.getWindowManager().getDefaultDisplay();
@@ -176,14 +177,14 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 			//saves the array with the number of marbles in the holes
 			int marbles[][] = recentState.getMarble_Pos();
 
-			Point select= new Point(0,0);
+			MyPointF select= new MyPointF(0,0);
 			boolean holeSelect = false;
 
 			//Checks for holes with marbles that will end in the bank
 			for(int c=0; c<6;c++){
 				int marb = marbles[this.playerNum][c];
 				if(marb == 6-c && !holeSelect){
-					select=new Point(this.playerNum, c);
+					select=new MyPointF(this.playerNum, c);
 					holeSelect=true;
 				}
 			}
@@ -197,7 +198,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 					if(marb>0 && marb<c+1 && !holeSelect){
 						int future = marbles[this.playerNum][c-marb];
 						if(future==0){
-							select = new Point(this.playerNum, c);
+							select = new MyPointF(this.playerNum, c);
 							holeSelect = true;
 						}
 
@@ -225,7 +226,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 					}
 				}
 				//set selected hole to randomly chosen number
-				select = new Point(this.playerNum, randPosition);
+				select = new MyPointF(this.playerNum, randPosition);
 			}
 			// send the move-action to the game if it is the computer turn
 
