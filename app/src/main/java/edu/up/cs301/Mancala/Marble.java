@@ -2,11 +2,15 @@ package edu.up.cs301.Mancala;
 
 import android.graphics.PointF;
 
+import java.io.Serializable;
+
 /**
  * Created by endo18 on 11/5/2017.
  */
 
-public class Marble {
+public class Marble implements Serializable{
+    private static final long serialVersionUID = 1437393762469851826L;
+
     private PointF location = new PointF();
     private int Color;
 
