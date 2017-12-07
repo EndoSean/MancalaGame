@@ -1,6 +1,4 @@
 package edu.up.cs301.Mancala;
-
-import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
@@ -11,7 +9,7 @@ import android.util.Log;
 /**
  * A class that represents the state of a game.
  */
-public class MancLocalGame extends LocalGame {
+ class MancLocalGame extends LocalGame {
 
     private MancState gameState;
 
@@ -46,11 +44,11 @@ public class MancLocalGame extends LocalGame {
     @Override
     protected boolean makeMove(GameAction action) {
         Log.i("action", action.getClass().toString());
+//if(action instanceof ResetAction){
+        //this.Reset();
+        //return true;
+        //  }
 
-        //if(action instanceof ResetAction){
-            //this.Reset();
-            //return true;
-      //  }
         if (action instanceof MancMoveAction ) {
 
 
@@ -66,8 +64,7 @@ public class MancLocalGame extends LocalGame {
             // endo edit
             MancState Player_State = cma.getState();
             Point z = Player_State.getSelected_Hole();
-
-            //Point z = cma.getSelected_Hole(); // get the selected hole from the gameState that recieves the selected hole from the animation
+            // get the selected hole from the gameState that receives the selected hole from the animation
 
             gameState.setSelected_Hole(z); //updates the game state to recieve the selected hole
             int pos= z.y; // get which number hole we are on based off the selected hole
