@@ -23,7 +23,7 @@ public class MancalaAnimator implements Animator {
     private Paint rectangles = new Paint();
     private float maxX; // X-coordinate bounds
     private float maxY; // Y-coordinate bounds
-    //////private PointF[][] holes = new PointF[2][6];
+
     private Hole[][] holes = new Hole[2][7];
     private Marble[] marbles = new Marble[48];
     private Paint marble_color = new Paint();
@@ -215,19 +215,19 @@ public class MancalaAnimator implements Animator {
 
                 //hole = mediate.getLocation();
                 placement.set(hole.x+maxX/75,hole.y);
-                marbles[count] = new Marble(placement,Color.RED,count);
+                marbles[count] = new Marble(placement,Color.RED);
                 mediate.addMarble(count);
                 count++;
                 placement.set(hole.x, hole.y+maxX/75);
-                marbles[count] = new Marble(placement,Color.GREEN,count);
+                marbles[count] = new Marble(placement,Color.GREEN);
                 mediate.addMarble(count);
                 count++;
                 placement.set(hole.x-maxX/75,hole.y);
-                marbles[count] = new Marble(placement,Color.BLUE,count);
+                marbles[count] = new Marble(placement,Color.BLUE);
                 mediate.addMarble(count);
                 count++;
                 placement.set(hole.x,hole.y-maxX/75);
-                marbles[count] = new Marble(placement,Color.YELLOW,count);
+                marbles[count] = new Marble(placement,Color.YELLOW);
                 mediate.addMarble(count);
                 count++;
                 holes[i][j] = mediate;

@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\Shayna Noone\\StudioProjects\\MancalaGame\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
+        "outputFile": "P:\\JR\\MancalaGame\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 113
                 },
                 "from": {
-                    "file": "C:\\Users\\Shayna Noone\\StudioProjects\\MancalaGame\\app\\src\\main\\res\\values-v11\\styles.xml",
+                    "file": "P:\\JR\\MancalaGame\\app\\src\\main\\res\\values-v11\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

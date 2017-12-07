@@ -14,7 +14,11 @@ public class Marble implements Serializable{
     private MyPointF location = new MyPointF();
     private int Color;
 
-
+    /**
+     * Constructor of Class Marbles
+     *
+     * Initializes marble to be at (0,0) with color=0
+     */
     public Marble(){
         location.setMyPointF(0,0);
         Color = 0;
