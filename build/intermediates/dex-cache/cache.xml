@@ -3,30 +3,30 @@
 
     <item
         is-multidex="true"
-        jar="C:\AndroidSDK\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="P:\CS301\MancalaGame\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_bf6372499ab7d9c7586f81e3c8610d4c63b58b3f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="P:\CS301\MancalaGame\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="P:\JR\MancalaGame\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="P:\CS301\MancalaGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c1766dc0ae5fd45f707d872893583acad8455ea4\classes.dex" />
+        <dex dex="P:\JR\MancalaGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a5a5b32026f1343e3d7128ba94dca90a3baf8ce4\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="P:\CS301\MancalaGame\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="P:\JR\MancalaGame\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="9702dd0437ef86a33b25a27fdb8ef88563b7d9f5">
-        <dex dex="P:\CS301\MancalaGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_801166d2c58e8464976926233e6bb3a65479c5e2\classes.dex" />
+        sha1="43e1f527b1d4aafb1a5e5d3d94d7ac70d74f4283">
+        <dex dex="P:\JR\MancalaGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_cd3e752ba81383988ec0acf8f39f6d5d7fdb7da2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\coxco19\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="P:\JR\MancalaGame\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_e37c1111675eeba77e8c70b5e08299dff803881d\classes.dex" />
     </item>
 
 </items>

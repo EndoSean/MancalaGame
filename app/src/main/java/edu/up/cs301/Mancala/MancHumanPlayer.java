@@ -101,8 +101,7 @@ class MancHumanPlayer extends GameHumanPlayer {
 
         AnimationSurface mySurface =
                 (AnimationSurface) myActivity.findViewById(R.id.animation_surface);
-       //animator = new MancalaAnimatorTwo();
-//        animator = new MancalaAnimatorThree();
+
         animator = new MancalaAnimator();
         mySurface.setAnimator(animator);
 

@@ -59,7 +59,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 	// If this player is running the GUI, the activity (null if the player is
 	// not running a GUI).
 	private Activity activityForGui = null;
-	private MancalaAnimatorTwo animator;
+	private MancalaAnimator animator;
 
 	// If this player is running the GUI, the widget containing the counter's
 	// value (otherwise, null);
@@ -143,7 +143,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 
 		AnimationSurface mySurface =
 				(AnimationSurface) activityForGui.findViewById(R.id.animation_surface);
-		animator = new MancalaAnimatorTwo();
+		animator = new MancalaAnimator();
 		mySurface.setAnimator(animator);
 
 		Display mdisp = activityForGui.getWindowManager().getDefaultDisplay();
@@ -192,11 +192,19 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 			if(!holeSelect){
 				//starts at hole one since that is the first hole to pick that can still play on
 				// our side
-				for(int c=1; c<6;c++ ){
+				for(int c=0; c<6;c++ ){
 					int marb = marbles[this.playerNum][c];
-					if(marb>0 && marb<c+1 && !holeSelect){
-						int future = marbles[this.playerNum][c-marb];
-						if(future==0){
+					if(marb>0 && marb+c<6 && !holeSelect){
+						int future = marbles[this.playerNum][marb+c];
+						int op;
+
+						if(this.playerNum==0){
+							op=1;
+						}else{
+							op=0;
+						}
+
+						if(future==0 && marbles[op][5-marb]>0){
 							select = new Point(this.playerNum, c);
 							holeSelect = true;
 						}

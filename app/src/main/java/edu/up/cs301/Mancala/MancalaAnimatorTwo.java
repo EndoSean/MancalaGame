@@ -1,3 +1,4 @@
+/*
 package edu.up.cs301.Mancala;
 
 import android.graphics.Canvas;
@@ -10,9 +11,11 @@ import java.util.Random;
 
 import edu.up.cs301.animation.Animator;
 
+*/
 /**
  * Created by endo18 on 11/5/2017.
- */
+ *//*
+
 
 public class MancalaAnimatorTwo implements Animator {
     private Paint rectangles = new Paint();
@@ -241,22 +244,26 @@ public class MancalaAnimatorTwo implements Animator {
     }
 
 
-    /**
+    */
+/**
      * Interval between animation frames: .03 seconds (i.e., about 33 times
      * per second).
      *
      * @return the time interval between frames, in milliseconds.
-     */
+     *//*
+
     //@Override
     public int interval() {
         return 30;
     }
 
-    /**
+    */
+/**
      * The background color: black.
      *
      * @return the background color onto which we will draw the image.
-     */
+     *//*
+
     //@Override
     public int backgroundColor() {
         // create/return the background color
@@ -350,29 +357,35 @@ public class MancalaAnimatorTwo implements Animator {
         }
     }
 
-    /**
+    */
+/**
      * Tells that we never pause.
      *
      * @return indication of whether to pause
-     */
+     *//*
+
     //@Override
     public boolean doPause() {
         return false;
     }
 
-    /**
+    */
+/**
      * Tells that we never stop the animation.
      *
      * @return indication of whether to quit.
-     */
+     *//*
+
     //@Override
     public boolean doQuit() {
         return false;
     }
 
-    /**
+    */
+/**
      * event method when screen is touched
-     */
+     *//*
+
     //@Override
     //public Point onTouch(MotionEvent event){
     public void onTouch(MotionEvent event) {
@@ -425,3 +438,4 @@ public class MancalaAnimatorTwo implements Animator {
     }
 
 }
+*/
