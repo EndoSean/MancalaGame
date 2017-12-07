@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 import edu.up.cs301.animation.Animator;
 
+import static android.os.SystemClock.sleep;
+
 
 /**
  * Created by endo18 on 11/27/2017.
