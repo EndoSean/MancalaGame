@@ -6,6 +6,8 @@ import edu.up.cs301.game.actionMsg.GameAction;
 import android.graphics.Point;
 import android.util.Log;
 
+import static android.os.SystemClock.sleep;
+
 /**
  * A class that represents the state of a game.
  */
