@@ -46,7 +46,9 @@ class MancLocalGame extends LocalGame {
     @Override
     protected boolean makeMove(GameAction action) {
         Log.i("action", action.getClass().toString());
-
+        if(gameState.getReset()){
+            return false;
+        }
         if (action instanceof MancMoveAction ) {
 
 
@@ -81,7 +83,7 @@ class MancLocalGame extends LocalGame {
             marbles[side][pos]=0; // set the selected hole to be empty
             pos++;
             boolean bank =false;
-            while(numMarb>0){ //check to make sure that we still have holes to move
+            while(numMarb>0 && pos<7){ //check to make sure that we still have holes to move
                 //go to the next postion in the marbles array
 
                 if(pos == 6){ //check to see if the hole is a goal
@@ -122,17 +124,15 @@ class MancLocalGame extends LocalGame {
                     marbles[0][6]+=marbles[1][5-pos]+1;
                     marbles[1][5-pos]=0;
                     numMarb--;//that was the last marble, makes numMarb=0
-                }
-
-                else {
+                }else {
                     marbles[side][pos]++; //adds a marble
                     numMarb--; //one less marble to move
-                }
-                if(pos==6 && numMarb>0){
+                }if(pos==6 && numMarb>0){
                     pos=0;//start from the beginning position from that side of the board
                 }else if(numMarb>0){
                     pos++;
                 }
+
 
             }
             if(numMarb==0 && !bank) {
@@ -166,29 +166,17 @@ class MancLocalGame extends LocalGame {
     }//makeMove
 
     public void Reset(){
-//        int[][] marbles = gameState.getMarble_Pos();
 
-//        for (int i = 0; i < 2; i++) {
-//            for (int j = 0; j < 7; j++) {
-//                if (j == 6) {
-//                    marbles[i][j] = 0;
-//                } else {
-//                    marbles[i][j] = 4;
-//                }
-//
-//            }
-//        }
-//        gameState.setMarble_Pos(marbles);
         boolean resetVal = gameState.getReset();
         gameState = new MancState();
+        //sets reset to true if reset so animator will update
         gameState.setReset(resetVal);
-
-
-
 
         //send updated state to players
         sendUpdatedStateTo(players[1]);
         sendUpdatedStateTo(players[0]);
+        //set to false after aminator recieves it
+        gameState.setReset(false);
 
     }
 

@@ -37,6 +37,7 @@ public class MancalaAnimator implements Animator {
     // boolean to know if we should "invert" the board
     // depends on what value the human player is
     boolean invert;
+    boolean reset;
 
     MyPointF Selected_Hole = new MyPointF();
     boolean Currently_Moving = false;                           // Halts setMarbles until marbles are done moving
@@ -67,6 +68,7 @@ public class MancalaAnimator implements Animator {
                 }
             }
         }
+        reset = false;
     }
 
     public void getBounds(float X, float Y) {
@@ -135,7 +137,7 @@ public class MancalaAnimator implements Animator {
         }
 
         // Initial Setup
-        if (!initialized || Current_State.getReset()) {
+        if (!initialized || reset ) {
             int count = 0;
             setHoles();
             marbles = new Marble[48];
@@ -165,6 +167,7 @@ public class MancalaAnimator implements Animator {
             Current_State.setHoles(holes);
             Current_State.setMarbles(marbles);
             Current_State.setReset(false);
+            reset=false;
             initialized = true;
             wait = false;
             return Current_State;
@@ -594,7 +597,7 @@ public class MancalaAnimator implements Animator {
                         // stop the moving of the marbles by removing the marble from arraylist
                         location = New_Hole.getLocation();
                         check.setMyPointF(Marble_Location.x - location.x, Marble_Location.y - location.y);
-                        double ran = 3*Math.random(); //Cox edit to space out marbles a bit more
+                        double ran = 2*Math.random(); //Cox edit to space out marbles a bit more
                         if(location.y==.425 * maxY && Marble_Location.y > (maxY *.145) &&
                                 Marble_Location.y< maxY*.705 && Math.abs(check.x)<(maxX / 20)- (1+ran)*(maxX/75)){
                             truth_table.set(inc,false);
@@ -678,13 +681,15 @@ public class MancalaAnimator implements Animator {
     //@Override
     //public Point onTouch(MotionEvent event){
     public void onTouch(MotionEvent event) {
-        //sleep(50);
+
+
         MyPointF Selected_Hole = new MyPointF(-1, -1);
         if(Currently_Moving || wait){
             Current_State.setHoles(holes);
             Current_State.setSelected_Hole(Selected_Hole);
             return;
         }
+
         Hole mediate;
         MyPointF hold;
         MyPointF inside = new MyPointF();
@@ -693,9 +698,10 @@ public class MancalaAnimator implements Animator {
         float yPos = event.getY();
 
         // Check Reset Button
-        RectF reset = new RectF((float) .85 * maxX, (float) .80 * maxY, (float) .94 * maxX, (float) .89 * maxY);
-        if (reset.contains(xPos,yPos)){
+        RectF resetrec = new RectF((float) .85 * maxX, (float) .80 * maxY, (float) .94 * maxX, (float) .89 * maxY);
+        if (resetrec.contains(xPos,yPos)){
             Current_State.setReset(true);
+            reset=true;
             return;
         }
 
@@ -733,6 +739,7 @@ public class MancalaAnimator implements Animator {
     }
 
     public void setState(MancState state) {
+
         Current_State = state;
     }
 

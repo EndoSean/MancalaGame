@@ -68,6 +68,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 	// If this player is running the GUI, the handler for the GUI thread (otherwise
 	// null)
 	private Handler guiHandler = null;
+	boolean reset;
 
 	/**
 	 * constructor
@@ -89,9 +90,6 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 	 */
 	@Override
 	protected void receiveInfo(GameInfo info) {
-		// perform superclass behavior
-		//super.receiveInfo(info);
-
 
 		Log.i("computer player", "receiving");
 
@@ -99,11 +97,15 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 		if (game != null && info instanceof MancState) {
 			// if we indeed have a Manc-state, update the GUI
 			recentState = (MancState)info;
+			reset = recentState.getReset();
 			turn=false;
 			if(recentState.getPlayer_Turn()==this.playerNum){
 				turn=true;
 			}
 			if(activityForGui!=null) {
+				if(recentState.getReset()){
+					animator.reset=true;
+				}
 				animator.setState(recentState);
 				animator.setMarbles(this.playerNum);
 			}
@@ -172,8 +174,10 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 	protected void timerTicked() {
 		super.timerTicked();
 		//checks if there is a game
-		if(recentState != null && turn){
+
+		if(recentState != null && turn && !reset){
 			//saves the array with the number of marbles in the holes
+
 			int marbles[][] = recentState.getMarble_Pos();
 
 			MyPointF select= new MyPointF(0,0);

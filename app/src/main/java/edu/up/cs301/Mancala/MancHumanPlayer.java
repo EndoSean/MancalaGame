@@ -79,6 +79,9 @@ class MancHumanPlayer extends GameHumanPlayer {
         //if receive mancState object set it as current state and send to animator
         if (info instanceof MancState){
             recentState = (MancState)info;
+            if(recentState.getReset()){
+                animator.reset=true;
+            }
             animator.setState(recentState);
             animator.setMarbles(this.playerNum);
         }
@@ -144,10 +147,11 @@ class MancHumanPlayer extends GameHumanPlayer {
     private class onTouchEvent implements View.OnTouchListener{
         public boolean onTouch(View v, MotionEvent me){
             //sends event to animator
-            animator.onTouch(me);
-            recentState = animator.getUpdatedState();
-            //send to PostOnTouch to handle human side
-            return PostOnTouch(v,me);
+                animator.onTouch(me);
+                recentState = animator.getUpdatedState();
+                //send to PostOnTouch to handle human side
+                return PostOnTouch(v, me);
+
 
         }
     }//onTouchEvent
