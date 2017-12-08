@@ -1,4 +1,24 @@
 Courtney Cox
 Sean Endo
-Snayna Noone
+Shayna Noone
+12/3/17
+Problem: Network play would draw board on both screens but could not make any moves. Asked tutor for assistance.
+Tutor assited with creating deep copies in the game state.
+
+12/6/17
+Problem: Issues with network play persisted after deep copies had been implemented.
+Searched stack overflow for ideas on how to create a copy class of PointF to implement Serializable since it is not a primitive type.
+
+12/4/17
+Problem: Was unsure about the log file and how to create one.
+Searched on stack overflow where and how to create a log file.
+
+11/30/17
+Problem: Game reset when orientation was changed.
+Referred to hand outs and stack overflow.
+
+11/28/17
+Problem: Computer player would keep playing regardless of turn.
+Searched about synchronizing actions on stack overflow.
+
 
