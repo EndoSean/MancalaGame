@@ -81,6 +81,7 @@ class MancLocalGame extends LocalGame {
             }
             int numMarb = marbles[side][pos]; //get the number of marbles in the selected hole
             marbles[side][pos]=0; // set the selected hole to be empty
+
             pos++;
             if(pos>6 && numMarb>0){
                 pos=0;

@@ -39,6 +39,8 @@ import edu.up.cs301.game.util.Tickable;
  *
  *5. If that hole is empty and belongs to player select the move.
  *
+ *Determines which hole has the most marbles and selects that hole
+ *
  *If no special move exists then randomly select one of the six “holes”. This computer
  *player does, however, have an option to display the game as it is progressing, so if
  *there is no human player on the device, this player will display a GUI that shows the

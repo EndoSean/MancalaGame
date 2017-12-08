@@ -24,7 +24,7 @@ public class Marble implements Serializable{
         Color = 0;
 
     }
-
+//constructor with paramters
     public Marble(MyPointF xy, int color){
         location.setMyPointF(xy.x, xy.y);
         Color = color;

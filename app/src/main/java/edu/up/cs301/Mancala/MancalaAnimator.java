@@ -573,6 +573,7 @@ public class MancalaAnimator implements Animator {
                             len--;
                         }
                     }
+
                 }
             }
         }
