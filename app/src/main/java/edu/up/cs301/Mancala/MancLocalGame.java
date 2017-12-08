@@ -9,7 +9,15 @@ import android.util.Log;
 import static android.os.SystemClock.sleep;
 
 /**
- * A class that represents the state of a game.
+ * LocalGame implements the rules of the game and sends updated state to players
+ *
+ * Rules:
+ *
+ * if last marble from selected hole lands in bank, player gets another turn, otherwise switch turns
+ * if last marble lands in empty hole on the player whose turn it is side, and
+ * there are marbles in the other player's row, all the marbles in both hole get put into current
+ * player's bank
+ *
  */
 class MancLocalGame extends LocalGame {
 

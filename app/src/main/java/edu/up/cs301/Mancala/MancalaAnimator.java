@@ -16,6 +16,7 @@ import static android.os.SystemClock.sleep;
 
 
 /**
+ * MancalaAnimator is the main animator of game.
  * Created by endo18 on 11/27/2017.
  */
 
