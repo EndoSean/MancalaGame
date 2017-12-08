@@ -82,6 +82,14 @@ class MancLocalGame extends LocalGame {
             int numMarb = marbles[side][pos]; //get the number of marbles in the selected hole
             marbles[side][pos]=0; // set the selected hole to be empty
             pos++;
+            if(pos>6 && numMarb>0){
+                pos=0;
+                if(side == 0){ //goes to the other side of the board
+                    side =1;
+                }else if(side ==1){
+                    side =0;
+                }//start from the beginning position from that side of the board
+            }
             boolean bank =false;
             while(numMarb>0){ //check to make sure that we still have holes to move
                 //go to the next postion in the marbles array
@@ -175,6 +183,7 @@ class MancLocalGame extends LocalGame {
         sendUpdatedStateTo(players[1]);
         sendUpdatedStateTo(players[0]);
         //set to false after aminator recieves it
+        sleep(30);
         gameState.setReset(false);
 
     }

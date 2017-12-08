@@ -40,7 +40,9 @@ public class MancalaAnimator implements Animator {
     boolean reset;
 
     MyPointF Selected_Hole = new MyPointF();
-    boolean Currently_Moving = false;                           // Halts setMarbles until marbles are done moving
+    boolean Currently_Moving = false;
+
+    // Halts setMarbles until marbles are done moving
     boolean Same_Hole = false;                                  // To avoid overwrites due to weird multi-threading
     boolean initialized = false;                                // Keeps track if board has been initialized
     // Speed of the marble animations (does not the speed of 25)
@@ -162,11 +164,14 @@ public class MancalaAnimator implements Animator {
                     mediate.addMarble(count);
                     count++;
                     holes[i][j] = mediate;
+
                 }
             }
+
             Current_State.setHoles(holes);
             Current_State.setMarbles(marbles);
             Current_State.setReset(false);
+
             reset=false;
             initialized = true;
             wait = false;
@@ -591,20 +596,21 @@ public class MancalaAnimator implements Animator {
                     for (int inc = 0; inc < moving2.size(); inc++) {
                         marble_hold = marbles[moving2.get(inc)];             // get the marble
                         Marble_Location = marble_hold.getLocation();        // get marble location
-                        New_Location = Receiving_Holes2.get(inc);            // location of hole in array
+                        New_Location = Receiving_Holes2.get(inc);
+
+                        // location of hole in array
                         New_Hole = holes[New_Location.x][New_Location.y];   // get the corresponding hole
 
                         // stop the moving of the marbles by removing the marble from arraylist
                         location = New_Hole.getLocation();
                         check.setMyPointF(Marble_Location.x - location.x, Marble_Location.y - location.y);
-                        double ran = 2*Math.random(); //Cox edit to space out marbles a bit more
-                        if(location.y==.425 * maxY && Marble_Location.y > (maxY *.145) &&
-                                Marble_Location.y< maxY*.705 && Math.abs(check.x)<(maxX / 20)- (1+ran)*(maxX/75)){
-                            truth_table.set(inc,false);
-                        }
-                        else if (Math.abs(check.x) < (maxX / 20)- (1+ran)*(maxX/75) &&
-                                Math.abs(check.y) < (maxX / 20)- (1+ran)*(maxX/75)) {
-                            truth_table.set(inc,false);
+                        double ran = 2 * Math.random(); //Cox edit to space out marbles a bit more
+                        if (location.y == .425 * maxY && Marble_Location.y > (maxY * .145) &&
+                                Marble_Location.y < maxY * .705 && Math.abs(check.x) < (maxX / 20) - (1 + ran) * (maxX / 75)) {
+                            truth_table.set(inc, false);
+                        } else if (Math.abs(check.x) < (maxX / 20) - (1 + ran) * (maxX / 75) &&
+                                Math.abs(check.y) < (maxX / 20) - (1 + ran) * (maxX / 75)) {
+                            truth_table.set(inc, false);
                         } else {
                             location = New_Hole.getLocation();
                             vector = new MyPointF(location.x - Marble_Location.x, location.y - Marble_Location.y);
@@ -616,7 +622,7 @@ public class MancalaAnimator implements Animator {
                         }
                     }
                     for (int len = 0; len < truth_table.size(); len++) {         //remove element if done moving
-                        if(!truth_table.get(len)){
+                        if (!truth_table.get(len)) {
                             moving2.remove(len);
                             Receiving_Holes2.remove(len);
                             truth_table.remove(len);
@@ -627,15 +633,15 @@ public class MancalaAnimator implements Animator {
             }
         }
 
-        //draw the marbles
-        for (int size = 0; size < 48; size++) {
-            marble_hold = marbles[size];
-            if(marble_hold == null){
-                break;
-            }
-            location = marble_hold.getLocation();
-            marble_color.setColor(marble_hold.getColor());
-            g.drawCircle(location.x, location.y, maxX / 75, marble_color);
+            //draw the marbles
+            for (int size = 0; size < 48; size++) {
+                marble_hold = marbles[size];
+                if (marble_hold == null) {
+                    break;
+                }
+                location = marble_hold.getLocation();
+                marble_color.setColor(marble_hold.getColor());
+                g.drawCircle(location.x, location.y, maxX / 75, marble_color);
 
         }
         if (moving != null) {
@@ -679,7 +685,7 @@ public class MancalaAnimator implements Animator {
      * event method when screen is touched
      */
     //@Override
-    //public Point onTouch(MotionEvent event){
+
     public void onTouch(MotionEvent event) {
 
 
@@ -734,12 +740,13 @@ public class MancalaAnimator implements Animator {
         Current_State.setSelected_Hole(Selected_Hole);
     }
 
+
     public MancState getUpdatedState() {
         return Current_State;
     }
 
     public void setState(MancState state) {
-
+        reset=state.getReset();
         Current_State = state;
     }
 
