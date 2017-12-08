@@ -186,7 +186,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 			boolean holeSelect = false;
 
 			//Checks for holes with marbles that will end in the bank
-			for(int c=0; c<6;c++){
+			for(int c=5; c>=0;c--){
 				int marb = marbles[this.playerNum][c];
 				if(marb == 6-c && !holeSelect){
 					select=new MyPointF(this.playerNum, c);
@@ -222,7 +222,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 			if(!holeSelect){ //selecting the hole with the most marbles on that side
 
 				int pos=0;
-				for(int i=0; i<6; i++){
+				for(int i=0; i<5; i++){
 
 					if(marbles[this.playerNum][pos]<marbles[this.playerNum][i+1]){
 
@@ -236,7 +236,7 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 			if(!holeSelect) {
 
 				//the holes range:
-				int max = 6;
+				int max = 5;
 				int min = 0;
 				//boolean to see if
 				Boolean repick = true;

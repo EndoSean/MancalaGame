@@ -83,6 +83,7 @@ class MancLocalGame extends LocalGame {
             marbles[side][pos]=0; // set the selected hole to be empty
 
             pos++;
+
             if(pos>6 && numMarb>0){
                 pos=0;
                 if(side == 0){ //goes to the other side of the board
