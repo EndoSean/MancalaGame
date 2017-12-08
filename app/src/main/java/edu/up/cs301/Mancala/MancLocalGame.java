@@ -83,7 +83,7 @@ class MancLocalGame extends LocalGame {
             marbles[side][pos]=0; // set the selected hole to be empty
             pos++;
             boolean bank =false;
-            while(numMarb>0 && pos<7){ //check to make sure that we still have holes to move
+            while(numMarb>0){ //check to make sure that we still have holes to move
                 //go to the next postion in the marbles array
 
                 if(pos == 6){ //check to see if the hole is a goal
@@ -132,7 +132,6 @@ class MancLocalGame extends LocalGame {
                 }else if(numMarb>0){
                     pos++;
                 }
-
 
             }
             if(numMarb==0 && !bank) {

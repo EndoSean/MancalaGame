@@ -217,6 +217,19 @@ class MancComputerPlayer2 extends GameComputerPlayer implements Tickable {
 				}
 
 			}
+			if(!holeSelect){ //selecting the hole with the most marbles on that side
+
+				int pos=0;
+				for(int i=0; i<6; i++){
+
+					if(marbles[this.playerNum][pos]<marbles[this.playerNum][i+1]){
+
+						pos=i+1;
+					}
+				}
+				select= new MyPointF(this.playerNum,pos );
+				holeSelect= true;
+			}
 			//if none of the above options, selects a random move.
 			if(!holeSelect) {
 
