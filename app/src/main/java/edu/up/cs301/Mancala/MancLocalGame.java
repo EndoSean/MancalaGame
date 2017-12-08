@@ -177,6 +177,7 @@ class MancLocalGame extends LocalGame {
 //            }
 //        }
 //        gameState.setMarble_Pos(marbles);
+
         boolean resetVal = gameState.getReset();
         gameState = new MancState();
         gameState.setReset(resetVal);

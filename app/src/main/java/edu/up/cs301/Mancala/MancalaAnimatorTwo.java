@@ -114,7 +114,7 @@ public class MancalaAnimatorTwo implements Animator {
        int[][]temp_marb = Current_State.getMarble_Pos();
         MyPointF hole;
         Hole mediate;
-        PointF placement = new PointF();
+        MyPointF placement = new MyPointF();
         Random ran = new Random();
 
         if (!initialized) {
@@ -124,19 +124,19 @@ public class MancalaAnimatorTwo implements Animator {
 
                     mediate = holes[i][j];
                     hole = mediate.getLocation();
-                    placement.set(hole.x + maxX / 75, hole.y);
+                    placement.setMyPointF(hole.x + maxX / 75, hole.y);
                     marbles[count] = new Marble(placement, Color.RED);
                     mediate.addMarble(count);
                     count++;
-                    placement.set(hole.x, hole.y + maxX / 75);
+                    placement.setMyPointF(hole.x, hole.y + maxX / 75);
                     marbles[count] = new Marble(placement, Color.GREEN);
                     mediate.addMarble(count);
                     count++;
-                    placement.set(hole.x - maxX / 75, hole.y);
+                    placement.setMyPointF(hole.x - maxX / 75, hole.y);
                     marbles[count] = new Marble(placement, Color.BLUE);
                     mediate.addMarble(count);
                     count++;
-                    placement.set(hole.x, hole.y - maxX / 75);
+                    placement.setMyPointF(hole.x, hole.y - maxX / 75);
                     marbles[count] = new Marble(placement, Color.YELLOW);
                     mediate.addMarble(count);
                     count++;
@@ -180,10 +180,10 @@ public class MancalaAnimatorTwo implements Animator {
                     if(j == 6){                                 // set marble positions for the bank
 
                         if(hole.x<.5*maxX) {
-                            placement.set((float) (.04*maxX +Math.random()*(.08*maxX-maxX/75)+maxX/75 ),
+                            placement.setMyPointF((float) (.04*maxX +Math.random()*(.08*maxX-maxX/75)+maxX/75 ),
                                     (float) (.15*maxY+Math.random()*(.55*maxY-2*maxX/75))+maxX/75);
                         }else{
-                            placement.set((float) (.87*maxX  +Math.random()*(.08*maxX-maxX/75)+maxX/75 ),
+                            placement.setMyPointF((float) (.87*maxX  +Math.random()*(.08*maxX-maxX/75)+maxX/75 ),
                                     (float) (.15*maxY+Math.random()*(.55*maxY-2*maxX/75)+maxX/75));
                         }
                         marbles[count] = new Marble(placement, New_Color[Color_Count]);
@@ -199,7 +199,7 @@ public class MancalaAnimatorTwo implements Animator {
                     else {                                      // set the marble positions for the holes
                         random = ran.nextInt(4);
                         if (random == 0) {
-                            placement.set(hole.x + maxX / (ran.nextInt(150 - 70) + 70), hole.y + maxX / (ran.nextInt(150 - 70) + 70));
+                            placement.setMyPointF(hole.x + maxX / (ran.nextInt(150 - 70) + 70), hole.y + maxX / (ran.nextInt(150 - 70) + 70));
                             marbles[count] = new Marble(placement, New_Color[Color_Count]);
                             count++;
                             if (Color_Count == 3) {              //wrap array back around
@@ -208,7 +208,7 @@ public class MancalaAnimatorTwo implements Animator {
                                 Color_Count++;
                             }
                         } else if (random == 1) {
-                            placement.set(hole.x + maxX / (ran.nextInt(150 - 70) + 70), hole.y - maxX / (ran.nextInt(150 - 70) + 70));
+                            placement.setMyPointF(hole.x + maxX / (ran.nextInt(150 - 70) + 70), hole.y - maxX / (ran.nextInt(150 - 70) + 70));
                             marbles[count] = new Marble(placement, New_Color[Color_Count]);
                             count++;
                             if (Color_Count == 3) {              //wrap array back around
@@ -217,7 +217,7 @@ public class MancalaAnimatorTwo implements Animator {
                                 Color_Count++;
                             }
                         } else if (random == 2) {
-                            placement.set(hole.x - maxX / (ran.nextInt(150 - 70) + 70), hole.y + maxX / (ran.nextInt(150 - 70) + 70));
+                            placement.setMyPointF(hole.x - maxX / (ran.nextInt(150 - 70) + 70), hole.y + maxX / (ran.nextInt(150 - 70) + 70));
                             marbles[count] = new Marble(placement, New_Color[Color_Count]);
                             count++;
                             if (Color_Count == 3) {              //wrap array back around
@@ -226,7 +226,7 @@ public class MancalaAnimatorTwo implements Animator {
                                 Color_Count++;
                             }
                         } else if (random == 3) {
-                            placement.set(hole.x - maxX / (ran.nextInt(150 - 70) + 70), hole.y - maxX / (ran.nextInt(150 - 70) + 70));
+                            placement.setMyPointF(hole.x - maxX / (ran.nextInt(150 - 70) + 70), hole.y - maxX / (ran.nextInt(150 - 70) + 70));
                             marbles[count] = new Marble(placement, New_Color[Color_Count]);
                             count++;
                             if (Color_Count == 3) {              //wrap array back around
