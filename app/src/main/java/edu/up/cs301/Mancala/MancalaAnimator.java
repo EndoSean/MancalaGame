@@ -162,11 +162,14 @@ public class MancalaAnimator implements Animator {
                     mediate.addMarble(count);
                     count++;
                     holes[i][j] = mediate;
+
                 }
             }
+
             Current_State.setHoles(holes);
             Current_State.setMarbles(marbles);
             Current_State.setReset(false);
+
             reset=false;
             initialized = true;
             wait = false;
@@ -739,7 +742,7 @@ public class MancalaAnimator implements Animator {
     }
 
     public void setState(MancState state) {
-
+        reset=state.getReset();
         Current_State = state;
     }
 

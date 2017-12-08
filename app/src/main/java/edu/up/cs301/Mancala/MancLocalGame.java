@@ -175,6 +175,7 @@ class MancLocalGame extends LocalGame {
         sendUpdatedStateTo(players[1]);
         sendUpdatedStateTo(players[0]);
         //set to false after aminator recieves it
+        sleep(30);
         gameState.setReset(false);
 
     }
