@@ -21,4 +21,9 @@ Referred to hand outs and stack overflow.
 Problem: Computer player would keep playing regardless of turn.
 Searched about synchronizing actions on stack overflow.
 
+11/13/2017
+Problem: GUI wasn't updating to change in state.
+Went to office hours and found that animator also needed to be sent updated state when human or
+player that supports GUI receives an update.
+
 
