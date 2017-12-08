@@ -19,6 +19,7 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
 
     private MancState recentState;
     private boolean turn;
+    private boolean reset;
     /**
      * Constructor for objects of class MancComputerPlayer1
      *
@@ -31,6 +32,7 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
         // start the timer, ticking 20 times per second
         getTimer().setInterval(50);
         getTimer().start();
+        reset=false;
     }
 
     /**
@@ -48,6 +50,7 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
             if(recentState.getPlayer_Turn()==this.playerNum){
                 turn=true;
             }
+            reset = recentState.getReset();
         }
     }
 
@@ -57,7 +60,7 @@ class MancComputerPlayer1 extends GameComputerPlayer implements Tickable{
      */
     protected void timerTicked() {
         //makes sure there is a game in play and it is computer turn
-        if(recentState != null && turn){
+        if(recentState != null && turn &&!reset){
             //saves the array with the number of marbles in the holes
             int marbles[][] = recentState.getMarble_Pos();
 
