@@ -702,6 +702,7 @@ public class MancalaAnimator implements Animator {
 
         MyPointF Selected_Hole = new MyPointF(-1, -1);
         if(Currently_Moving || wait){
+
             Current_State.setHoles(holes);
             Current_State.setSelected_Hole(Selected_Hole);
             return;
