@@ -713,6 +713,19 @@ public class MancalaAnimator implements Animator {
         int action = event.getAction();
         float xPos = event.getX();
         float yPos = event.getY();
+        if (invert) {
+            if (Current_State.getPlayer_Turn() == 1) {
+                Current_State.setHoles(holes);
+                Current_State.setSelected_Hole(Selected_Hole);
+                return;
+            }
+        } else {
+            if (Current_State.getPlayer_Turn() == 0) {
+                Current_State.setHoles(holes);
+                Current_State.setSelected_Hole(Selected_Hole);
+                return;
+            }
+        }
 
         // Check Reset Button
         RectF resetrec = new RectF((float) .85 * maxX, (float) .80 * maxY, (float) .94 * maxX, (float) .89 * maxY);
@@ -721,6 +734,7 @@ public class MancalaAnimator implements Animator {
             Current_State.setReset(true);
             return;
         }
+
 
         // Check to see what hole has been touched
         for (int i = 0; i < 2; i++) {

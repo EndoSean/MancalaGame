@@ -48,6 +48,8 @@ class MancHumanPlayer extends GameHumanPlayer {
     // the android activity that we are running
     private GameMainActivity myActivity;
 
+    boolean turn;
+
     /**
      * constructor
      * @param name
@@ -84,6 +86,7 @@ class MancHumanPlayer extends GameHumanPlayer {
             }
             animator.setState(recentState);
             animator.setMarbles(this.playerNum);
+            turn = (recentState.getPlayer_Turn()==this.playerNum);
         }
 
     }//receiveInfo
@@ -147,11 +150,13 @@ class MancHumanPlayer extends GameHumanPlayer {
     private class onTouchEvent implements View.OnTouchListener{
         public boolean onTouch(View v, MotionEvent me){
             //sends event to animator
+            if(turn) {
                 animator.onTouch(me);
                 recentState = animator.getUpdatedState();
                 //send to PostOnTouch to handle human side
                 return PostOnTouch(v, me);
-
+            }
+            return false;
 
         }
     }//onTouchEvent
