@@ -183,16 +183,17 @@ class MancLocalGame extends LocalGame {
     }//makeMove
 
     public void Reset(){
-
+        int turn =gameState.getPlayer_Turn();
         boolean resetVal = gameState.getReset();
         gameState = new MancState();
         //sets reset to true if reset so animator will update
         gameState.setReset(resetVal);
+        gameState.setPlayer_Turn(turn);
 
         //send updated state to players
         sendUpdatedStateTo(players[1]);
         sendUpdatedStateTo(players[0]);
-        //set to false after aminator recieves it
+        //set to false after animator receives it
         sleep(30);
         gameState.setReset(false);
 

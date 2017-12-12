@@ -168,7 +168,16 @@ public class MancalaAnimator implements Animator {
 
                 }
             }
-
+            for (int i = 0; i < 2; i++) {
+                for (int j = 0; j < 7; j++) {
+                    if (j == 6) {
+                        mar_pos[i][j] = 0;
+                    } else {
+                        mar_pos[i][j] = 4;
+                    }
+                }
+            }
+            Current_State.setMarble_Pos(mar_pos);
             Current_State.setHoles(holes);
             Current_State.setMarbles(marbles);
             Current_State.setReset(false);
@@ -635,15 +644,15 @@ public class MancalaAnimator implements Animator {
             }
         }
 
-            //draw the marbles
-            for (int size = 0; size < 48; size++) {
-                marble_hold = marbles[size];
-                if (marble_hold == null) {
-                    break;
-                }
-                location = marble_hold.getLocation();
-                marble_color.setColor(marble_hold.getColor());
-                g.drawCircle(location.x, location.y, maxX / 75, marble_color);
+        //draw the marbles
+        for (int size = 0; size < 48; size++) {
+            marble_hold = marbles[size];
+            if (marble_hold == null) {
+                break;
+            }
+            location = marble_hold.getLocation();
+            marble_color.setColor(marble_hold.getColor());
+            g.drawCircle(location.x, location.y, maxX / 75, marble_color);
 
         }
         if (moving != null) {
@@ -708,8 +717,8 @@ public class MancalaAnimator implements Animator {
         // Check Reset Button
         RectF resetrec = new RectF((float) .85 * maxX, (float) .80 * maxY, (float) .94 * maxX, (float) .89 * maxY);
         if (resetrec.contains(xPos,yPos)){
-            Current_State.setReset(true);
             reset=true;
+            Current_State.setReset(true);
             return;
         }
 
